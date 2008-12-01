@@ -1,0 +1,33 @@
+
+		<script type="text/javascript" language="javaScript">
+			
+       function firmar(){
+               var ok;
+               
+               if (typeof(document.forms[0].clienteObj) != "undefined" && !document.forms[0].firmarBtn.disabled){
+                       document.forms[0].firmarBtn.disabled = true;
+                       ok = document.forms[0].clienteObj.executeFirmar();
+                       if (ok){
+								alert("OK!!!! todo bien");
+                       }else{
+                               document.forms[0].firmarBtn.disabled = false;
+                       }
+               }else{
+                       alert("Control de Firmar Documentos no existe en página")
+               }
+       }
+       
+</script>
+
+		<form id="PFEDocForm" method="post" action="#">
+			<object id="clienteObj" name="clienteObj" style="height: 257px; width: 600px" classid="/v2.0/ClienteFirmante.dll#pfe.cliente.ClienteFirmante" >
+						<param name="IdAFirmar" value="DocFirmar" />
+						<param name="XmlUrl" value="http://192.168.15.14:3000/pfetest/generar" />
+						<param name="UploadUrl" value="http://192.168.15.14:3000/pfetest/firmar" />
+						<param name="VerifyCRL" value="no">
+					</object>
+		
+		<input type="button" name="firmarBtn" value="Firmar" style="width: 150px" onclick="firmar(); return false;" />
+	</form>
+
+

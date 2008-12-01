@@ -1,0 +1,20 @@
+= 0.1.1
+
+== FEATURES
+
+=== batch_create
+add batch_create configurations in active_scaffold_config, and a table action "Batch Create New" will appear after "Create New" button, and those columns defined in config.batch_create.batch_columns can be input multi-line or multi-selected.A multiplication combination will be created in batch.
+
+==== install 
+merge frontends/ext/_form_attribute.rhtml to your template overrides.
+
+==== config
+config.actions.add batch_create
+config.batch_create.batch_columns = :spec, :size, :brand
+config.batch_create.ignore_columns = :name
+
+==== form override
+def brand_batch_form_column(record, input_name)
+  select_tag input_name ...
+end
+

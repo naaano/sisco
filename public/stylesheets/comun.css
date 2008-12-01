@@ -1,0 +1,44 @@
+body{
+}
+#logo{
+    width: 160px;
+    height: 95px;
+/*    background: url('logoministeriodisminuido.png') top center no-repeat; */
+    position: absolute;
+    text-align: center;
+}
+#logo .buzon{
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+}
+.titulo{
+    font-size: 16pt;
+    font-weight: 100;
+    margin: 0 auto;
+    text-align:center;
+}
+#obj, #ref, #saludo, #firma{
+    margin-left: 300px;
+    padding: 10px;
+    font-size: 14pt;
+    margin-top: 10px;
+}
+#firma{
+    text-align: center;
+    margin-left: 250px;
+    width: 230px;
+    padding: 18px;
+}
+#distribucion{
+    margin: 0;
+    padding: 0;
+}
+#distribucion .titulo{
+    text-decoration:underline;
+    font-size: 14pt;
+    text-align: left;
+    padding: 8px;
+}
+
+    

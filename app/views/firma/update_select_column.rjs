@@ -1,0 +1,21 @@
+# column_span_id = element_cell_id(:id => @record.id.to_s, :action => 'update_column', :name => @assoc.name) 
+# unless controller.send :successful?
+#   page.alert(@record.errors.as_full_messages(active_scaffold_config).join("\n­"))
+#   @record.reload
+# end
+# column = active_scaffold_config.columns[@assoc.name]
+# formatted_value = @record.send(@assoc.name).to_label
+# page.replace_html(column_span_id,  formatted_value) 
+
+column_span_id = element_cell_id(:id => @record.id.to_s, :action => 'update_column', :name => @assoc.name)
+unless controller.send :successful?
+  page.alert(@record.errors.as_full_messages(active_scaffold_config).join("\n"))
+  @record.reload
+end
+column = active_scaffold_config.columns[@assoc.name]
+if column.inplace_edit
+  page[column_span_id].value = @record.send(params[:column])
+else
+  formatted_value = @record.send(@assoc.name).to_label
+  page.replace_html(column_span_id.up,  formatted_value)
+end 

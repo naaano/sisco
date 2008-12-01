@@ -1,0 +1,194 @@
+/*
+	Este CSS incluye los active scaffold overrides
+*/
+/*
+
+Paleta de colores:
+#003399 Azul oscuro logo
+#4D6D9F Azul claro copia de minrel
+#076AAC celeste login anterior
+*/
+/*
+	Layout base
+*/
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*
+	Login
+*/
+.dashboard{
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	height: 350px;
+	padding: 0;
+	background: url(../images/document_markup.gif) left no-repeat;
+}
+#login_form{
+	width: 400px;
+	padding: 30px;
+	font-weight: bold;
+	font-size: medium;
+	float: right;
+	color: grey;
+}
+#login_form h1{
+	display: none;	
+}
+
+#login_form #login, #login_form #password{
+	height: 22px;
+	width: 170px;
+	padding: 3px;
+	color: #003399;
+	font-size: 14pt;
+	font-weight: bold;
+	border: 1px solid grey;
+	display: inline;
+}
+#login_form #password{
+	margin-right: 90px;
+}
+#login:focus, #password:focus{
+	background-color: yellow;
+}
+#login_form #login {
+	direction: rtl;
+}
+#login_form .dominio{
+	font-size: medium;
+	color: grey;
+	vertical-align: middle;
+}
+/*
+	Pantalla principal
+*/
+
+.header{
+	width: 90%;
+	height: 70px;
+}
+.header .titulo{
+	/*
+font-family:"Courier New", Courier, monospace;
+*/
+	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #4D6D9F;
+	height: 60px;
+	width: 72%;
+	background: url(../images/logosiscobaja.png) 4px 4px no-repeat;
+	padding: 8px;
+	padding-left: 250px;
+	font-weight: bold;
+	font-size: large;
+}
+.header #perfil{
+	float: right;
+	padding: 4px;
+}
+.header #perfil #nombre_usuario{
+	font-weight: bold;
+	color: #003399;
+} 
+.header .mensajes{
+	float: left;
+}
+.left_menu{
+	width: 100px;
+	min-width: 50px;
+	min-height: 300px;
+	float: left;
+	margin-right: 6px;
+	margin-left: 5px;
+	display: inline;
+}
+.main{
+	float: left;
+	margin-right: 3px;
+	width: 78%;
+}
+
+#footer{
+	width: 98%;	
+	clear: both;
+	color: grey;
+	padding: 10px;
+	font-size: x-small;
+	text-align: right;
+	border-top: 1px dotted grey;
+}
+.light-footer{
+	padding-right: 10px;
+	clear: both;
+	font-size: xx-small;
+	color: grey;
+}
+.light-footer p{
+	line-height: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.left_menu{
+	font-size: small;
+}
+.left_menu ul{
+	list-style-type: none;
+	padding-left: 0px;
+	margin: 0;
+}
+.left_menu ul a{
+	text-decoration: none;
+/*
+	font-weight: bold;
+*/
+	color: grey;
+}
+.left_menu ul a:hover{
+	color: blue;
+}
+.left_menu hr{
+	height: 1px;
+	color: grey;
+	background-color: grey;
+	border: 0;
+}
+
+.menu_admin{
+	margin-top: 5px;
+	border: 0px solid grey;
+}
+.menu_admin .titulo, .menu_acciones .titulo{
+	color: #003399;
+	font-weight: bold;
+	font-style: italic;
+}
+/*
+
+ActiveScaffold Overrides
+
+*/
+
+.active_scaffold td{
+	padding: 2px 2px !IMPORTANT;
+}
+
+.tabla {
+	border-right: 1px solid grey;
+	border-top: 1px solid grey;
+}
+.tabla td, .tabla th{
+	border-bottom: 1px solid grey;
+	border-left: 1px solid grey;
+	padding: 3px;
+	height: 90px;
+}
+.tabla .ancho{
+	width: 120px;
+	height: 40px;
+}

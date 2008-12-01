@@ -1,0 +1,76 @@
+<Documento xsi:schemaLocation="http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd" urlDoc="http://www.vcgloc.cl/PFEDocs?idDoc=MDcyNVY1TjVPUUw5UzBYUFc1UlhCVE1QS0NSQlFIUEY=&amp;Id=0" version="1.0" xmlns="http://esquemas.minrel.gov.cl/2008/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Contenido Id="DocFirmar" codigo="0">
+    <Folio>
+      <Id>0</Id>
+      <NoFolio>0</NoFolio>
+      <Anno>2008</Anno>
+    </Folio>
+<memo xmlns="http://esquemas.minrel.gov.cl/2008/1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd">
+    <id>123</id>
+    <origen>
+        <entidad id="1" sigla="OIP">Oficina de Ingenieria de Proyectos</entidad>
+        <puesto>
+            <cargo id="2">Administrativo</cargo>
+            <persona id="3">Hernán Astudillo</persona>
+        </puesto>
+    </origen>
+    <destinatario>
+        <entidad id="1" sigla="SUBSEC">Subsecretaria MRREE</entidad>
+        <puesto>
+            <cargo id="4">Administrativo</cargo>
+            <persona id="5">Juan Perez</persona>
+        </puesto>
+    </destinatario>
+    
+    <folio id="34">
+        <entidad>OIP</entidad>
+        <numero>12</numero>
+        <agno>2008</agno>
+    </folio>
+    <materia>Test</materia>
+    <clasificacion>PUBLICO</clasificacion>
+    <accion>Revisar</accion>
+    <fecha>2008-11-10</fecha>
+    <tags>demo</tags>
+    <cuerpo>
+        1.Tengo el agrado de dirigirme a Ud. con el fin de adjuntar la comunicación de la referencia, a través de la cual la Jefa del Área Social de la Dirección Sociocultural de la Presidencia, Sra. Ana María Molina Águila, remite una carta de la Sra. Marina González Luque.
+        
+        2.En su presentación la Sra. González solicita apoyo y orientación en relación con la situación de su hermano, el Sr. Luis José González Luque, ciudadano chileno, quien se encuentra recluido en la cárcel de Mendoza, Argentina.
+        
+        3.Al respecto, mucho agradeceré analizar los antecedentes y responder directamente al requirente y remitir a este gabinete copia de su respuesta, con el fin de hacerla llegar a la Presidencia. 
+        
+    </cuerpo>
+    <referencia id="33">
+        <entidad>OIP</entidad>
+        <numero>11</numero>
+        <agno>2008</agno>
+    </referencia>
+    <distribucion>
+        <entidad id="2" sigla="SUBSEC">Subsecretaria MRREE</entidad> 
+        <accion>Revisar</accion>
+    </distribucion>
+    <distribucion>
+        <entidad id="1" sigla="OIP">Oficina de Ingenieria de Proyectos</entidad>
+        <accion>Revisar</accion>
+    </distribucion>
+</memo>
+    <Id>0</Id>
+    <Nombre>1</Nombre>
+    <SistemaOrigen>sisco</SistemaOrigen>
+    <Version>0</Version>
+    <FechaIngreso>
+      <year>2008</year>
+      <month>11</month>
+      <day>21</day>
+      <hour>04</hour>
+      <minute>57</minute>
+      <second>09</second>
+      <ticks>633628834291742184</ticks>
+    </FechaIngreso>
+    <Estado />
+    <IdVersionAnterior>0</IdVersionAnterior>
+    <Archivos />
+  </Contenido>
+  </Documento>

@@ -1,0 +1,19 @@
+<h1>Registrarse como nuevo usuario</h1>
+<% @usuario.password = @usuario.password_confirmation = nil %>
+
+<%= error_messages_for :usuario %>
+<% form_for :usuario, :url => usuarios_path do |f| -%>
+<p><label for="login">Login</label><br/>
+<%= f.text_field :login %></p>
+
+<p><label for="email">Email</label><br/>
+<%= f.text_field :email %></p>
+
+<p><label for="password">Password</label><br/>
+<%= f.password_field :password %></p>
+
+<p><label for="password_confirmation">Confirmar Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag 'Registrar' %></p>
+<% end -%>

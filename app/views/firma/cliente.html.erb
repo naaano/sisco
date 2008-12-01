@@ -1,0 +1,38 @@
+
+		<script type="text/javascript" language="javaScript">
+			
+       function firmar(){
+               var ok;
+               
+               if (typeof(document.forms[0].clienteObj) != "undefined" && !document.forms[0].firmarBtn.disabled){
+                       document.forms[0].firmarBtn.disabled = true;
+                       ok = document.forms[0].clienteObj.executeFirmar();
+                       if (ok){
+								window.location = "<%= url_for :controller => 'firma', :only_path => false %>";
+                       }else{
+                               document.forms[0].firmarBtn.disabled = false;
+                       }
+               }else{
+                       alert("Control de Firmar Documentos no existe en página")
+               }
+       }
+       
+</script>
+<%  # parametros extra: , :only_path => false, :host => "192.168.5.9", :port => 3000
+%>
+<% params = { :controller => "docxml", :id => @doc.id } %>
+<% xmlurl = url_for params.merge( :action => "get_xml") %>
+<% updurl = url_for params.merge( :action => "subir") %>
+
+		<form id="PFEDocForm" method="post" action="#">
+			<object id="clienteObj" name="clienteObj" style="height: 257px; width: 600px" classid="http://10.10.255.117:3000/v2.0/ClienteFirmante.dll#pfe.cliente.ClienteFirmante" >
+						<param name="IdAFirmar" value="" />
+						<param name="XmlUrl" value="<%= xmlurl %>" />
+						<param name="UploadUrl" value="<%= updurl %>" />
+						<param name="VerifyCRL" value="no">
+					</object>
+		
+		<input type="button" name="firmarBtn" value="Firmar" style="width: 150px" onclick="firmar(); return false;" />
+	</form>
+
+

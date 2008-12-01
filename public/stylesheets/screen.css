@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    border: 0;
+    background-color: #555555;
+    padding: 30px;
+    font-family:arial, helvetica, sans-serif;
+}
+.hoja{
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 30px;
+    width: 950px;
+}
+.contenido{
+    margin: 130px 80px 60px 80px;
+    height: 800px;
+
+}
+#logo{
+    top: 80px;
+    left: 80px;
+}

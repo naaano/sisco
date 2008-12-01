@@ -1,0 +1,19 @@
+body {
+	border: 0px;
+	margin: 0px;
+	padding: 4px;
+        font-family: "Times New Roman", Times, serif;
+	font-size: small;
+}
+.contenido {
+	margin: 0; 
+	padding: 0;
+}
+#logo {
+	top: 0;
+	left: -2;
+	z-index: 0;
+}
+.titulo{
+	z-index: 1;
+}

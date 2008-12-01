@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Sisco 2</title>
+  <%= stylesheet_link_tag 'application.css' %>
+</head>
+
+<body>
+<div class="header">
+	<div class="titulo"></div>
+</div>
+<div class="dashboard">
+		<%= yield %>
+		<%= flash_messages %>
+</div>
+<div class="light-footer" align="right">
+		<p>SISCO 2 versión 0.3 copyleft</p>
+		<p>Diseñado, modelado y programado por la OIP - Oficina de ingeniería de proyectos</p>
+		<p>Ministerio de Relaciones Exteriores</p>
+		<% 'logoOIPsmall.png' %>
+		<% 'logoministeriodisminuido.png' %>
+		 
+	</div>
+</body>
+
+</html>

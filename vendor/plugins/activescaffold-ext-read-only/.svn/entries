@@ -1,0 +1,112 @@
+8
+
+dir
+38
+http://activescaffold-ext.googlecode.com/svn/trunk
+http://activescaffold-ext.googlecode.com/svn
+
+
+
+2008-06-21T09:07:45.377169Z
+38
+caoweiyuan
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+859e733b-5149-0410-b46a-1fd7b54c975a
+
+test
+dir
+
+frontends
+dir
+
+Rakefile
+file
+
+
+
+
+2008-08-31T15:59:50.000000Z
+c1a7b4e04ea7b8b7a8a473145a4730e4
+2008-03-27T04:54:22.116638Z
+2
+caoweiyuan
+
+init.rb
+file
+
+
+
+
+2008-08-31T15:59:50.000000Z
+7c0400d4ff20edf0701da00c57cd6c1f
+2008-04-09T13:57:53.499300Z
+10
+caoweiyuan
+
+lib
+dir
+
+environment.rb
+file
+
+
+
+
+2008-08-31T15:59:50.000000Z
+ff972f365d17c26262c3930bba04e53c
+2008-03-27T04:54:22.116638Z
+2
+caoweiyuan
+
+CHANGELOG
+file
+
+
+
+
+2008-08-31T15:59:50.000000Z
+9af9293aa3d66184d5f4282494922b4a
+2008-03-27T04:54:22.116638Z
+2
+caoweiyuan
+
+MIT-LICENSE
+file
+
+
+
+
+2008-08-31T15:59:50.000000Z
+ff7e312be22e76f142c461bf01297ea4
+2008-03-27T04:54:22.116638Z
+2
+caoweiyuan
+
+README
+file
+
+
+
+
+2008-08-31T15:59:50.000000Z
+5f78a77d70c9a77c54f6a0298484422b
+2008-03-27T04:54:22.116638Z
+2
+caoweiyuan
+
+public
+dir
+

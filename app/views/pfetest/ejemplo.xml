@@ -1,0 +1,30 @@
+<Documento xsi:schemaLocation="http://esquemas.minrel.gov.cl/2008/1/Memo.xsd" version="1.0" xmlns="http://esquemas.minrel.gov.cl/2008/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Contenido ID="DocFirmar" codigo="memo">
+    <Folio>
+      <Id>0</Id>
+      <NoFolio>124510</NoFolio>
+      <Anno>2008</Anno>
+    </Folio>
+    <Memo>
+      <DAF>4343</DAF>
+      <Antecedente>whweh</Antecedente>
+      <Materia>vaas</Materia>
+      <De>victor</De>
+      <Para>jano</Para>
+      <Glosa>lalal allala</Glosa>
+    </Memo>
+    <Id>0</Id>
+    <Nombre>Memorandum</Nombre>
+    <SistemaOrigen>Defensoria</SistemaOrigen>
+    <Version>0</Version>
+    <FechaIngreso>
+      <year>2008</year>
+      <month>7</month>
+      <day>13</day>
+      <hour>4</hour>
+      <minute>5</minute>
+      <second>16</second>
+      <ticks>633515187164531250</ticks>
+    </FechaIngreso>
+  </Contenido>
+</Documento>

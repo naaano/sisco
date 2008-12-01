@@ -1,0 +1,37 @@
+<memo xmlns="http://esquemas.minrel.gov.cl/2008/1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd">
+    <id></id>
+    <origen>
+        <entidad id="1" sigla="OIP"></entidad>
+        <puesto>
+            <cargo id="2">Administrativo</cargo>
+            <persona id="3">Hernán Astudillo</persona>
+        </puesto>
+    </origen>
+    <destinatario>
+        <entidad id="1" sigla="SUBSEC">Subsecretaria MRREE</entidad>
+        <puesto>
+            <cargo id="4">Administrativo</cargo>
+            <persona id="5">Juan Perez</persona>
+        </puesto>
+    </destinatario>
+    
+    <folio id="34">
+        <entidad>OIP</entidad>
+        <numero>12</numero>
+        <agno>2008</agno>
+    </folio>
+    <materia>Test</materia>
+    <clasificacion>PUBLICO</clasificacion>
+    <accion>Revisar</accion>
+    <fecha>2008-11-10</fecha>
+    <tags>demo</tags>
+    <cuerpo>
+    </cuerpo>
+    <referencia id="33">
+        <entidad>OIP</entidad>
+        <numero>11</numero>
+        <agno>2008</agno>
+    </referencia>
+</memo>

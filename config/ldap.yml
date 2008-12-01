@@ -1,0 +1,23 @@
+
+  development:
+    host: scl-dc-01
+    port: 389
+    base: dc=minrel,dc=gov,dc=cl
+    bind_dn: cn=hastudillo,dc=minrel,dc=gov,dc=cl
+    password: oducse.,
+
+  test:
+    host: 127.0.0.1
+    port: 389
+    base: dc=test,dc=local,dc=net
+    bind_dn: cn=admin,dc=local,dc=net
+    password: secret
+
+  production:
+    host: 127.0.0.1
+    port: 389
+    base: dc=production,dc=local,dc=net
+    bind_dn: cn=admin,dc=local,dc=net
+    password: secret
+
+

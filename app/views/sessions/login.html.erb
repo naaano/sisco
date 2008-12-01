@@ -1,0 +1,19 @@
+<div id="login_form">
+<h1>Ingreso</h1>
+<p class="error"><%=error_messages_for 'sessions' %></p>
+<% form_tag :action => "login" do -%>
+<label for="login">Usuario</label></br>
+<div><span><%= text_field_tag 'login', @login %></span><span class="dominio">@minrel.gov.cl</span></div>
+
+
+<p><label for="password">Contraseña</label><br/>
+<%= password_field_tag 'password', nil %></p>
+
+<!-- Uncomment this if you want this functionality
+<p><label for="remember_me">Remember me:</label>
+<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+-->
+
+<%= submit_tag 'Ingresar' %>
+<% end -%>
+</div>

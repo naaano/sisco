@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://www.minrel.gov.cl/test" elementFormDefault="qualified" targetNamespace="http://www.minrel.gov.cl/test" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Documento" type="DocumentoBaseType" />
+  <xs:simpleType name="EmailTypeBase">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".*@.*\..*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RutTypeBase">
+    <xs:restriction base="xs:string">
+
+      <xs:minLength value="3" />
+      <xs:maxLength value="10" />
+      <xs:pattern value="[0-9]+-([0-9]|K)" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FolioType">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:positiveInteger" />
+      <xs:element name="NoFolio" type="xs:positiveInteger" />
+
+      <xs:element name="Anno">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]{4})" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ContenidoType">
+    <xs:sequence>
+      <xs:element name="Folio" type="FolioType" />
+      <xs:element name="Test" type="TestType" />
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string" use="required" />
+    <xs:attribute name="codigo" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="DocumentoBaseType">
+
+    <xs:sequence>
+      <xs:element name="Contenido" type="ContenidoType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" xmlns:q1="http://www.w3.org/2000/09/xmldsig#" ref="q1:Signature" />
+    </xs:sequence>
+    <xs:attribute name="urlDoc" type="xs:anyURI" use="required" />
+    <xs:attribute fixed="1.0" name="version" type="xs:decimal" use="required" />
+  </xs:complexType>
+  <xs:complexType name="TestType">
+    <xs:sequence>
+
+      <xs:element name="Test" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

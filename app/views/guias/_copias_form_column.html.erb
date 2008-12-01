@@ -1,0 +1,21 @@
+<title>Seleccione documentos:</title>
+<table class="active-scaffold active-scaffold-copias default-theme" cellpadding="0" cellspacing="0">
+	<thead>
+<tr>
+	<th><p>adjunta?</p></th>
+	<th><p>folio</p></th>
+	<th><p>destinatario</p></th>
+	<th><p>titulo</p></th>
+</tr>	
+</thead>
+<tbody class="records">
+<% for c in Copia.find(:all, :conditions => ['estado_id in (1,6) AND buzon_id = ?', buzon_actual]) do %>
+<tr class="record">
+	<td><%= check_box_tag "record[copia_ids][]", c.id %></td>
+	<td><%= c.to_label %></td>
+	<td><%= c.destinatario.sigla %></td>
+	<td><%= c.documento.materia %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
