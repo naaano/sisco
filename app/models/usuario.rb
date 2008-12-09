@@ -11,20 +11,21 @@ class Usuario < ActiveRecord::Base
   has_one :buzon, :through => :puesto
   
   validates_presence_of     :login
-  validates_length_of       :login,    :within => 3..40
+  validates_length_of       :login,    :within => 3..40, :too_short => "es el login del computador", :too_long => "solo el login, sin el @minrel.gov.cl"
   validates_uniqueness_of   :login,    :case_sensitive => false
 #  validates_format_of       :login,    :with => RE_LOGIN_OK, :message => MSG_LOGIN_BAD
 
 #  validates_format_of       :nombre,     :with => RE_NAME_OK,  :message => MSG_NAME_BAD, :allow_nil => true
-  validates_length_of       :nombre,     :maximum => 100
-  validates_length_of       :apellido,     :maximum => 100
+  validates_length_of       :nombre,     :within => 3..100, :too_short => "es tu verdadero nombre, como Andrea, etc.", :too_long => "sólo el nombre, por ej.: Amelia"
+  validates_length_of       :apellido,     :within => 3..100, :too_short => "es tu apellido, o los 2 mejor aún", :too_long => "tan laaargo es tu apellido? si es asi llamanos"
 
 #  validates_presence_of     :email
 #  validates_length_of       :email,    :within => 6..100 #r@a.wk
 #  validates_uniqueness_of   :email,    :case_sensitive => false
 #  validates_format_of       :email,    :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
 
-  
+  validates_length_of       :password, :minimum => 4, :message => "si usas una clave tan corta, algún malvado te puede hacer una broma pesada"
+  validates_confirmation_of :password
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -53,11 +54,15 @@ class Usuario < ActiveRecord::Base
   end
   
   def es_firmante?
-    return true #FIXME
+    return self.puesto.firmante #FIXME se le olvido por que, revisar
   end
   
   def es_editor?
-    return true #FIXME
+    return self.puesto.editor #FIXME
+  end
+  
+  def ingresa_papel?
+    return self.puesto.ingreso_papel #FIXME
   end
   
   def has_puesto?
@@ -71,16 +76,19 @@ class Usuario < ActiveRecord::Base
   
   fields do
     login :string
-    dominio :string
+    dominio :string, :default => 'minrel.gov.cl' #no se si este default funciona, pero de cualquier forma no es imprescindible
     password :string
     password_confirmation :string
     nombre :string
     apellido :string
-    admin :boolean
+    admin :boolean, :default => false
   end
 
   protected
     
+  def authorized_for_update?
+    return self.id == current_user.id || current_user.admin
+  end
 
 
 end

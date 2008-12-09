@@ -37,6 +37,8 @@ class Copia < ActiveRecord::Base
     "#{documento.origen.sigla}-#{documento.folio}-#{documento.agno}#{copia}"
   end
   
+  alias nro_documento folio
+  
   def asignar(puesto)
     self.puesto_id = puesto
     self.save!
@@ -102,10 +104,11 @@ class Copia < ActiveRecord::Base
     return puede_asignar?
   end
   
-  def puede_desarchivar?
+  def recuperar_authorized?
     return true if (estado_id == 5 and copia_en_buzon_propio?)
   end
   
+  # control de acceso al campo FIXME: separar por acciones crud
   def xml_authorized?
     self.documento.digital == true
   end

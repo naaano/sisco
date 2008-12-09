@@ -5,12 +5,14 @@
 		<li><%= link_to 'entrada', :controller => 'entrada' %>
 		<li><%= link_to 'guias', :controller => 'guias' %>	
 		<li><%= link_to 'archivo', :controller => 'archivo' %>	
-		<li><%= link_to 'miembros', :controller => 'miembros' %>
+		<li><%= link_to 'personal', :controller => 'personal' %>
 		<li><%= link_to 'enviados', :controller => 'enviados' %>
 		<% end %>
 		<li><%= link_to 'mi buzón', :controller => 'propio' %>
-		<% if session[:usuario].es_editor?  %>
+		<% if session[:usuario].ingresa_papel?  %>
 		<li><%= link_to 'ingreso papel', :controller => 'salida' %>
+		<% end %>
+		<% if session[:usuario].es_editor?  %>
 		<li><%= link_to 'ingreso digital', :controller => 'borrador' %>
 		<% end %>
 		<% if session[:usuario].es_firmante?  %>

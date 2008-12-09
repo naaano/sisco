@@ -3,7 +3,7 @@ class ArchivoController < ApplicationController
     config.label = "Documentos Archivados"
     
     config.actions = [ :delete, :show, :list, :field_search, :nested ]
-    config.list.columns = [ :folio, :materia, :tipo, :updated_at, :puesto, :notas ]
+    config.list.columns = [ :folio, :materia, :tipo, :updated_at, :carpeta, :notas ]
     
     config.columns[:created_at].label = "Ingresado"
     config.columns[:puesto].label = "Asignado"
@@ -12,18 +12,17 @@ class ArchivoController < ApplicationController
     
     config.columns[:notas].set_link('nested',:parameters => {:associations => :notas})
 
-    config.action_links.add "Desarchivar", :type => :record,
-                                    :action => "desarchivar",
+    config.action_links.add "Recuperar", :type => :record,
+                                    :action => "recuperar",
                                     :position => false,
-                                    :method => :delete,
-                                    :security_method => :puede_desarchivar?
+                                    :method => :delete
   end
   
   def conditions_for_collection
     ['copias.estado_id = 5 AND copias.buzon_id = ?', current_user.puesto.buzon_id]
   end
   
-  def desarchivar
+  def recuperar
     record = Copia.find(params[:id])
     record.estado_id = 3
     if Traza.create(:copia_id => record.id, :movimiento_id => 11, :usuario => current_user)

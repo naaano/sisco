@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging "Session ID"
   #requires_authentication :using => :authenticate
-  before_filter :login_required, :except => ["login", "generar", "firmar", "gen_rexml", "subir", "get_xml"]
+  before_filter :login_required, :except => ["login", "generar", "firmar", "gen_rexml", "subir", "get_xml", "prepara_registro"]
   
   def current_user
     session[:usuario]

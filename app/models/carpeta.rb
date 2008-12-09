@@ -7,4 +7,8 @@ class Carpeta < ActiveRecord::Base
     buzon_id :integer
     
   end
+  
+  def to_label
+    nombre
+  end
 end

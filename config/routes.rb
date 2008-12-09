@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'logout'
   map.login '/login', :controller => 'sessions', :action => 'login'
+  map.registro '/registro', :controller => 'registro', :action => 'prepara_registro'
   
   map.connect '/firma/cliente/v2.0/ClienteFirmante.dll', :controller => 'firma', :action => 'dll', :id => 'cf'
   map.connect '/firma/cliente/v2.0/VCGLock.DLL', :controller => 'firma', :action => 'dll', :id => 'vcg'

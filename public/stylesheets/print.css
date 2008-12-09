@@ -2,8 +2,7 @@ body {
 	border: 0px;
 	margin: 0px;
 	padding: 4px;
-        font-family: "Times New Roman", Times, serif;
-	font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .contenido {
 	margin: 0; 
@@ -11,9 +10,53 @@ body {
 }
 #logo {
 	top: 0;
-	left: -2;
+	left: -2px;
 	z-index: 0;
 }
 .titulo{
 	z-index: 1;
+}
+
+/* REFERENTE A LAS GUIAS DE DESPACHO */
+.guia .titulo{
+	height: 70px;
+	background: url(../images/logosiscobaja.png) 4px 4px no-repeat;
+	font-weight: bold;
+	color: grey;
+	padding: 0 10px 3px 100px;
+}
+.guia #encabezado{
+	position:absolute;
+	right: 0;
+	top: 0;
+	line-height: 11pt;
+}
+.guia #encabezado th{
+	float: left;
+	padding: 0;
+	width: 12em;
+	color: grey;
+}
+.guia #encabezado td{
+	float: left;
+}
+.clear {
+	clear: both;
+}
+.tabla {
+	border-right: 1px solid grey;
+	border-top: 1px solid grey;
+	width: 100%;
+}
+.tabla td, .tabla th{
+	border-bottom: 1px solid grey;
+	border-left: 1px solid grey;
+	padding: 3px;
+	height: 90px;
+}
+.tabla .ancho{
+	width: 140px;
+	height: 90px;
+	color: white;
+	
 }

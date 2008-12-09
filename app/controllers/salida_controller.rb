@@ -19,39 +19,36 @@ class SalidaController < ApplicationController
     
     
     config.create.label = "Ingresar Nuevo Documento"
-    
-    config.create.columns = [:materia,
+
+    columnas               = [:materia,
                              :referencia,
-                             :origen_puesto, 
-                             :destinatario_puesto,  
+                             :origen, 
                              :detalle_origen,
-                             :externo, 
+                             :externo,
+                             :destinatario_puesto,  
                              :accion, 
                              :clasificacion, 
-                             :tipo,
-                             :cuerpo,                            
+                             :tipo,                         
                              :copias]
-    
-    config.columns[:origen_texto].label = "Originante"
+    config.create.columns = columnas                          
+    config.update.columns = columnas
+    [:materia, :destinatario_puesto, :accion, :clasificacion, :tipo].each{ |c|
+      config.columns[c].required = true
+    }
+
+    config.columns[:origen].label = "Originante"
     config.columns[:copias].label = "Distribución"
     config.columns[:copias].includes = [:copias]
+    config.columns[:externo].label = "Nro. Externo"
     config.columns[:externo].description = "Número externo (solo números) si tiene"
     config.columns[:origen_puesto].description = "Dejar en blanco si el documento es propio (no externo)"
-    
+    config.columns[:detalle_origen].label = "Otro origen"
     config.columns[:cuerpo].form_ui = :textarea
     config.columns[:cuerpo].options = {:cols => 60, :rows => 30}
     
-    config.update.columns = [:materia, 
-                             :referencia,
-                             :origen_puesto,
-                             :destinatario_puesto, 
-                             :detalle_origen, 
-                             :externo,
-                             :accion, 
-                             :clasificacion, 
-                             :tipo,
-                             :cuerpo, 
-                             :copias]
+    
+    config.columns[:origen_puesto].label = "Puesto Origen"
+    config.columns[:destinatario_puesto].label = "Puesto Destinatario"
     
   end
   

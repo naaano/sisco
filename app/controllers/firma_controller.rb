@@ -6,7 +6,7 @@ class FirmaController < ApplicationController
     
     # BOTONES DE ACCIONES
     config.action_links.add 'corregir', :type => :record, :position => false          
-    config.action_links.add "firmar", :type => :record, :inline => false, :position => :after, :crud_type => nil 
+    config.action_links.add "firmar", :type => :record, :inline => :true, :position => :after, :crud_type => nil 
     config.action_links.add "ver", :type => :record, :position => false, :popup => true, :controller => 'docxml', :action => 'ver'
     config.action_links.add "enviar", :type => :record, :position => false, :inline => true
  
@@ -27,7 +27,8 @@ class FirmaController < ApplicationController
   end
   
   def firmar
-	redirect_to "http://10.10.255.117:3000/firma/cliente/#{params[:id]}"
+    id = params[:copia].nil? ? params[:id] : Copia.find(params[:id]).documento_id
+	redirect_to "http://10.10.255.117:3000/firma/cliente/#{id}"
     #@doc = Documento.find(params[:id])
     #render :partial => 'cliente', :id => params[:id]
     #record = Documento.find(params[:id])

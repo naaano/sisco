@@ -13,12 +13,12 @@ class Documento < ActiveRecord::Base
   has_many :destinatarios, :through => :copias
   
   #validates_numericality_of :externo, :only_integer => true, :message => "solo los digitos del folio externo, por favor"
-  validates_presence_of :origen_puesto
+  #validates_presence_of :origen_puesto
   validates_presence_of :destinatario_puesto 
   validates_presence_of :materia
   validates_presence_of :accion
   validates_presence_of :clasificacion
-  validates_presence_of :cuerpo
+  #validates_presence_of :cuerpo
   
   fields do
     origen_id :integer # entidad quien origina el documento

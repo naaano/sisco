@@ -1,11 +1,13 @@
 class EntradaController < ApplicationController
+  before_filter :preconfig
+  
   active_scaffold :copia do |config|
-    config.label = "Entrada Oficina de Partes"
+    #config.label = "Entrada Oficina de Partes"
     
     config.actions = [:update, :show, :list, :field_search, :nested ]
     
-    config.list.columns = [ :folio, :materia, :tipo, :fecha_recepcion, :puesto, :notas ]
-    config.show.columns = [ :folio, :materia, :creado_por, :tipo, :clasificacion, 
+    config.list.columns = [ :nro_documento, :materia, :tipo, :fecha_recepcion, :puesto, :notas ]
+    config.show.columns = [ :nro_documento, :materia, :creado_por, :tipo, :clasificacion, 
                            :accion, :estado, :fecha_recepcion,:cuerpo ,:puesto, :notas, :trazas ]
     config.update.columns = [:destinatario]
     
@@ -20,7 +22,11 @@ class EntradaController < ApplicationController
     config.columns[:puesto].inplace_edit = :true
     config.columns[:puesto].clear_link
     config.columns[:notas].set_link('nested',:parameters => {:associations => :notas})
-   
+    config.columns[:trazas].label = "Seguimiento"
+    
+    
+    
+    
     config.action_links.add 'Recv', :type => :record, 
                                         :action => "recibido",
                                         :position => false, 
@@ -46,7 +52,7 @@ class EntradaController < ApplicationController
   
   def recibido
     record = Copia.find(params[:id])
-    if Traza.create(:copia_id => record.id, :movimiento_id => 2, :usuario => current_user)
+    if Traza.create(:copia_id => record.id, :movimiento_id => 2, :usuario => current_user, :buzon_id => current_user.puesto.buzon_id)
       self.successful =  record.recibido
     end
     record.recibido
@@ -56,7 +62,7 @@ class EntradaController < ApplicationController
   def archivar
     record = Copia.find(params[:id])
     record.estado_id = 5
-    if Traza.create(:copia_id => record.id, :movimiento_id => 3, :usuario => current_user)
+    if Traza.create(:copia_id => record.id, :movimiento_id => 3, :usuario => current_user, :buzon_id => current_user.puesto.buzon_id)
       self.successful =  record.save
     end
     render :action => 'destroy.rjs', :layout => false
@@ -91,6 +97,10 @@ class EntradaController < ApplicationController
 
   def puesto_conditions_for_collection
     ['buzon_id = ?', current_user.puesto.buzon_id]
+  end
+  
+  def preconfig
+    active_scaffold_config.label = current_user.puesto.buzon.nombre
   end
 
 

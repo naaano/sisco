@@ -44,8 +44,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: sisco2_development
+  database: sisco3_production
   username: sisco
   password: rubyrules
   host: localhost
-  port: 3001
+  port: 5432

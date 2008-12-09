@@ -1,3 +1,13 @@
+<div class="guia">
+	<div id="encabezado">
+		<table>
+			<tr><th>Buzón:</th><td><%= session[:usuario].puesto.buzon.nombre %></td></tr>
+			<tr><th>Nro. Guia:</th><td><%= @guia.id %></td></tr>
+			<tr><th>Fecha Guia:</th><td><%= @guia.created_at %></td></tr>
+			<tr><th>Impreso por:</th><td><%= session[:usuario].to_label %></td></tr>
+		</table>
+		<br class="clear"/>
+	</div>
 <table class="tabla" cellpadding="0" cellspacing="0">
     <tr>
         <th>tipo            </th>
@@ -6,8 +16,8 @@
 		<th>Fecha Documento  </th>
 		<th>Materia         </th>
 		<th>Destino         </th>
-		<th>firma            </th>
-		<th>timbre          </th>
+		<th class="ancho">firma            </th>
+		<th class="ancho">timbre          </th>
     </tr>
     <% for c in @guia.copias do %>
     <tr>    
@@ -15,10 +25,11 @@
 		<td><%= c.folio %></td>
 		<td><%= c.origen.to_label %></td>
 		<td><%= c.created_at %></td>
-		<td><%= c.documento.titulo %></td>
+		<td><%= c.documento.materia %></td>
 		<td><%= c.destinatario.to_label %></td>
-		<td class="ancho">&nbsp;</td>
-		<td class="ancho">&nbsp;</td>
+		<td class="ancho" nowrap="nowrap">. . . . . . . . . . . . . . .</td>
+		<td class="ancho" nowrap="nowrap">. . . . . . . . . . . . . . .</td>
 	</tr>
     <% end %>
 </table>
+</div>

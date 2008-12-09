@@ -12,6 +12,7 @@
   <%= record_select_includes %>
   <%= calendar_date_select_includes %>
   <%= stylesheet_link_tag 'application.css' %>
+  <%= stylesheet_link_tag "print", :media => "print" %>
 <script type="text/javascript" charset="utf-8">
                 function update_column_value (controller, id, col,val) {
                         new Ajax.Request(controller+'/update_select_column/'+id+'?column='+

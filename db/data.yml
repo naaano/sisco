@@ -1,0 +1,1334 @@
+
+--- 
+copias: 
+  columns: 
+  - id
+  - documento_id
+  - carpeta_id
+  - estado_id
+  - buzon_id
+  - created_at
+  - updated_at
+  - puesto_id
+  - origen_id
+  - destinatario_id
+  - recepcion
+  - accion_id
+  records: 
+  - - "47"
+    - "19"
+    - 
+    - "6"
+    - "2"
+    - 2008-11-25 14:07:41.092902
+    - 2008-11-25 19:49:27.537361
+    - 
+    - "2"
+    - "4"
+    - 
+    - "2"
+  - - "48"
+    - "19"
+    - 
+    - "2"
+    - "4"
+    - 2008-11-25 14:07:41.124403
+    - 2008-11-25 17:22:34.172612
+    - 
+    - 
+    - "4"
+    - 
+    - "8"
+  - - "49"
+    - "20"
+    - 
+    - "2"
+    - "4"
+    - 2008-11-25 17:33:54.874251
+    - 2008-11-25 19:48:36.984687
+    - 
+    - 
+    - "4"
+    - 
+    - "7"
+  - - "50"
+    - "20"
+    - 
+    - "3"
+    - "2"
+    - 2008-11-25 17:33:54.882819
+    - 2008-11-25 19:49:36.083204
+    - 
+    - 
+    - "2"
+    - 2008-11-25 19:49:36.082132
+    - "5"
+  - - "51"
+    - "21"
+    - 
+    - "2"
+    - "3"
+    - 2008-11-25 17:37:55.016106
+    - 2008-11-25 19:49:16.032344
+    - 
+    - 
+    - "3"
+    - 
+    - "2"
+  - - "52"
+    - "21"
+    - 
+    - "3"
+    - "2"
+    - 2008-11-25 17:37:55.024876
+    - 2008-11-25 19:53:41.943269
+    - "1"
+    - 
+    - "2"
+    - 2008-11-25 19:49:37.653245
+    - "5"
+  - - "53"
+    - "21"
+    - 
+    - "2"
+    - "4"
+    - 2008-11-25 17:37:55.02859
+    - 2008-11-25 19:49:16.039955
+    - 
+    - 
+    - "4"
+    - 
+    - "1"
+  - - "54"
+    - "24"
+    - 
+    - 
+    - 
+    - 2008-11-25 20:26:22.684061
+    - 2008-11-25 20:26:22.684061
+    - 
+    - 
+    - "2"
+    - 
+    - 
+  - - "55"
+    - "24"
+    - 
+    - 
+    - 
+    - 2008-11-25 20:26:22.691949
+    - 2008-11-25 20:26:22.691949
+    - 
+    - 
+    - "4"
+    - 
+    - 
+  - - "56"
+    - "25"
+    - 
+    - 
+    - 
+    - 2008-11-25 20:57:55.102378
+    - 2008-11-25 20:57:55.102378
+    - 
+    - 
+    - "4"
+    - 
+    - "3"
+  - - "57"
+    - "25"
+    - 
+    - 
+    - 
+    - 2008-11-25 20:57:55.110173
+    - 2008-11-25 20:57:55.110173
+    - 
+    - 
+    - "2"
+    - 
+    - "2"
+  - - "58"
+    - "26"
+    - "1"
+    - "5"
+    - "1"
+    - 2008-11-25 21:02:48.873028
+    - 2008-12-02 14:35:45.204535
+    - "8"
+    - 
+    - "1"
+    - 2008-12-01 19:10:13.377009
+    - "2"
+  - - "59"
+    - "26"
+    - 
+    - "2"
+    - "2"
+    - 2008-11-25 21:02:48.881814
+    - 2008-11-25 21:14:29.775564
+    - 
+    - 
+    - "2"
+    - 
+    - "3"
+  - - "60"
+    - "28"
+    - 
+    - "2"
+    - "4"
+    - 2008-12-01 19:23:52.548654
+    - 2008-12-01 19:24:11.77684
+    - 
+    - "5"
+    - "4"
+    - 
+    - "1"
+  - - "61"
+    - "28"
+    - 
+    - "2"
+    - "2"
+    - 2008-12-01 19:23:52.601327
+    - 2008-12-01 19:24:11.780947
+    - 
+    - "5"
+    - "2"
+    - 
+    - "8"
+  - - "62"
+    - "28"
+    - 
+    - "2"
+    - "1"
+    - 2008-12-01 19:23:52.606954
+    - 2008-12-01 19:24:11.785779
+    - 
+    - "5"
+    - "1"
+    - 
+    - "6"
+
+--- 
+usuarios: 
+  columns: 
+  - id
+  - login
+  - nombre
+  - apellido
+  - dominio
+  - admin
+  - password
+  - password_confirmation
+  records: 
+  - - "1"
+    - hastudillo
+    - "Hern\xC3\xA1n"
+    - Astudillo
+    - minrel.gov.cl
+    - true
+    - escudo
+    - escudo
+  - - "2"
+    - lsaavedra
+    - Leopoldo
+    - Saavedra
+    - minrel.gov.cl
+    - false
+    - leopo
+    - leopo
+  - - "3"
+    - jperez
+    - Juan
+    - Perez
+    - 
+    - false
+    - juan
+    - juan
+  - - "4"
+    - dalvarado
+    - Darwin
+    - Alvarado
+    - 
+    - false
+    - dalvarado
+    - dalvarado
+  - - "5"
+    - mpoo
+    - Mauricio
+    - Poo
+    - 
+    - false
+    - mpoo
+    - mpoo
+  - - "6"
+    - mgalazf
+    - Manuel
+    - Galaz
+    - 
+    - false
+    - mgalazf
+    - mgalazf
+  - - "7"
+    - avergara
+    - Alejandro
+    - Vergara
+    - minrel.gov.cl
+    - false
+    - avergara
+    - avergara
+  - - "8"
+    - cfuentesb
+    - Carlos
+    - Fuentes Barrientos
+    - minrel.gov.cl
+    - false
+    - carlos
+    - carlos
+
+--- 
+cargos: 
+  columns: 
+  - id
+  - nombre
+  records: 
+  - - "1"
+    - Administrativo
+  - - "2"
+    - Oficina de Partes
+  - - "3"
+    - Director
+  - - "4"
+    - Subdirector
+  - - "5"
+    - Analista
+
+--- 
+acciones: 
+  columns: 
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - revisar
+    - 2008-08-06 16:26:56.669857
+    - 2008-08-06 16:26:56.669857
+  - - "2"
+    - archivar
+    - 2008-08-06 16:30:00.952443
+    - 2008-08-06 16:30:00.952443
+  - - "3"
+    - conocimiento
+    - 2008-08-06 16:30:06.375942
+    - 2008-08-06 16:30:06.375942
+  - - "4"
+    - registrar
+    - 2008-08-06 16:30:21.019711
+    - 2008-08-06 16:30:21.019711
+  - - "5"
+    - aceptar
+    - 2008-08-06 16:30:24.71957
+    - 2008-08-06 16:30:24.71957
+  - - "6"
+    - despachar
+    - 2008-08-06 16:30:35.499522
+    - 2008-08-06 16:30:35.499522
+  - - "7"
+    - solicito respuesta
+    - 2008-08-06 16:30:41.653999
+    - 2008-08-06 16:30:41.653999
+  - - "8"
+    - leer urgente
+    - 2008-08-06 19:49:34.956377
+    - 2008-08-06 19:49:34.956377
+  - - "9"
+    - desarchivar
+    - 2008-09-03 02:29:58.095535
+    - 2008-09-03 02:29:58.095535
+
+--- 
+tipos: 
+  columns: 
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - Carta
+    - 
+    - 2008-08-06 21:27:29.469419
+  - - "2"
+    - Fax
+    - 
+    - 
+  - - "3"
+    - Memo
+    - 
+    - 
+  - - "4"
+    - Circular
+    - 
+    - 
+  - - "5"
+    - Telex
+    - 
+    - 
+  - - "6"
+    - E-mail
+    - 
+    - 
+  - - "7"
+    - Valija
+    - 
+    - 
+  - - "8"
+    - Oficio
+    - 
+    - 
+  - - "9"
+    - Minuta
+    - 
+    - 
+  - - "10"
+    - Orden de Servicio
+    - 
+    - 
+  - - "11"
+    - Varios
+    - 
+    - 
+  - - "12"
+    - Notas Circulares
+    - 
+    - 
+  - - "13"
+    - "Resoluci\xC3\xB3n"
+    - 
+    - 2008-08-13 21:20:47.146923
+  - - "14"
+    - Resolucion Exenta
+    - 
+    - 
+  - - "15"
+    - Decreto
+    - 
+    - 
+  - - "16"
+    - Nota Diplomatica
+    - 
+    - 
+  - - "17"
+    - Factura
+    - 
+    - 
+  - - "18"
+    - Notas Verbales
+    - 
+    - 
+  - - "19"
+    - Providencia
+    - 
+    - 
+  - - "20"
+    - Comunicacion Breve
+    - 
+    - 
+  - - "21"
+    - Sobre
+    - 
+    - 
+  - - "22"
+    - Informes
+    - 
+    - 
+  - - "23"
+    - Peticion de Compra
+    - 
+    - 
+
+--- 
+clasificaciones: 
+  columns: 
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  - codigo
+  records: 
+  - - "1"
+    - "P\xC3\xBAblico"
+    - 2008-08-06 06:47:35.75232
+    - 2008-11-25 14:02:51.210813
+    - PUBLICO
+  - - "2"
+    - Reservado
+    - 2008-08-06 06:47:47.117908
+    - 2008-11-25 14:02:58.996341
+    - RESERVADO
+  - - "3"
+    - Secreto
+    - 2008-08-06 06:47:52.169802
+    - 2008-11-25 14:03:16.898387
+    - SECRETO
+
+--- 
+buzones: 
+  columns: 
+  - id
+  - nombre
+  - sigla
+  - descripcion
+  - folio
+  - created_at
+  - updated_at
+  - externo
+  - type
+  records: 
+  - - "1"
+    - "Direcci\xC3\xB3n de Inform\xC3\xA1tica"
+    - DINFO
+    - 
+    - "1238"
+    - 2008-08-06 06:45:30.608571
+    - 2008-12-01 19:23:52.499849
+    - false
+    - 
+  - - "2"
+    - "Oficina de Ingenier\xC3\xADa de Proyectos"
+    - OIP
+    - 
+    - "33"
+    - 2008-08-06 14:30:56.485812
+    - 2008-11-25 20:57:54.84748
+    - false
+    - 
+  - - "3"
+    - Gabinete del Ministro
+    - MINGAB
+    - 
+    - "200"
+    - 2008-08-06 19:46:28.528603
+    - 2008-08-13 21:14:18.030666
+    - false
+    - 
+  - - "4"
+    - "Subsecretar\xC3\xADa de Relaciones Exteriores"
+    - SUBSEC
+    - 
+    - "655"
+    - 2008-08-13 18:01:08.415187
+    - 2008-11-17 20:05:12.872257
+    - false
+    - 
+  - - "5"
+    - "Ministerio de Educaci\xC3\xB3n"
+    - MINEDUC
+    - 
+    - 
+    - 2008-09-11 21:56:13.473907
+    - 2008-09-11 21:56:13.473907
+    - true
+    - 
+  - - "6"
+    - "Ministerio de Comisi\xC3\xB3n Nacional de Energ\xC3\xADa"
+    - MINCNE
+    - 
+    - 
+    - 2008-09-11 21:56:54.326975
+    - 2008-09-11 21:56:54.326975
+    - true
+    - 
+  - - "7"
+    - Embajada de China
+    - EMBCN
+    - 
+    - 
+    - 2008-09-11 21:57:49.384679
+    - 2008-09-11 21:57:49.384679
+    - true
+    - 
+  - - "8"
+    - Consulado Honorario de India
+    - CH-INDIA
+    - 
+    - 
+    - 2008-09-11 21:58:37.541222
+    - 2008-09-11 21:58:37.541222
+    - true
+    - 
+  - - "9"
+    - "Consulado Honorario de Jap\xC3\xB3n"
+    - CH-JAPON
+    - 
+    - 
+    - 2008-09-11 21:59:01.850633
+    - 2008-09-11 21:59:01.850633
+    - true
+    - 
+
+--- 
+carpetas: 
+  columns: 
+  - id
+  - nombre
+  - buzon_id
+  records: 
+  - - "1"
+    - compras
+    - "1"
+
+--- 
+documentos: 
+  columns: 
+  - id
+  - origen_id
+  - detalle_origen
+  - materia
+  - tipo_id
+  - clasificacion_id
+  - accion_id
+  - created_at
+  - updated_at
+  - externo
+  - folio
+  - usuario_id
+  - parent_id
+  - pfe
+  - pfe_ok
+  - cuerpo
+  - xml
+  - origen_puesto_id
+  - origen_texto
+  - origen_puesto_texto
+  - origen_persona_texto
+  - destinatario_id
+  - destinatario_puesto_id
+  - destinatario_texto
+  - destinatario_puesto_texto
+  - destinatario_persona_texto
+  - folio_texto
+  - lock
+  - firma
+  - referencia
+  - digital
+  - origen_sigla
+  - destinatario_sigla
+  - buzon_id
+  records: 
+  - - "19"
+    - "2"
+    - 
+    - prueba
+    - "3"
+    - "1"
+    - "1"
+    - 2008-11-25 14:07:40.991946
+    - 2008-11-25 17:22:34.177487
+    - 
+    - "22"
+    - "1"
+    - 
+    - 
+    - false
+    - ssss
+    - "<memo xsi:schemaLocation=\"http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://esquemas.minrel.gov.cl/2008/1\">\n    <id>19</id>\n    <origen>\n        <entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id=\"2\">Jefe de Proyecto</cargo>\n            <persona id=\"1\">Hern\xC3\xA1n Astudillo</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id=\"4\" sigla=\"SUBSEC\">Subsecretar\xC3\xADa de Relaciones Exteriores</entidad>\n        <puesto>\n            <cargo id=\"3\">Administrativo</cargo>\n            <persona id=\"3\">Juan Perez</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio id=\"19\">\n        <entidad>OIP</entidad>\n        <numero>22</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>prueba</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>revisar</accion>\n    <fecha> 2:07 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>ssss</cuerpo>\n    <referencia id=\"33\">\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      <distribucion><entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad><accion>archivar</accion></distribucion><distribucion><entidad id=\"4\" sigla=\"SUBSEC\">Subsecretar\xC3\xADa de Relaciones Exteriores</entidad><accion>leer urgente</accion></distribucion><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\" /><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" /><Reference URI=\"\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\" /></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" /><DigestValue>7F8C3EDKAeIROOppdtI1PCWiThg=</DigestValue></Reference></SignedInfo><SignatureValue>WneXAxBgQxwXQYKv4SolY24E3giFwj1tDg3YwzW5bdz2zwtOY55Zo1REK2R5e/ovPsUSVNNEPy/78XHQtSP8+INDsZBNhzB1dTfVZlcLUhjtw+gmjo4kC+tg4FRf0iUNQIaAxkUoHY9lixvcchs6auoGmh/nZOC5JHm5WU03RPI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>stjufUlNzDMpzfyUq+MpwTMb3naa3QZ7cbfz4JrEH/2re2UrHHK7MEeiA7FoWXEKrMKeqDBKn1srz3ia2fKJrXnGOLmj9IYV370FcOrocuDgC38xvdHeHncO9WFMRj87Yx0Uimot+zHEuo8qaskhi94jj1TMXNRcfOjaLfAIs6U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509SubjectName>CN=Hernan Astudillo, E=hastudillo@minrel.gov.cl</X509SubjectName><X509Certificate>MIIHRzCCBrCgAwIBAgIKFKUBvgADAAAESTANBgkqhkiG9w0BAQUFADCBtTElMCMGCSqGSIb3DQEJARYWYXZlcmdhcmFAbWlucmVsLmdvdi5jbDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgTDU1ldHJvcG9saXRhbmExETAPBgNVBAcTCFNhbnRpYWdvMSwwKgYDVQQKEyNNaW5pc3RlcmlvIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEOMAwGA1UECxMFRElORk8xFjAUBgNVBAMTDUNBIFJvb3QgTVJSRUUwHhcNMDgxMDAyMjEzNTEyWhcNMDkxMDAyMjEzNTEyWjBEMScwJQYJKoZIhvcNAQkBFhhoYXN0dWRpbGxvQG1pbnJlbC5nb3YuY2wxGTAXBgNVBAMTEEhlcm5hbiBBc3R1ZGlsbG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALLY7n1JTcwzKc38lKvjKcEzG952mt0Ge3G38+CaxB/9q3tlKxxyuzBHogOxaFlxCqzCnqgwSp9bK894mtnyia15xji5o/SGFd+9BXDq6HLg4At/Mb3R3h53DvVhTEY/O2MdFIpqLfsxxLqPKmrJIYveI49UzFzUXHzo2i3wCLOlAgMBAAGjggTMMIIEyDALBgNVHQ8EBAMCBaAwFwYJKwYBBAGCNxQCBAoeCABVAHMAZQByMB0GA1UdDgQWBBRdhJldWf2ZFMkSZxzHAUmrH513jjCB8QYDVR0jBIHpMIHmgBR2g3QE5BYcVZlhHixU5DjgCbRVU6GBu6SBuDCBtTElMCMGCSqGSIb3DQEJARYWYXZlcmdhcmFAbWlucmVsLmdvdi5jbDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgTDU1ldHJvcG9saXRhbmExETAPBgNVBAcTCFNhbnRpYWdvMSwwKgYDVQQKEyNNaW5pc3RlcmlvIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEOMAwGA1UECxMFRElORk8xFjAUBgNVBAMTDUNBIFJvb3QgTVJSRUWCEHGunWXjP9eGTdOjQgaY48cwggFxBgNVHR8EggFoMIIBZDCBy6CByKCBxYaBwmxkYXA6Ly8vQ049Q0ElMjBSb290JTIwTVJSRUUoMiksQ049c2NsLWRjLTAyLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPW1pbnJlbCxEQz1nb3YsREM9Y2w/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdGNsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MEigRqBEhkJodHRwOi8vc2NsLWRjLTAyLm1pbnJlbC5nb3YuY2wvQ2VydEVucm9sbC9DQSUyMFJvb3QlMjBNUlJFRSgyKS5jcmwwSqBIoEaGRGZpbGU6Ly9cXHNjbC1kYy0wMi5taW5yZWwuZ292LmNsXENlcnRFbnJvbGxcQ0ElMjBSb290JTIwTVJSRUUoMikuY3JsMIIBnAYIKwYBBQUHAQEEggGOMIIBijCBtQYIKwYBBQUHMAKGgahsZGFwOi8vL0NOPUNBJTIwUm9vdCUyME1SUkVFLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPW1pbnJlbCxEQz1nb3YsREM9Y2w/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdGNsYXNzPWNlcnRpZmljYXRpb25BdXRob3JpdHkwZgYIKwYBBQUHMAKGWmh0dHA6Ly9zY2wtZGMtMDIubWlucmVsLmdvdi5jbC9DZXJ0RW5yb2xsL3NjbC1kYy0wMi5taW5yZWwuZ292LmNsX0NBJTIwUm9vdCUyME1SUkVFKDMpLmNydDBoBggrBgEFBQcwAoZcZmlsZTovL1xcc2NsLWRjLTAyLm1pbnJlbC5nb3YuY2xcQ2VydEVucm9sbFxzY2wtZGMtMDIubWlucmVsLmdvdi5jbF9DQSUyMFJvb3QlMjBNUlJFRSgzKS5jcnQwKQYDVR0lBCIwIAYKKwYBBAGCNwoDBAYIKwYBBQUHAwQGCCsGAQUFBwMCME0GA1UdEQRGMESgKAYKKwYBBAGCNxQCA6AaDBhoYXN0dWRpbGxvQG1pbnJlbC5nb3YuY2yBGGhhc3R1ZGlsbG9AbWlucmVsLmdvdi5jbDANBgkqhkiG9w0BAQUFAAOBgQBc0Olq/odi+qQozxKI+mMkOyp6o+bAv0wpRAH2G56jUbUT3d0sOmYoysSHTq9MODGYbmOlSEtp45AfAdqoiZsgAjMafkin8AYqYSIHo6PwBvoZhfdoSu/VZFh/I3THkEPKZVO5reP1x5hQsP105lVvjEHiPTHSBZvbYf8tovL/dw==</X509Certificate></X509Data></KeyInfo></Signature></memo>\n"
+    - "1"
+    - OIP
+    - Jefe de Proyecto
+    - "Hern\xC3\xA1n Astudillo"
+    - "4"
+    - "3"
+    - "Subsecretar\xC3\xADa de Relaciones Exteriores"
+    - Administrativo
+    - Juan Perez
+    - 
+    - false
+    - true
+    - 
+    - true
+    - 
+    - SUBSEC
+    - "2"
+  - - "20"
+    - "2"
+    - 
+    - aaaaa
+    - "3"
+    - "1"
+    - "1"
+    - 2008-11-25 17:33:54.861473
+    - 2008-11-25 19:48:37.159961
+    - 
+    - "27"
+    - "1"
+    - 
+    - 
+    - false
+    - "a\r\n\
+      as\r\n\
+      d\r\n\
+      asd\r\n\
+      asd\r\n\
+      a\r\n\
+      sd\r\n\
+      fa\r\n\
+      sdfg\r\n\
+      sdf\r\n\
+      ghdf\xC3\xA7jl\xC3\xB1dgl\xC3\xB1ks sdfg sdf\r\n\
+      gs\r\n\
+      fgsdfgl sd\r\n\
+      \xC2\xB4lsdg"
+    - "<memo xsi:schemaLocation=\"http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://esquemas.minrel.gov.cl/2008/1\">\n    <id>20</id>\n    <origen>\n        <entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id=\"2\">Jefe de Proyecto</cargo>\n            <persona id=\"1\">Hern\xC3\xA1n Astudillo</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id=\"4\" sigla=\"SUBSEC\">Subsecretar\xC3\xADa de Relaciones Exteriores</entidad>\n        <puesto>\n            <cargo id=\"3\">Administrativo</cargo>\n            <persona id=\"3\">Juan Perez</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio id=\"20\">\n        <entidad>OIP</entidad>\n        <numero>27</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>aaaaa</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>revisar</accion>\n    <fecha> 5:33 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>a\n\
+      as\n\
+      d\n\
+      asd\n\
+      asd\n\
+      a\n\
+      sd\n\
+      fa\n\
+      sdfg\n\
+      sdf\n\
+      ghdf\xC3\xA7jl\xC3\xB1dgl\xC3\xB1ks sdfg sdf\n\
+      gs\n\
+      fgsdfgl sd\n\
+      \xC2\xB4lsdg</cuerpo>\n    <referencia id=\"33\">\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      <distribucion><entidad id=\"4\" sigla=\"SUBSEC\">Subsecretar\xC3\xADa de Relaciones Exteriores</entidad><accion>solicito respuesta</accion></distribucion><distribucion><entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad><accion>aceptar</accion></distribucion><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\" /><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" /><Reference URI=\"\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\" /></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" /><DigestValue>/mpMlll/CNhCvfEVz632yRdixnE=</DigestValue></Reference></SignedInfo><SignatureValue>ffrTQdtrLaODWKRc8qEq1u03FOh/eM9mbyfpfVwLr0bKHJCCjsYwmQ8AAxeOLaHqlkdRO4ldwM3guC/2nGxvAFAyqkK0S+m5uQ6Q0VIGfEu64i1B8wh61CSgrBf+9h5wRdLfbWyw7VE5Hc+15k3j+A24aEYfhFGve+LJlm3yY7M=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>stjufUlNzDMpzfyUq+MpwTMb3naa3QZ7cbfz4JrEH/2re2UrHHK7MEeiA7FoWXEKrMKeqDBKn1srz3ia2fKJrXnGOLmj9IYV370FcOrocuDgC38xvdHeHncO9WFMRj87Yx0Uimot+zHEuo8qaskhi94jj1TMXNRcfOjaLfAIs6U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509SubjectName>CN=Hernan Astudillo, E=hastudillo@minrel.gov.cl</X509SubjectName><X509Certificate>MIIHRzCCBrCgAwIBAgIKFKUBvgADAAAESTANBgkqhkiG9w0BAQUFADCBtTElMCMGCSqGSIb3DQEJARYWYXZlcmdhcmFAbWlucmVsLmdvdi5jbDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgTDU1ldHJvcG9saXRhbmExETAPBgNVBAcTCFNhbnRpYWdvMSwwKgYDVQQKEyNNaW5pc3RlcmlvIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEOMAwGA1UECxMFRElORk8xFjAUBgNVBAMTDUNBIFJvb3QgTVJSRUUwHhcNMDgxMDAyMjEzNTEyWhcNMDkxMDAyMjEzNTEyWjBEMScwJQYJKoZIhvcNAQkBFhhoYXN0dWRpbGxvQG1pbnJlbC5nb3YuY2wxGTAXBgNVBAMTEEhlcm5hbiBBc3R1ZGlsbG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALLY7n1JTcwzKc38lKvjKcEzG952mt0Ge3G38+CaxB/9q3tlKxxyuzBHogOxaFlxCqzCnqgwSp9bK894mtnyia15xji5o/SGFd+9BXDq6HLg4At/Mb3R3h53DvVhTEY/O2MdFIpqLfsxxLqPKmrJIYveI49UzFzUXHzo2i3wCLOlAgMBAAGjggTMMIIEyDALBgNVHQ8EBAMCBaAwFwYJKwYBBAGCNxQCBAoeCABVAHMAZQByMB0GA1UdDgQWBBRdhJldWf2ZFMkSZxzHAUmrH513jjCB8QYDVR0jBIHpMIHmgBR2g3QE5BYcVZlhHixU5DjgCbRVU6GBu6SBuDCBtTElMCMGCSqGSIb3DQEJARYWYXZlcmdhcmFAbWlucmVsLmdvdi5jbDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgTDU1ldHJvcG9saXRhbmExETAPBgNVBAcTCFNhbnRpYWdvMSwwKgYDVQQKEyNNaW5pc3RlcmlvIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEOMAwGA1UECxMFRElORk8xFjAUBgNVBAMTDUNBIFJvb3QgTVJSRUWCEHGunWXjP9eGTdOjQgaY48cwggFxBgNVHR8EggFoMIIBZDCBy6CByKCBxYaBwmxkYXA6Ly8vQ049Q0ElMjBSb290JTIwTVJSRUUoMiksQ049c2NsLWRjLTAyLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPW1pbnJlbCxEQz1nb3YsREM9Y2w/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdGNsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MEigRqBEhkJodHRwOi8vc2NsLWRjLTAyLm1pbnJlbC5nb3YuY2wvQ2VydEVucm9sbC9DQSUyMFJvb3QlMjBNUlJFRSgyKS5jcmwwSqBIoEaGRGZpbGU6Ly9cXHNjbC1kYy0wMi5taW5yZWwuZ292LmNsXENlcnRFbnJvbGxcQ0ElMjBSb290JTIwTVJSRUUoMikuY3JsMIIBnAYIKwYBBQUHAQEEggGOMIIBijCBtQYIKwYBBQUHMAKGgahsZGFwOi8vL0NOPUNBJTIwUm9vdCUyME1SUkVFLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPW1pbnJlbCxEQz1nb3YsREM9Y2w/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdGNsYXNzPWNlcnRpZmljYXRpb25BdXRob3JpdHkwZgYIKwYBBQUHMAKGWmh0dHA6Ly9zY2wtZGMtMDIubWlucmVsLmdvdi5jbC9DZXJ0RW5yb2xsL3NjbC1kYy0wMi5taW5yZWwuZ292LmNsX0NBJTIwUm9vdCUyME1SUkVFKDMpLmNydDBoBggrBgEFBQcwAoZcZmlsZTovL1xcc2NsLWRjLTAyLm1pbnJlbC5nb3YuY2xcQ2VydEVucm9sbFxzY2wtZGMtMDIubWlucmVsLmdvdi5jbF9DQSUyMFJvb3QlMjBNUlJFRSgzKS5jcnQwKQYDVR0lBCIwIAYKKwYBBAGCNwoDBAYIKwYBBQUHAwQGCCsGAQUFBwMCME0GA1UdEQRGMESgKAYKKwYBBAGCNxQCA6AaDBhoYXN0dWRpbGxvQG1pbnJlbC5nb3YuY2yBGGhhc3R1ZGlsbG9AbWlucmVsLmdvdi5jbDANBgkqhkiG9w0BAQUFAAOBgQBc0Olq/odi+qQozxKI+mMkOyp6o+bAv0wpRAH2G56jUbUT3d0sOmYoysSHTq9MODGYbmOlSEtp45AfAdqoiZsgAjMafkin8AYqYSIHo6PwBvoZhfdoSu/VZFh/I3THkEPKZVO5reP1x5hQsP105lVvjEHiPTHSBZvbYf8tovL/dw==</X509Certificate></X509Data></KeyInfo></Signature></memo>\n"
+    - "1"
+    - OIP
+    - Jefe de Proyecto
+    - "Hern\xC3\xA1n Astudillo"
+    - "4"
+    - "3"
+    - "Subsecretar\xC3\xADa de Relaciones Exteriores"
+    - Administrativo
+    - Juan Perez
+    - 
+    - false
+    - true
+    - 
+    - true
+    - 
+    - SUBSEC
+    - "2"
+  - - "21"
+    - "2"
+    - 
+    - aaaa
+    - "3"
+    - "1"
+    - "2"
+    - 2008-11-25 17:37:55.005129
+    - 2008-11-25 19:49:16.099647
+    - 
+    - "26"
+    - "1"
+    - 
+    - 
+    - false
+    - "texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto "
+    - "<memo xsi:schemaLocation=\"http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://esquemas.minrel.gov.cl/2008/1\">\n    <id>21</id>\n    <origen>\n        <entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id=\"2\">Jefe de Proyecto</cargo>\n            <persona id=\"1\">Hern\xC3\xA1n Astudillo</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id=\"4\" sigla=\"SUBSEC\">Subsecretar\xC3\xADa de Relaciones Exteriores</entidad>\n        <puesto>\n            <cargo id=\"3\">Administrativo</cargo>\n            <persona id=\"3\">Juan Perez</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio id=\"21\">\n        <entidad>OIP</entidad>\n        <numero>26</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>aaaa</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>archivar</accion>\n    <fecha> 5:37 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto </cuerpo>\n    <referencia id=\"33\">\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      <distribucion><entidad id=\"3\" sigla=\"MINGAB\">Gabinete del Ministro</entidad><accion>archivar</accion></distribucion><distribucion><entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad><accion>aceptar</accion></distribucion><distribucion><entidad id=\"4\" sigla=\"SUBSEC\">Subsecretar\xC3\xADa de Relaciones Exteriores</entidad><accion>revisar</accion></distribucion><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\" /><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" /><Reference URI=\"\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\" /></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" /><DigestValue>O1NHaZPudo5BnxVgRIheenUgXdQ=</DigestValue></Reference></SignedInfo><SignatureValue>Nwx7AwFXo3tuynAbP3vBM0JW8+/PV+FNFNfmldin7V0ynski2vrGBfPYBgvFlF44SbWQqHXRDSHPVvMCMdrssbzS2dyIM5tfNl22nlC2YaCqxO01Q+dt9qtbCj8YIpGx4+ahzFYEbVB38HD21fqtf2KfWmBdcbXmqCGkS0TSUxs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>stjufUlNzDMpzfyUq+MpwTMb3naa3QZ7cbfz4JrEH/2re2UrHHK7MEeiA7FoWXEKrMKeqDBKn1srz3ia2fKJrXnGOLmj9IYV370FcOrocuDgC38xvdHeHncO9WFMRj87Yx0Uimot+zHEuo8qaskhi94jj1TMXNRcfOjaLfAIs6U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509SubjectName>CN=Hernan Astudillo, E=hastudillo@minrel.gov.cl</X509SubjectName><X509Certificate>MIIHRzCCBrCgAwIBAgIKFKUBvgADAAAESTANBgkqhkiG9w0BAQUFADCBtTElMCMGCSqGSIb3DQEJARYWYXZlcmdhcmFAbWlucmVsLmdvdi5jbDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgTDU1ldHJvcG9saXRhbmExETAPBgNVBAcTCFNhbnRpYWdvMSwwKgYDVQQKEyNNaW5pc3RlcmlvIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEOMAwGA1UECxMFRElORk8xFjAUBgNVBAMTDUNBIFJvb3QgTVJSRUUwHhcNMDgxMDAyMjEzNTEyWhcNMDkxMDAyMjEzNTEyWjBEMScwJQYJKoZIhvcNAQkBFhhoYXN0dWRpbGxvQG1pbnJlbC5nb3YuY2wxGTAXBgNVBAMTEEhlcm5hbiBBc3R1ZGlsbG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALLY7n1JTcwzKc38lKvjKcEzG952mt0Ge3G38+CaxB/9q3tlKxxyuzBHogOxaFlxCqzCnqgwSp9bK894mtnyia15xji5o/SGFd+9BXDq6HLg4At/Mb3R3h53DvVhTEY/O2MdFIpqLfsxxLqPKmrJIYveI49UzFzUXHzo2i3wCLOlAgMBAAGjggTMMIIEyDALBgNVHQ8EBAMCBaAwFwYJKwYBBAGCNxQCBAoeCABVAHMAZQByMB0GA1UdDgQWBBRdhJldWf2ZFMkSZxzHAUmrH513jjCB8QYDVR0jBIHpMIHmgBR2g3QE5BYcVZlhHixU5DjgCbRVU6GBu6SBuDCBtTElMCMGCSqGSIb3DQEJARYWYXZlcmdhcmFAbWlucmVsLmdvdi5jbDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgTDU1ldHJvcG9saXRhbmExETAPBgNVBAcTCFNhbnRpYWdvMSwwKgYDVQQKEyNNaW5pc3RlcmlvIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEOMAwGA1UECxMFRElORk8xFjAUBgNVBAMTDUNBIFJvb3QgTVJSRUWCEHGunWXjP9eGTdOjQgaY48cwggFxBgNVHR8EggFoMIIBZDCBy6CByKCBxYaBwmxkYXA6Ly8vQ049Q0ElMjBSb290JTIwTVJSRUUoMiksQ049c2NsLWRjLTAyLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPW1pbnJlbCxEQz1nb3YsREM9Y2w/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdGNsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MEigRqBEhkJodHRwOi8vc2NsLWRjLTAyLm1pbnJlbC5nb3YuY2wvQ2VydEVucm9sbC9DQSUyMFJvb3QlMjBNUlJFRSgyKS5jcmwwSqBIoEaGRGZpbGU6Ly9cXHNjbC1kYy0wMi5taW5yZWwuZ292LmNsXENlcnRFbnJvbGxcQ0ElMjBSb290JTIwTVJSRUUoMikuY3JsMIIBnAYIKwYBBQUHAQEEggGOMIIBijCBtQYIKwYBBQUHMAKGgahsZGFwOi8vL0NOPUNBJTIwUm9vdCUyME1SUkVFLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPW1pbnJlbCxEQz1nb3YsREM9Y2w/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdGNsYXNzPWNlcnRpZmljYXRpb25BdXRob3JpdHkwZgYIKwYBBQUHMAKGWmh0dHA6Ly9zY2wtZGMtMDIubWlucmVsLmdvdi5jbC9DZXJ0RW5yb2xsL3NjbC1kYy0wMi5taW5yZWwuZ292LmNsX0NBJTIwUm9vdCUyME1SUkVFKDMpLmNydDBoBggrBgEFBQcwAoZcZmlsZTovL1xcc2NsLWRjLTAyLm1pbnJlbC5nb3YuY2xcQ2VydEVucm9sbFxzY2wtZGMtMDIubWlucmVsLmdvdi5jbF9DQSUyMFJvb3QlMjBNUlJFRSgzKS5jcnQwKQYDVR0lBCIwIAYKKwYBBAGCNwoDBAYIKwYBBQUHAwQGCCsGAQUFBwMCME0GA1UdEQRGMESgKAYKKwYBBAGCNxQCA6AaDBhoYXN0dWRpbGxvQG1pbnJlbC5nb3YuY2yBGGhhc3R1ZGlsbG9AbWlucmVsLmdvdi5jbDANBgkqhkiG9w0BAQUFAAOBgQBc0Olq/odi+qQozxKI+mMkOyp6o+bAv0wpRAH2G56jUbUT3d0sOmYoysSHTq9MODGYbmOlSEtp45AfAdqoiZsgAjMafkin8AYqYSIHo6PwBvoZhfdoSu/VZFh/I3THkEPKZVO5reP1x5hQsP105lVvjEHiPTHSBZvbYf8tovL/dw==</X509Certificate></X509Data></KeyInfo></Signature></memo>\n"
+    - "1"
+    - OIP
+    - Jefe de Proyecto
+    - "Hern\xC3\xA1n Astudillo"
+    - "4"
+    - "3"
+    - "Subsecretar\xC3\xADa de Relaciones Exteriores"
+    - Administrativo
+    - Juan Perez
+    - 
+    - false
+    - true
+    - 
+    - true
+    - 
+    - SUBSEC
+    - "2"
+  - - "22"
+    - "2"
+    - 
+    - aaaa
+    - "3"
+    - "1"
+    - "2"
+    - 2008-11-25 19:33:05
+    - 2008-11-25 19:33:05.287023
+    - 
+    - "25"
+    - "1"
+    - 
+    - 
+    - false
+    - aaaa
+    - "<memo xsi:schemaLocation='http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://esquemas.minrel.gov.cl/2008/1'>\n    <id/>\n    <origen>\n        <entidad id='2' sigla='OIP'>Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id='2'>Jefe de Proyecto</cargo>\n            <persona id='1'>Hern\xC3\xA1n Astudillo</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id='1' sigla='DINFO'>Direcci\xC3\xB3n de Inform\xC3\xA1tica</entidad>\n        <puesto>\n            <cargo id='5'>Jefe de Proyecto</cargo>\n            <persona id='7'>Alejandro Vergara</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio>\n        <entidad>OIP</entidad>\n        <numero>25</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>aaaa</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>archivar</accion>\n    <fecha> 7:33 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>aaaa</cuerpo>\n    <referencia id='33'>\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      </memo>\n"
+    - "1"
+    - OIP
+    - Jefe de Proyecto
+    - "Hern\xC3\xA1n Astudillo"
+    - "1"
+    - "5"
+    - "Direcci\xC3\xB3n de Inform\xC3\xA1tica"
+    - Jefe de Proyecto
+    - Alejandro Vergara
+    - 
+    - false
+    - false
+    - 
+    - true
+    - 
+    - DINFO
+    - "2"
+  - - "23"
+    - "2"
+    - 
+    - lalala
+    - "3"
+    - "1"
+    - "1"
+    - 2008-11-25 20:23:53
+    - 2008-11-25 20:24:03.055332
+    - 
+    - "28"
+    - "1"
+    - 
+    - 
+    - false
+    - aaaaaa
+    - "<memo xsi:schemaLocation='http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://esquemas.minrel.gov.cl/2008/1'>\n    <id/>\n    <origen>\n        <entidad id='2' sigla='OIP'>Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id='3'>coordinador</cargo>\n            <persona id='6'>Manuel Galaz</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id='2' sigla='OIP'>Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id='1'>Jefe de Proyecto</cargo>\n            <persona id='1'>Hern\xC3\xA1n Astudillo</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio>\n        <entidad>OIP</entidad>\n        <numero>28</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>lalala</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>revisar</accion>\n    <fecha> 8:23 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>aaaaaa</cuerpo>\n    <referencia id='33'>\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      </memo>\n"
+    - "6"
+    - OIP
+    - coordinador
+    - Manuel Galaz
+    - "2"
+    - "1"
+    - "Oficina de Ingenier\xC3\xADa de Proyectos"
+    - Jefe de Proyecto
+    - "Hern\xC3\xA1n Astudillo"
+    - 
+    - true
+    - false
+    - 
+    - true
+    - 
+    - OIP
+    - "2"
+  - - "24"
+    - "2"
+    - 
+    - aaaa
+    - "13"
+    - "1"
+    - "1"
+    - 2008-11-25 20:25:52.452787
+    - 2008-11-25 20:25:52.452787
+    - 
+    - "30"
+    - "1"
+    - 
+    - 
+    - false
+    - aaaa
+    - 
+    - "6"
+    - 
+    - 
+    - 
+    - 
+    - "5"
+    - 
+    - 
+    - 
+    - 
+    - false
+    - false
+    - 
+    - false
+    - 
+    - 
+    - 
+  - - "25"
+    - "2"
+    - 
+    - prueba de memo
+    - "3"
+    - "1"
+    - "1"
+    - 2008-11-25 20:57:54
+    - 2008-11-25 20:58:03.507244
+    - 
+    - "33"
+    - "1"
+    - 
+    - 
+    - false
+    - bl bla bla
+    - "<memo xsi:schemaLocation='http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://esquemas.minrel.gov.cl/2008/1'>\n    <id/>\n    <origen>\n        <entidad id='2' sigla='OIP'>Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id='2'>Jefe de Proyecto</cargo>\n            <persona id='1'>Hern\xC3\xA1n Astudillo</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id='2' sigla='OIP'>Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id='6'>coordinador</cargo>\n            <persona id='6'>Manuel Galaz</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio>\n        <entidad>OIP</entidad>\n        <numero>33</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>prueba de memo</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>revisar</accion>\n    <fecha> 8:57 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>bl bla bla</cuerpo>\n    <referencia id='33'>\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      <distribucion><entidad id='4' sigla='SUBSEC'>Subsecretar\xC3\xADa de Relaciones Exteriores</entidad><accion>conocimiento</accion></distribucion><distribucion><entidad id='2' sigla='OIP'>Oficina de Ingenier\xC3\xADa de Proyectos</entidad><accion>archivar</accion></distribucion></memo>\n"
+    - "1"
+    - OIP
+    - Jefe de Proyecto
+    - "Hern\xC3\xA1n Astudillo"
+    - "2"
+    - "6"
+    - "Oficina de Ingenier\xC3\xADa de Proyectos"
+    - coordinador
+    - Manuel Galaz
+    - 
+    - true
+    - false
+    - 
+    - true
+    - 
+    - OIP
+    - "2"
+  - - "26"
+    - "1"
+    - 
+    - compra sisco
+    - "3"
+    - "1"
+    - "3"
+    - 2008-11-25 21:02:48
+    - 2008-11-25 21:14:29.831209
+    - 
+    - "1234"
+    - "1"
+    - 
+    - 
+    - false
+    - bla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA bla
+    - "<memo xsi:schemaLocation=\"http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://esquemas.minrel.gov.cl/2008/1\">\n    <id />\n    <origen>\n        <entidad id=\"1\" sigla=\"DINFO\">Direcci\xC3\xB3n de Inform\xC3\xA1tica</entidad>\n        <puesto>\n            <cargo id=\"3\">Director</cargo>\n            <persona id=\"8\">Carlos Fuentes Barrientos</persona>\n        </puesto>\n    </origen>\n    <destinatario>\n        <entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad>\n        <puesto>\n            <cargo id=\"6\">coordinador</cargo>\n            <persona id=\"6\">Manuel Galaz</persona>\n        </puesto>\n    </destinatario>\n    \n    <folio>\n        <entidad>DINFO</entidad>\n        <numero>1234</numero>\n        <agno>2008</agno>\n    </folio>\n    <materia>compra sisco</materia>\n    <clasificacion>PUBLICO</clasificacion>\n    <accion>conocimiento</accion>\n    <fecha> 9:02 PM, 25 Nov 08</fecha>\n    <tags></tags>\n    <cuerpo>bla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA blabla BLA bla</cuerpo>\n    <referencia id=\"33\">\n        <entidad>OIP</entidad>\n        <numero>11</numero>\n        <agno>2008</agno>\n    </referencia>\n\
+      <distribucion><entidad id=\"1\" sigla=\"DINFO\">Direcci\xC3\xB3n de Inform\xC3\xA1tica</entidad><accion>archivar</accion></distribucion><distribucion><entidad id=\"2\" sigla=\"OIP\">Oficina de Ingenier\xC3\xADa de Proyectos</entidad><accion>conocimiento</accion></distribucion><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\" /><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" /><Reference URI=\"\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\" /></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" /><DigestValue>rovxvacU+rUc8qY1OkbbwSOPVaA=</DigestValue></Reference></SignedInfo><SignatureValue>Yc4BuyoUHd1eNF5pRIfr/6bGmXuGegH5Ehp/gh/pKW05igCJKlZf7v8iFsbLqhUJ+KBrORwI5FuAKk1Xv2oynKtPwkra7M7Pd16hVugCIExDcug4KV2IBzDC/5guQkqfaaqcXubRFQ6gmIYZzzJvactlZw7BBQx1uu8PD6V37zs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>ynhYbn1+hbiX4zNGME2NwYLpS1vUy1one7YfE/ViRg40YwVUZvd94gwKIk6BgMYKeKmZoMEn/y+3ASWutS68hC8SIQA7S0aWLUz/8JOCuAQFF1Re/K5wsd6y9UkixwfQeE+YLj0hH6k5OVfbDDmBZEFeL+MTS81+mWrAXj6Nj5E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509SubjectName>E=cfuentesb@minrel.gov.cl, CN=Carlos Iv\xC3\xA1n Fuentes Barrientos, OU=Direcci\xC3\xB3n de Inform\xC3\xA1tica, O=Subsecretar\xC3\xADa de Relaciones Exteriores, L=Santiago, S=Metropolitana, C=CL</X509SubjectName><X509Certificate>MIIE7TCCBFagAwIBAgIEAQBG4jANBgkqhkiG9w0BAQUFADCBtTELMAkGA1UEBhMCQ0wxHTAbBgNVBAgUFFJlZ2lvbiBNZXRyb3BvbGl0YW5hMREwDwYDVQQHFAhTYW50aWFnbzEUMBIGA1UEChQLRS1DRVJUQ0hJTEUxIDAeBgNVBAsUF0F1dG9yaWRhZCBDZXJ0aWZpY2Fkb3JhMRcwFQYDVQQDFA5FLUNFUlRDSElMRSBDQTEjMCEGCSqGSIb3DQEJARYUZW1haWxAZS1jZXJ0Y2hpbGUuY2wwHhcNMDgxMTIwMTYwMjU2WhcNMTExMTIwMDEwMDAwWjCB3TELMAkGA1UEBhMCQ0wxFjAUBgNVBAgUDU1ldHJvcG9saXRhbmExETAPBgNVBAcUCFNhbnRpYWdvMS8wLQYDVQQKFCZTdWJzZWNyZXRhcu1hIGRlIFJlbGFjaW9uZXMgRXh0ZXJpb3JlczEhMB8GA1UECxQYRGlyZWNjafNuIGRlIEluZm9ybeF0aWNhMScwJQYDVQQDFB5DYXJsb3MgSXbhbiBGdWVudGVzIEJhcnJpZW50b3MxJjAkBgkqhkiG9w0BCQEWF2NmdWVudGVzYkBtaW5yZWwuZ292LmNsMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKeFhufX6FuJfjM0YwTY3BgulLW9TLWid7th8T9WJGDjRjBVRm933iDAoiToGAxgp4qZmgwSf/L7cBJa61LryELxIhADtLRpYtTP/wk4K4BAUXVF78rnCx3rL1SSLHB9B4T5guPSEfqTk5V9sMOYFkQV4v4xNLzX6ZasBePo2PkQIDAQABo4IB3jCCAdowIwYDVR0RBBwwGqAYBggrBgEEAcEBAaAMFgoxMjE5NDI3NS01MAkGA1UdEwQCMAAwPAYDVR0fBDUwMzAxoC+gLYYraHR0cDovL2NybC5lLWNlcnRjaGlsZS5jbC9lLWNlcnRjaGlsZWNhLmNybDAjBgNVHRIEHDAaoBgGCCsGAQQBwQECoAwWCjk2OTI4MTgwLTUwHwYDVR0jBBgwFoAU4Cj90uBgT7NG6xrM9QiRB3I6HQgwggEVBgNVHSAEggEMMIIBCDCCAQQGCCsGAQQBw1IFMIH3MDYGCCsGAQUFBwIBFipodHRwOi8vd3d3LmUtY2VydGNoaWxlLmNsL3BvbGl0aWNhL2Nwcy5odG0wgbwGCCsGAQUFBwICMIGvGoGsQ2VydGlmaWNhZG8gZW1pdGlkbyBwYXJhIEZpcm1hIEVsZWN0cm9uaWNhIEF2YW56YWRhLiBQU0MgYWNyZWRpdGFkbyBwb3IgUmVzb2x1Y2lvbiBBZG1pbmlzdHJhdGl2YSBFeGVudGEgTnJvLiAzMTcgZGVsIDE0IGRlIGFnb3N0byBkZWwgMjAwMyBkZSBsYSBTdWJzZWNyZXRhcmlhIGRlIEVjb25vbWlhLjALBgNVHQ8EBAMCBPAwDQYJKoZIhvcNAQEFBQADgYEAPSIrAIlE/oRNGHFsVN/CvSQXY3KmobNNHqW9pqjeprT6VO4oR8K6kKBwsHefc8O/Y6zSqN1VS2TWGwOYKrvhWI4Qcx0ZhYufXvCHW1F8hoqWCnMPxXktHFOP3Q6xXBS96drv8a2Ito4yjjnACAxazEmrVNDkU9UScXxGdhYPBgc=</X509Certificate></X509Data></KeyInfo></Signature></memo>\n"
+    - "8"
+    - DINFO
+    - Director
+    - Carlos Fuentes Barrientos
+    - "2"
+    - "6"
+    - "Oficina de Ingenier\xC3\xADa de Proyectos"
+    - coordinador
+    - Manuel Galaz
+    - 
+    - false
+    - true
+    - 
+    - true
+    - 
+    - OIP
+    - "1"
+  - - "27"
+    - "1"
+    - 
+    - otra prueba
+    - "1"
+    - "1"
+    - "5"
+    - 2008-12-01 18:49:45.558329
+    - 2008-12-01 18:50:36.788676
+    - 
+    - "1236"
+    - "1"
+    - 
+    - 
+    - false
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - "8"
+    - 
+    - 
+    - 
+    - 
+    - false
+    - false
+    - 
+    - false
+    - 
+    - 
+    - 
+  - - "28"
+    - "5"
+    - 
+    - asd
+    - "1"
+    - "1"
+    - "2"
+    - 2008-12-01 19:23:52.537635
+    - 2008-12-01 19:23:52.537635
+    - 
+    - "1237"
+    - "1"
+    - 
+    - 
+    - false
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - "5"
+    - 
+    - 
+    - 
+    - 
+    - false
+    - false
+    - 
+    - false
+    - 
+    - 
+    - 
+
+--- 
+copias_guias: 
+  columns: 
+  - id
+  - copia_id
+  - guia_id
+  records: 
+  - - "60"
+    - "60"
+    - "15"
+  - - "61"
+    - "61"
+    - "15"
+  - - "62"
+    - "62"
+    - "15"
+
+--- 
+trazas: 
+  columns: 
+  - id
+  - copia_id
+  - movimiento_id
+  - created_at
+  - usuario_id
+  - buzon_id
+  records: 
+  - - "21"
+    - 
+    - "4"
+    - 2008-09-11 23:13:50.536912
+    - "1"
+    - "1"
+  - - "22"
+    - 
+    - "4"
+    - 2008-09-11 23:13:50.618178
+    - "1"
+    - "1"
+  - - "39"
+    - "51"
+    - "10"
+    - 2008-11-25 19:47:58.855476
+    - "1"
+    - "1"
+  - - "40"
+    - "52"
+    - "10"
+    - 2008-11-25 19:47:58.898141
+    - "1"
+    - "1"
+  - - "41"
+    - "53"
+    - "10"
+    - 2008-11-25 19:47:58.900951
+    - "1"
+    - "1"
+  - - "42"
+    - "49"
+    - "10"
+    - 2008-11-25 19:48:11.300343
+    - "1"
+    - "1"
+  - - "43"
+    - "50"
+    - "10"
+    - 2008-11-25 19:48:11.307383
+    - "1"
+    - "1"
+  - - "44"
+    - "50"
+    - "2"
+    - 2008-11-25 19:49:36.073542
+    - "1"
+    - "1"
+  - - "45"
+    - "52"
+    - "2"
+    - 2008-11-25 19:49:37.646649
+    - "1"
+    - "1"
+  - - "46"
+    - "52"
+    - "3"
+    - 2008-11-25 19:51:26.090538
+    - "1"
+    - "1"
+  - - "47"
+    - "52"
+    - "11"
+    - 2008-11-25 19:51:54.2353
+    - "1"
+    - "1"
+  - - "48"
+    - "54"
+    - "10"
+    - 2008-11-25 20:26:22.721502
+    - "1"
+    - "1"
+  - - "49"
+    - "55"
+    - "10"
+    - 2008-11-25 20:26:22.729628
+    - "1"
+    - "1"
+  - - "50"
+    - 
+    - "12"
+    - 2008-11-25 20:57:55.076942
+    - "1"
+    - "1"
+  - - "51"
+    - 
+    - "12"
+    - 2008-11-25 20:57:55.084387
+    - "1"
+    - "1"
+  - - "52"
+    - 
+    - "12"
+    - 2008-11-25 21:02:48.847536
+    - "1"
+    - "1"
+  - - "53"
+    - 
+    - "12"
+    - 2008-11-25 21:02:48.854706
+    - "1"
+    - "1"
+  - - "54"
+    - "58"
+    - "2"
+    - 2008-12-01 19:10:13.305282
+    - "1"
+    - "1"
+  - - "55"
+    - "58"
+    - "3"
+    - 2008-12-01 19:10:15.076214
+    - "1"
+    - "1"
+  - - "56"
+    - "60"
+    - "4"
+    - 2008-12-01 19:23:52.511831
+    - "1"
+    - "1"
+  - - "57"
+    - "61"
+    - "4"
+    - 2008-12-01 19:23:52.519652
+    - "1"
+    - "1"
+  - - "58"
+    - "62"
+    - "4"
+    - 2008-12-01 19:23:52.522475
+    - "1"
+    - "1"
+
+--- 
+guias: 
+  columns: 
+  - id
+  - created_at
+  - updated_at
+  - buzon_id
+  records: 
+  - - "3"
+    - 2008-08-25 19:09:00.258982
+    - 2008-08-25 19:09:00.258982
+    - 
+  - - "13"
+    - 2008-11-17 18:51:56.226112
+    - 2008-11-17 18:51:56.226112
+    - "2"
+  - - "14"
+    - 2008-11-17 19:26:43.543414
+    - 2008-11-17 19:26:43.543414
+    - "2"
+  - - "15"
+    - 2008-12-01 19:24:11.79144
+    - 2008-12-01 19:24:11.79144
+    - "1"
+
+--- 
+estados: 
+  columns: 
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - salida
+    - 2008-08-07 21:16:30.126283
+    - 2008-08-07 21:16:30.126283
+  - - "2"
+    - en ruta
+    - 2008-08-07 21:17:01.698679
+    - 2008-08-07 21:17:01.698679
+  - - "3"
+    - entrada
+    - 2008-08-07 21:17:09.579392
+    - 2008-08-07 21:17:09.579392
+  - - "4"
+    - revisado
+    - 2008-08-07 21:17:14.3358
+    - 2008-08-07 21:41:20.501476
+  - - "5"
+    - archivado
+    - 2008-08-11 17:06:15.971912
+    - 2008-08-11 17:06:15.971912
+  - - "6"
+    - reenvio
+    - 2008-09-03 15:57:14.808152
+    - 2008-09-03 15:57:14.808152
+
+--- 
+movimientos: 
+  columns: 
+  - id
+  - nombre
+  records: 
+  - - "1"
+    - Enviado
+  - - "2"
+    - Recepcionado
+  - - "3"
+    - Archivado
+  - - "4"
+    - Ingresado
+  - - "7"
+    - Asignado
+  - - "8"
+    - Reenviado
+  - - "9"
+    - Referenciado
+  - - "10"
+    - Editado
+  - - "11"
+    - Desarchivado
+  - - "12"
+    - Creado
+  - - "13"
+    - Firmado
+
+--- 
+puestos: 
+  columns: 
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  - buzon_id
+  - usuario_id
+  - cargo_id
+  - opartes
+  - firmante
+  - editor
+  records: 
+  - - "1"
+    - Jefe de Proyecto
+    - 2008-08-06 20:20:52.371272
+    - 2008-12-02 14:26:21.77547
+    - "1"
+    - "1"
+    - "2"
+    - true
+    - false
+    - true
+  - - "2"
+    - WebMaster
+    - 2008-08-06 20:59:00.403796
+    - 2008-11-13 01:00:09.2423
+    - "2"
+    - "2"
+    - "1"
+    - true
+    - true
+    - true
+  - - "3"
+    - Administrativo
+    - 2008-08-25 18:53:36.425945
+    - 2008-11-12 20:45:22.067528
+    - "4"
+    - "3"
+    - "1"
+    - true
+    - false
+    - false
+  - - "4"
+    - Coordinador
+    - 2008-11-13 01:19:54.92661
+    - 2008-11-13 01:19:54.92661
+    - "4"
+    - "4"
+    - "1"
+    - true
+    - false
+    - true
+  - - "5"
+    - Jefe de Proyecto
+    - 2008-11-13 01:21:41.282859
+    - 2008-11-13 01:21:41.282859
+    - "1"
+    - "7"
+    - "1"
+    - true
+    - true
+    - true
+  - - "6"
+    - coordinador
+    - 2008-11-25 20:02:53.684661
+    - 2008-11-25 20:02:53.684661
+    - "2"
+    - "6"
+    - "3"
+    - false
+    - true
+    - false
+  - - "7"
+    - Desarrollador
+    - 2008-11-25 20:03:16.728065
+    - 2008-11-25 20:03:16.728065
+    - "2"
+    - "5"
+    - "5"
+    - false
+    - false
+    - true
+  - - "8"
+    - Director
+    - 2008-11-25 20:44:59.302574
+    - 2008-11-25 20:59:46.817642
+    - "1"
+    - "8"
+    - "3"
+    - true
+    - true
+    - true

@@ -1,0 +1,97 @@
+<div id="234" class="active-scaffold">
+    <div class="create-view registro-view view">
+        <form action="/registro/create" class="create" id="registro-create--form" method="post">
+            <h4>Crear Registro</h4>
+            <ol class="form">
+            <li class="form-element ">
+                <dl>
+                    <dt>
+                        <label for="record_login_">Correo institucional</label>
+                    </dt>
+                    <dd>
+                        <input autocomplete="off" class="login-input text-input" id="record_login_" name="record[login]" size="15" maxlength="30" type="text" /><span style="font-weight: bold; ">@minrel.gov.cl</span>
+                    </dd>
+                </dl>
+            </li>
+            <li class="form-element ">
+                <dl>
+                    <dt>
+                        <label for="record_password_">Contraseña</label>
+                    </dt>
+                    <dd>
+                        <input autocomplete="off" class="password-input text-input" id="record_password_" name="record[password]" size="30" type="password" />
+                    </dd>
+                </dl>
+            </li>
+            <li class="form-element ">
+                <dl>
+                    <dt>
+                        <label for="record_password_confirmation_">Repita su contraseña</label>
+                    </dt>
+                    <dd>
+                        <input autocomplete="off" class="password_confirmation-input text-input" id="record_password_confirmation_" name="record[password_confirmation]" size="30" type="password" />
+                    </dd>
+                </dl>
+            </li>
+			</ol>
+			<br/>
+			<h5>Puesto de Trabajo</h5>
+			<ol class="form">
+            <li class="form-element ">
+                <dl class="">
+                    <dt>
+                        <label for="record_nombre_">Nombre del puesto</label>
+                    </dt>
+                    <dd>
+                        <input autocomplete="off" class="login-input text-input" id="record_nombre_" name="record[puesto][nombre]" size="30" type="text" />
+                    </dd>
+                </dl>
+            </li>
+            <li class="form-element ">
+                <dl class="">
+                    <dt>
+                        <label for="record_cargo_">
+                            Categoría del cargo
+                        </label>
+                    </dt>
+                    <dd>
+                        <select class="cargo-input" id="record_cargo_" name="record[puesto][cargo][id]">
+                            <option value="">- seleccionar -</option>
+                            <option value="1">Administrativo</option>
+                            <option value="5">Analista</option>
+                            <option value="3">Director</option>
+                            <option value="2">Oficina de Partes</option>
+                            <option value="4">Subdirector</option>
+                        </select>
+                    </dd>
+                </dl>
+            </li>
+            <li class="form-element ">
+                <dl class="">
+                    <dt>
+                        <label for="record_cargo_">
+                            Categoría del cargo
+                        </label>
+                    </dt>
+                    <dd>
+                    	<%= select @record, "puesto", Buzon.find(:all, :conditions => "externo = false").collect{|p| [p.sigla + " - " + p.nombre, p.id]} %>
+                        
+                    </dd>
+                </dl>
+            </li>
+
+        </ol>
+        <p class="form-footer">
+            <input class="submit" name="commit" type="submit" value="Crear" /><a href="/registro" class="cancel">Cancelar</a>
+            <img alt="loading indicator" class="loading-indicator" id="registro-create-loading-indicator" src="/images/active_scaffold/default/indicator.gif?1228571885" style="visibility:hidden;"/>
+        </p>
+        </form>
+        <script type="text/javascript">
+            Form.focusFirstElement('registro-create--form');
+        </script>
+		<script type="text/javascript">
+Rico.Corner.round($$('#234').first(), {color: 'fromElement', bgColor: 'fromParent', compact: false});
+</script>
+
+    </div>
+</div>

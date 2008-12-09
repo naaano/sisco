@@ -4,7 +4,7 @@ class GuiasController < ApplicationController
     config.create.columns = :copias
     config.show.columns = [:id, :created_at, :cantidad, :copias]
     config.columns[:copias].form_ui = :checkbox
-    
+    config.actions.exclude :update
     config.action_links.add 'Hoja', :type => :record, 
     :action => "hoja",
     :popup => true, 
@@ -25,6 +25,7 @@ class GuiasController < ApplicationController
         c.estado_id = 2 # en ruta
         c.buzon_id = c.destinatario_id
         c.save!
+        Traza.create(:copia_id => record.id, :movimiento_id => 1, :usuario => current_user, :buzon_id => current_user.puesto.buzon_id)
         record.copias.push c
       end
     end

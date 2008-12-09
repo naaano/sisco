@@ -4,6 +4,10 @@ class Puesto < ActiveRecord::Base
   has_many :rotaciones
   belongs_to :buzon
   
+  validates_presence_of :buzon
+  validates_presence_of :cargo
+  validates_length_of :nombre, :within => 4..100, :too_short => "es el nombre que recibe tu función, por ejemplo Secretaria, Editor, Webmaster, coordinador, etc.", :too_long => "podría ser un poquito más corto?"
+  
   def to_s
     nombre
   end
@@ -16,6 +20,7 @@ class Puesto < ActiveRecord::Base
     opartes :boolean, :default => false
     firmante :boolean, :default => false
     editor :boolean, :default => false
+    ingreso_papel :boolean, :default => false
     
     timestamps
   end

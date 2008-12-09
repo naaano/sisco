@@ -1,0 +1,2 @@
+module TrazasHelper
+end

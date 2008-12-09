@@ -24,6 +24,7 @@ body {
 	height: 350px;
 	padding: 0;
 	background: url(../images/document_markup.gif) left no-repeat;
+	padding-left: 320px;
 }
 #login_form{
 	width: 400px;
@@ -61,6 +62,18 @@ body {
 	color: grey;
 	vertical-align: middle;
 }
+.anuncio{
+	border: 1px solid red;
+	padding: 8px;
+	margin: 3px;
+	background-color: #FF8;
+}
+/* truco para desaparecer el boton reemplazar con nuevo de AS para el puesto en el registro */
+.active-scaffold .sub-form .footer-wrapper{
+	display: none;
+}
+
+
 /*
 	Pantalla principal
 */

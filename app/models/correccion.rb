@@ -10,5 +10,9 @@ class Correccion < ActiveRecord::Base
     usuario_id :integer
     timestamps
   end
+  
+  def to_label 
+    descripcion.size > 100 ? descripcion[0..100] + "..." : descripcion
+  end
 
 end

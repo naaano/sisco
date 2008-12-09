@@ -8,6 +8,7 @@ class NotasController < ApplicationController
     
     config.create.columns = :texto
     config.columns[:texto].form_ui = :textarea
+    config.columns[:texto].options = {:cols => 70, :rows => 10}
   end
   
   def before_create_save(record)

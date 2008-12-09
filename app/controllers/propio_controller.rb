@@ -13,6 +13,12 @@ class PropioController < ApplicationController
                                     :popup => true,
                                     :controller => 'docxml',
                                     :action => 'ver_copia'
+    config.action_links.add "firmar", :type => :record, 
+            :controller => 'firma', :action => 'firmar', :page => true, :parameters => {:copia => 1}
+  end
+  
+  def firmar_authorized?
+    return current_user.es_firmante?
   end
   
   def conditions_for_collection
