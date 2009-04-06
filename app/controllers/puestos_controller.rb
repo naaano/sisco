@@ -1,11 +1,11 @@
 class PuestosController < ApplicationController
-
+  
   record_select :per_page => 5, 
-                :search_on => ["puestos.nombre", "buzones.sigla" ], 
-                :include => :buzon, 
-                :full_text_search => true, 
-                :label => :full_label, 
-                :order_by => "buzones.sigla" 
+  :search_on => ["puestos.nombre", "buzones.sigla", "buzones.nombre" ], 
+  :include => :buzon ,
+  :full_text_search => true, 
+  :label => :full_label, 
+  :order_by => "buzones.sigla" 
   
   active_scaffold :puesto do |config|
     
@@ -20,6 +20,14 @@ class PuestosController < ApplicationController
       config.columns[s].form_ui = :checkbox  
       config.columns[s].inplace_edit = true
     end
-
+    config.search.columns << :buzon
+    config.columns[:buzon].includes = :buzon
+    config.columns[:buzon].search_sql = 'buzones.sigla'
+    
   end
+  
+    def record_select_includes
+      :buzon
+    end
+  
 end

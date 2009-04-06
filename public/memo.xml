@@ -1,6 +1,6 @@
 <memo xmlns="http://esquemas.minrel.gov.cl/2008/1"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/1/minrel.xsd">
+ xsi:schemaLocation="http://esquemas.minrel.gov.cl/2008/1 http://esquemas.minrel.gov.cl/2008/2/minrel.xsd">
     <id></id>
     <origen>
         <entidad id="1" sigla="OIP"></entidad>
@@ -29,9 +29,5 @@
     <tags>demo</tags>
     <cuerpo>
     </cuerpo>
-    <referencia id="33">
-        <entidad>OIP</entidad>
-        <numero>11</numero>
-        <agno>2008</agno>
-    </referencia>
+    <referencia>aaa</referencia>
 </memo>

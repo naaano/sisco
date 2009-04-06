@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
     if request.post?
       if session[:usuario] = Usuario.authenticate(params[:login], params[:password])
         #flash[:message]  = "Login OK"
-        redirect_to_stored
+        #redirect_to_stored
+        redirect_to :controller => "dashboard"
       else
         flash[:warning] = "Usuario o contraseña inválida"
       end

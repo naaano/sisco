@@ -2,19 +2,34 @@
 <table class="active-scaffold active-scaffold-copias default-theme" cellpadding="0" cellspacing="0">
 	<thead>
 <tr>
-	<th><p>adjunta?</p></th>
-	<th><p>folio</p></th>
+	<th><p><input id="check_all" name="check_all" type="checkbox" onclick="Form.getInputs('guias-create--form', 'checkbox').each(function(box){box.checked = $('check_all').checked})" />
+adjunta?</p></th>
+	<th><p>N.doc.</p></th>
+	<th><p>ingreso</p></th>
+	<th><p>procedencia</p></th>
+	<th><p>fecha</p></th>
+	<th><p>materia</p></th>
+	<th><p>anexo</p></th>
 	<th><p>destinatario</p></th>
-	<th><p>titulo</p></th>
+	<th><p>Obs</p></th>
+	<th><p>usuario</p></th>
 </tr>	
 </thead>
 <tbody class="records">
-<% for c in Copia.find(:all, :conditions => ['estado_id in (1,6) AND buzon_id = ?', buzon_actual]) do %>
+<% for c in Copia.find(:all, :include => :documento, :conditions => ['documentos.digital = false AND copias.estado_id in (1,6) AND copias.buzon_id = ?', buzon_actual], :order => "copias.destinatario_id, copias.documento_id") do %>
 <tr class="record">
+<% fecha = c.documento.fecha.strftime("%d-%m-%y") unless c.documento.fecha.nil? 
+fecha ||= c.documento.created_at.strftime("%d-%m-%y") %>
 	<td><%= check_box_tag "record[copia_ids][]", c.id %></td>
+	<td><%= c.documento.folio_externo %></td>
 	<td><%= c.to_label %></td>
-	<td><%= c.destinatario.sigla %></td>
+	<td><%= c.origen.nombre %> <%= '/' + c.documento.detalle_origen unless c.documento.detalle_origen.nil? %></td>
+	<td><%= fecha %></td>
 	<td><%= c.documento.materia %></td>
+	<td><%= c.anexos %></td>
+	<td><%= c.destinatario.sigla %></td>
+	<td><%= c.documento.observaciones %></td>
+	<td><%= c.documento.usuario.nombre %></td>
 </tr>
 <% end %>
 </tbody>

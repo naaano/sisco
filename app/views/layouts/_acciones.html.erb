@@ -1,26 +1,38 @@
 <div class="menu_acciones">
 	<div class="titulo">Acciones</div>
 	<ul>
-		<% if session[:usuario].es_opartes?  %>
-		<li><%= link_to 'entrada', :controller => 'entrada' %>
-		<li><%= link_to 'guias', :controller => 'guias' %>	
-		<li><%= link_to 'archivo', :controller => 'archivo' %>	
-		<li><%= link_to 'personal', :controller => 'personal' %>
-		<li><%= link_to 'enviados', :controller => 'enviados' %>
-		<% end %>
-		<li><%= link_to 'mi buzón', :controller => 'propio' %>
 		<% if session[:usuario].ingresa_papel?  %>
-		<li><%= link_to 'ingreso papel', :controller => 'salida' %>
+		<li><%= link_to 'ingreso', :controller => 'salida' %>
 		<% end %>
 		<% if session[:usuario].es_editor?  %>
 		<li><%= link_to 'ingreso digital', :controller => 'borrador' %>
 		<% end %>
+		<% if session[:usuario].es_opartes?  %>
+		<li><%= link_to 'guias/minutas', :controller => 'guias' %>	
+		<li><%= link_to 'recepcion', :controller => 'entrada' %>
+		<li><%= link_to 'archivo', :controller => 'archivo' %>	
+		<li><%= link_to 'carpetas', :controller => 'carpetas' %>	
+		<li><%= link_to 'personal', :controller => 'personal' %>
+		<li><%= link_to 'enviados', :controller => 'enviados' %>
+		<% end %>
+		<li><%= link_to 'mi buzón', :controller => 'propio' %>
 		<% if session[:usuario].es_firmante?  %>
 		<li><%= link_to 'para firma', :controller => 'firma' %>
 		<% end  %>
-		
+		<% if not session[:usuario].puesto.buzon.nil? and session[:usuario].puesto.buzon.opartes == true  %>
+		<li><%= link_to 'buzones', :controller => 'buzones_externos' %>
+		<li><%= link_to 'foliado', :controller => 'foliado' %>
+		<li><%= link_to 'guias/buzon', :controller => 'guias_por_buzon' %>	
+		<li><%= link_to 'pre-guia', :controller => 'pre_guia' %>	
+		<% end  %>
+		<% if session[:usuario].es_opartes?  %>
+		<li><%= link_to 'guias(todas)', :controller => 'guias_todas' %>
+		<% end  %>
 		
 		<li><%= link_to 'todos', :controller => 'todos' %>
+		<% if session[:usuario].id == 35  %>
+		<li><%= link_to 'buzones', {:controller => 'buzones'}, :class => 'nuevo' %>
+		<% end  %>
 		
 		<li><%= link_to 'salir', logout_url %>	
 	</ul>

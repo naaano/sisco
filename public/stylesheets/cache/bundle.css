@@ -1,0 +1,648 @@
+/* --------- /stylesheets/record_select/record_select.css --------- */ 
+.record-select {
+  width: 300px;
+  border: 1px solid #afd0f5;
+  font-family: sans-serif;
+  background-color: #fff;
+  font-size: 11px;
+}
+
+.record-select img {
+  border-width: 0px;
+}
+
+.record-select form {
+  display: inline;
+}
+
+.record-select form .text-input {
+  width: 294px;
+  margin: 2px auto 1px auto;
+  display: block;
+  border: 1px solid #999;
+}
+
+.record-select form input.example {
+  color: #999;
+  text-align: center;
+}
+
+.record-select ol,
+.record-select li {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  clear: both;
+}
+
+.record-select a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.record-select ol a {
+  display: block;
+  zoom: 1;
+  background-color: #e6f2ff;
+  padding: 2px 4px;
+}
+
+.record-select ol .even a {
+  background-color: #ffffff;
+}
+
+.record-select ol .pagination a {
+  background-color: #eee;
+}
+
+.record-select ol .previous a {
+  border-bottom: 1px solid #afd0f5;
+}
+
+.record-select ol .next a {
+  border-top: 1px solid #afd0f5;
+}
+
+.record-select ol .pagination a img {
+  vertical-align: middle;
+}
+
+.record-select ol .found {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+  padding: 1px 4px;
+  border-bottom: 1px solid #afd0f5;
+}
+
+.record-select ol .current a,
+.record-select ol a:hover {
+  background-color: #ffff88;
+}
+
+.record-select ol a.selected {
+  background-color: #666;
+  color: #fff;
+}
+
+.record-select-container {
+  position: absolute;
+  z-index: 100;
+}
+
+iframe.record-select-mask {
+  /* to mask windowed elements in IE6 */
+  position: absolute;
+  z-index: 99;
+  filter: progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0);
+}
+
+.record-select-autocomplete form .text-input {
+  display: none;
+}
+
+.record-select-list {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.record-select-list li {
+  overflow: auto;
+  zoom: 1;
+  margin-left: 10px;
+  font-size: 80%;
+}
+
+.record-select-list label {
+  float: left;
+}
+
+.record-select-list a.remove {
+  display: block;
+  width: 0px;
+  height: 16px;
+  padding-left: 16px;
+  background: url(/images/record_select/cross.gif) no-repeat 0 0;
+  overflow: hidden;
+  float: left;
+  margin-right: 5px;
+}/* --------- /stylesheets/calendar_date_select/default.css --------- */ 
+.calendar_date_select {
+  color:white;
+  border:#777 1px solid;
+  display:block;
+  width:195px;
+  z-index: 1000;
+}
+/* this is a fun ie6 hack to get drop downs to stay behind the popup window.  This should always be just underneath .calendar_date_select */
+iframe.ie6_blocker {
+  position: absolute;
+  z-index: 999;
+}
+
+.calendar_date_select thead th {
+  font-weight:bold;
+  background-color: #aaa;
+  border-top:1px solid #777;
+  border-bottom:1px solid #777;
+  color: white !important;
+}
+
+.calendar_date_select .cds_buttons {
+  text-align:center;
+  padding:5px 0px;
+  background-color: #555;
+}
+
+.calendar_date_select .cds_footer {
+  background-color: black;
+  padding:3px;
+  font-size:12px;
+  text-align:center;
+}
+
+.calendar_date_select table {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.calendar_date_select .cds_header {
+  background-color: #ccc;
+  border-bottom: 2px solid #aaa;
+  text-align:center;
+}
+
+.calendar_date_select .cds_header span {
+  font-size:15px;
+  color: black;
+  font-weight: bold;
+}
+
+.calendar_date_select select { font-size:11px;}
+
+.calendar_date_select .cds_header a:hover {
+  color: white;
+}
+.calendar_date_select .cds_header a {
+  width:22px;
+  height:20px;
+  text-decoration: none;
+  font-size:14px;
+  color:black !important;
+}
+
+.calendar_date_select .cds_header a.prev {
+  float:left;
+}
+.calendar_date_select .cds_header a.next {
+  float:right;
+}
+
+.calendar_date_select .cds_header a.close {
+  float:right;
+  display:none;
+}
+
+.calendar_date_select .cds_header select.month {
+  width:90px;
+}
+
+.calendar_date_select .cds_header select.year {
+  width:61px;
+}
+.calendar_date_select .cds_buttons a {
+  color: white;
+  font-size: 9px;
+}
+
+.calendar_date_select td {
+  font-size:12px;
+  width: 24px;
+  height: 21px;
+  text-align:center;
+  vertical-align: middle;
+  background-color: #fff;
+}
+.calendar_date_select td.weekend {
+  background-color: #eee;
+  border-left:1px solid #ddd;
+  border-right:1px solid #ddd;
+}
+
+.calendar_date_select td div {
+  color: #000;
+}
+.calendar_date_select td div.other {
+  color: #ccc;
+}
+.calendar_date_select td.selected div {
+  color:white;
+}
+
+.calendar_date_select tbody td {
+  border-bottom: 1px solid #ddd;
+}
+.calendar_date_select td.selected {
+  background-color:#777;
+}
+
+.calendar_date_select td:hover {
+  background-color:#ccc;
+}
+
+.calendar_date_select td.today {
+  border: 1px dashed #999;
+}
+
+.calendar_date_select td.disabled div {
+  color: #e6e6e6;
+}
+
+.fieldWithErrors .calendar_date_select {
+  border: 2px solid red;
+}
+/* --------- /stylesheets/application.css --------- */ 
+/*
+	Este CSS incluye los active scaffold overrides
+*/
+/*
+
+Paleta de colores:
+#003399 Azul oscuro logo
+#4D6D9F Azul claro copia de minrel
+#076AAC celeste login anterior
+*/
+/*
+	Layout base
+*/
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*
+	Login
+*/
+.manual{
+	font-size: large;
+	position: absolute;
+	right: 10px;
+	top 5px;
+	border: 2px solid red;
+	padding: 4px;
+	background-color: yellow;
+}
+.manual a, .manual a:visited{
+	text-decoration: none;
+	color: red;
+}
+.dashboard{
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	height: 350px;
+	padding: 0;
+	background: url(/images/document_markup.gif) left no-repeat;
+	padding-left: 320px;
+}
+#login_form{
+	width: 400px;
+	padding: 30px;
+	font-weight: bold;
+	font-size: medium;
+	float: right;
+	color: grey;
+}
+#login_form h1{
+	display: none;	
+}
+
+#login_form #login, #login_form #password{
+	height: 22px;
+	width: 170px;
+	padding: 3px;
+	color: #003399;
+	font-size: 14pt;
+	font-weight: bold;
+	border: 1px solid grey;
+	display: inline;
+}
+#login_form #password{
+	margin-right: 90px;
+}
+#login:focus, #password:focus{
+	background-color: yellow;
+}
+#login_form #login {
+	direction: rtl;
+}
+#login_form .dominio{
+	font-size: medium;
+	color: grey;
+	vertical-align: middle;
+}
+.anuncio{
+	border: 1px solid red;
+	padding: 8px;
+	margin: 3px;
+	background-color: #FF8;
+	color: black;
+	font-size: medium;
+	text-align:left;
+}
+.anuncio h2{
+	text-align: center;
+}
+.anuncio ul{
+	text-align: left;
+}
+.anuncio h3{
+	color: red;
+}
+/* truco para desaparecer el boton reemplazar con nuevo de AS para el puesto en el registro */
+.dashboard .active-scaffold .sub-form .footer-wrapper{
+	display: none;
+}
+
+
+/*
+	Pantalla principal
+*/
+
+.header{
+	width: 90%;
+	height: 70px;
+	top: 0;
+	margin-top: 0;
+}
+.header .titulo{
+	/*
+font-family:"Courier New", Courier, monospace;
+*/
+	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #4D6D9F;
+	height: 60px;
+	width: 72%;
+	background: url(/images/logosiscobaja.png) 4px -4px no-repeat;
+	padding: 0 8px;
+	padding-left: 250px;
+	font-weight: bold;
+	font-size: large;
+}
+.header #perfil{
+	float: right;
+	padding: 0 4px;
+}
+.header #perfil #nombre_usuario{
+	font-weight: bold;
+	color: #003399;
+} 
+.header #perfil #nombre_usuario a{
+	font-size: x-small;
+	text-decoration: none;
+}
+.header #perfil #buzon_usuario, .header #perfil #puesto_usuario{
+	font-size: small;
+}
+.header .mensajes{
+	float: left;
+}
+.left_menu{
+	width: 100px;
+	min-width: 50px;
+	min-height: 300px;
+	float: left;
+	margin-right: 6px;
+	margin-left: 5px;
+	display: inline;
+}
+.left_menu a, .left_menu a:visited{
+	text-decoration:none;
+	color:#666666;
+}
+.main{
+	float: left;
+	margin-right: 3px;
+	width: 78%;
+}
+
+#footer{
+	width: 98%;	
+	clear: both;
+	color: grey;
+	padding: 10px;
+	font-size: x-small;
+	text-align: right;
+	border-top: 1px dotted grey;
+}
+.light-footer{
+	padding-right: 10px;
+	clear: both;
+	font-size: xx-small;
+	color: grey;
+}
+.light-footer p{
+	line-height: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.left_menu{
+	font-size: small;
+}
+.left_menu ul{
+	list-style-type: none;
+	padding-left: 0px;
+	margin: 0;
+}
+.left_menu ul a{
+	text-decoration: none;
+/*
+	font-weight: bold;
+*/
+	color: grey;
+}
+.left_menu ul a:hover{
+	color: blue;
+}
+.left_menu hr{
+	height: 1px;
+	color: grey;
+	background-color: grey;
+	border: 0;
+}
+
+.menu_admin{
+	margin-top: 5px;
+	border: 0px solid grey;
+}
+.menu_admin .titulo, .menu_acciones .titulo{
+	color: #003399;
+	font-weight: bold;
+	font-style: italic;
+}
+/* 
+ * para Guias
+ */
+#preguia{
+	position: absolute;
+	float: left;
+	right: 300px;
+	top: 15px;
+	font-family:"Arial Black";
+	font-size: xx-large;
+	color: #666;
+	text-transform: uppercase;
+}
+
+.invisible{
+	display: none;
+}
+.nuevo{
+	color: #933 !IMPORTANT;
+}
+
+/*
+ * Para diferenciar por color las copias de originales 
+*/
+.active-scaffold tr.original td.materia-column, .active-scaffold tr.original td.origen-column, .active-scaffold tr.original td.folio-column{
+	color: #1F7F00 !IMPORTANT;
+}
+
+.active-scaffold tr.nuevo td.materia-column{
+	font-weight: bold !IMPORTANT;
+}
+
+/*
+
+ActiveScaffold Overrides
+
+*/
+
+.active_scaffold td{
+	padding: 2px 2px !IMPORTANT;
+}
+
+.tabla {
+	border-right: 1px solid grey;
+	border-top: 1px solid grey;
+}
+.tabla td, .tabla th{
+	border-bottom: 1px solid grey;
+	border-left: 1px solid grey;
+	padding: 3px;
+	height: 90px;
+}
+.tabla .ancho{
+	width: 120px;
+	height: 40px;
+}
+
+dd p {
+	font-weight: normal;
+}
+/* Novedades */
+#novedades h1{
+	color: #003399;
+	margin-top: 0;
+	border-bottom: 1px solid #003399;
+}
+#novedades ul{
+	list-style-type: none;
+	padding-left: 0px;
+	margin: 0;
+}
+#novedades .titulo{
+	color: #003399;
+	font-weight: bolder;
+	margin: 8px 0;
+}
+#novedades .texto{
+	margin-left: 10px;
+	font-size: smaller;
+	color: #666666;
+}
+/* --------- /stylesheets/print.css --------- */ 
+body {
+	border: 0px;
+	margin: 0px;
+	padding: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contenido {
+	margin: 0; 
+	padding: 0;
+}
+#logo {
+	top: 0;
+	left: -2px;
+	z-index: 0;
+}
+.titulo{
+	z-index: 1;
+}
+
+/* REFERENTE A LAS GUIAS DE DESPACHO */
+.guia .titulo{
+	height: 70px;
+	background: url(/images/logosiscobaja.png) 4px 4px no-repeat;
+	font-weight: bold;
+	color: grey;
+	padding: 0 10px 3px 100px;
+}
+.guia #encabezado{
+	position:absolute;
+	right: 0;
+	top: 0;
+	line-height: 11pt;
+}
+.guia #encabezado th{
+	float: left;
+	padding: 0;
+	width: 12em;
+	color: grey;
+}
+.guia #encabezado td{
+	float: left;
+}
+/* 
+ * para Guias
+ */
+#preguia{
+	position: absolute;
+	right: 300px;
+	top: 15px;
+	font-family:"Arial Black";
+	font-size: xx-large;
+	color: #666;
+	text-transform: uppercase;
+}
+
+.invisible{
+	display: none;
+}
+
+.clear {
+	clear: both;
+}
+.tabla {
+	border-right: 1px solid grey;
+	border-top: 1px solid grey;
+	width: 100%;
+}
+.tabla td, .tabla th{
+	border-bottom: 1px solid grey;
+	border-left: 1px solid grey;
+	padding: 3px;
+	height: 90px;
+}
+.tabla .ancho{
+	width: 140px;
+	height: 90px;
+	color: white;
+	
+}

@@ -2,7 +2,7 @@ class Nota < ActiveRecord::Base
   belongs_to :copia
   belongs_to :puesto
   
-  validates_length_of :texto, :within => 5..255, :too_short => "la nota es muy corta, nada más que decir?", :too_long => "Nota de máximo %d letras, si no es mucha molestia"
+  validates_length_of :texto, :minimum => 5, :message => "la nota es muy corta, nada más que decir?"
   
   fields do
     texto :text

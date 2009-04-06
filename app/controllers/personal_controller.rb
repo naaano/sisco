@@ -7,6 +7,7 @@ class PersonalController < ApplicationController
     config.update.columns = [:nombre, :cargo, :opartes, :firmante, :editor, :ingreso_papel, :usuario]
     config.columns[:cargo].form_ui = :select
     config.columns[:usuario].form_ui = :select
+    config.columns[:cargo].clear_link
     [:opartes, :firmante, :editor, :ingreso_papel].each{ |o|
       config.columns[o].form_ui = :checkbox
       config.columns[o].inplace_edit = :true
@@ -36,7 +37,7 @@ class PersonalController < ApplicationController
     end
   end
   def do_new
-    @record = active_scaffold_config.model.new(:buzon_id => current_user.puesto.buzon_id, :dominio => 'minrel.gov.cl')
+    @record = active_scaffold_config.model.new(:buzon_id => current_user.puesto.buzon_id)
     apply_constraints_to_record(@record)
     @record
   end
@@ -44,5 +45,4 @@ class PersonalController < ApplicationController
     ## se visualizan los documentos del buzon propio en estados en ruta(2), entrada(3) y revisado(4)
     ['puestos.buzon_id = ?', current_user.puesto.buzon_id]
   end
-  
 end

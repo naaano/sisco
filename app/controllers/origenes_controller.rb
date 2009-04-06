@@ -5,7 +5,7 @@ class OrigenesController < ApplicationController
     config.columns[:externo].form_ui = :checkbox
   end
   
-  def record_select_conditions_from_controller
-    "externo = true"
-  end
+#  def record_select_conditions_from_controller
+#    "externo = true"
+#  end
 end

@@ -55,7 +55,30 @@ module RecordSelect
 
       url = url_for({:action => :browse, :controller => options[:controller], :escape => false}.merge(options[:params]))
 
-      html = text_field_tag(name, nil, :autocomplete => 'off', :id => options[:id], :class => options[:class], :onfocus => "this.focused=true", :onblur => "this.focused=false")
+      name_temp = name.dup
+      name_temp[name_temp.length - 1, 0] = "_temp"
+      html = text_field_tag(name_temp, nil, :autocomplete => 'off', :id => options[:id], :class => options[:class], :onfocus => "this.focused=true", :onblur => "this.focused=false", :style => options[:style])
+      html << hidden_field_tag(name, id, :id => options[:id] + "_hidden")
+      html << javascript_tag("new RecordSelect.Single(#{options[:id].to_json}, #{url.to_json}, {id: #{id.to_json}, label: #{label.to_json}, onchange: #{options[:onchange] || ''.to_json}});")
+
+      return html
+    end
+
+    def record_select_field_not_by_id_column(name, current, options = {})
+      options[:params] ||= {}
+      options[:id] ||= name.gsub(/[\[\]]/, '_')
+
+      controller = assert_controller_responds(options[:controller])
+
+      id = label = ''
+      if current
+        id = label = current
+      end
+
+      url = url_for({:action => :browse, :controller => options[:controller], :escape => false}.merge(options[:params]))
+
+      html = text_field_tag(name.gsub("]", "_temp]"), nil, :autocomplete => 'off', :id => options[:id], :class => options[:class], :onfocus => "this.focused=true", :onblur => "this.focused=false", :style => options[:style])
+      html << hidden_field_tag(name, id, :id => options[:id] + "_hidden")
       html << javascript_tag("new RecordSelect.Single(#{options[:id].to_json}, #{url.to_json}, {id: #{id.to_json}, label: #{label.to_json}, onchange: #{options[:onchange] || ''.to_json}});")
 
       return html

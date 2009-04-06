@@ -1,12 +1,14 @@
 class CorreccionesController < ApplicationController
   active_scaffold :correccion do |config|
-    config.label = "Errores detectados y sus correcciones"
+    config.label = "Correcciones"
     
     config.list.columns = [:id, :descripcion, :created_at, :usuario, :corregido, :comentarios]
     
-    config.create.columns = [:descripcion, :mensajes]
-    config.update.columns = [:corregido, :critico]
+    config.list.sorting = {:id => :desc}
     
+    config.create.columns = [:descripcion]
+    config.update.columns = [:corregido, :critico]
+    config.show.columns = [:usuario, :corregido, :critico, :descripcion, :comentarios]
     config.actions.exclude :delete
     config.columns[:created_at].label = "Fecha"
     config.columns[:id].label = "ticket"

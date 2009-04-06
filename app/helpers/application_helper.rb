@@ -36,4 +36,14 @@ module ApplicationHelper
       message % item
     end
   end
+
+  def buzon(usuario)
+    buzon = ""
+    unless usuario.buzon.nil?
+	buzon << usuario.buzon.sigla unless usuario.buzon.sigla.nil?
+        buzon << " - "
+        buzon << usuario.buzon.nombre
+    end
+    buzon
+  end
 end

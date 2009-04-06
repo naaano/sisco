@@ -38,18 +38,14 @@
             MEMORANDUM. <span><xsl:value-of select="substring(./ns1:clasificacion, 0, 4)"/></span>. Nº <span><xsl:value-of select="./ns1:folio/ns1:entidad"/></span>-<span><xsl:value-of select="./ns1:folio/ns1:numero"/></span>/<span><xsl:value-of select="./ns1:folio/ns1:agno"/></span> 
         </xsl:element>
         <div id="obj">OBJ.:<span><xsl:value-of select="./ns1:materia"/></span></div>
-        <div id="ref">REF.:<span>
-            <xsl:for-each select="./ns1:referencia">
-                <xsl:value-of select="ns1:entidad"/>-<xsl:value-of select="ns1:numero"/>/
-                <xsl:value-of select="ns1:agno"/> 
-            </xsl:for-each></span>
+        <div id="ref">REF.:<span><xsl:value-of select="./ns1:referencia"/></span>
         </div>
-        <p>SANTIAGO,</p>
-        <div>A: <xsl:value-of select="./ns1:destinatario/ns1:puesto/ns1:cargo"/></div>
-        <div>DE: <xsl:value-of select="./ns1:origen/ns1:puesto/ns1:cargo"/></div>
-        <p>
-            <xsl:value-of select="./ns1:cuerpo"/>
-        </p>
+        <p>SANTIAGO, <xsl:value-of select="./ns1:fecha"/></p>
+        <div id="origen">DE: <xsl:value-of select="./ns1:origen/ns1:puesto/ns1:cargo"/></div>
+        <div id="destino">A: SEÑOR(A) <xsl:value-of select="./ns1:destinatario/ns1:puesto/ns1:cargo"/></div>
+        <div id="cuerpo">
+            <xsl:value-of disable-output-escaping = "yes" select="./ns1:cuerpo"/>
+        </div>
     <div id="firma">
         <div class="persona"><xsl:value-of select="./ns1:origen//ns1:persona"/></div>
         <div class="puesto"><xsl:value-of select="./ns1:origen//ns1:cargo"/></div>

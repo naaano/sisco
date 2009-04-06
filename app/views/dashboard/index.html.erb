@@ -1,0 +1,11 @@
+<div id="novedades">
+	<h1>Novedades</h1>
+	<ul>
+	<% for n in @novedades do %>
+	<li>
+		<div class="titulo"><%= n.titulo%></div>
+		<div class="texto"><%= n.texto%></div>
+	</li>
+	<% end %>
+	</ul>	
+</div>

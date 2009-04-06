@@ -7,14 +7,14 @@ class PropioController < ApplicationController
     config.actions  = [:list, :show, :nested]
     
     config.list.columns = [ :folio, :materia, :tipo, :fecha_recepcion, :notas ]
-    config.show.columns = [ :folio, :materia, :creado_por, :tipo, :clasificacion, 
+    config.show.columns = [ :folio, :materia, :procedencia, :tipo, :clasificacion, 
                            :accion, :estado, :fecha_recepcion, :puesto, :notas, :trazas ]
     config.action_links.add "xml",  :type => :record,
                                     :popup => true,
                                     :controller => 'docxml',
                                     :action => 'ver_copia'
-    config.action_links.add "firmar", :type => :record, 
-            :controller => 'firma', :action => 'firmar', :page => true, :parameters => {:copia => 1}
+#    config.action_links.add "firmar", :type => :record, 
+#            :controller => 'firma', :action => 'firmar', :page => true, :parameters => {:copia => 1}
   end
   
   def firmar_authorized?
@@ -22,7 +22,7 @@ class PropioController < ApplicationController
   end
   
   def conditions_for_collection
-    ["copias.puesto_id = ?", current_user.puesto.id ]
+    ["copias.puesto_id = ? and copias.estado_id != 5", current_user.puesto.id ]
   end
   
 end

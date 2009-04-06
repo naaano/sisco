@@ -22,7 +22,7 @@ class Usuario < ActiveRecord::Base
 #  validates_presence_of     :email
 #  validates_length_of       :email,    :within => 6..100 #r@a.wk
 #  validates_uniqueness_of   :email,    :case_sensitive => false
-#  validates_format_of       :email,    :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
+  #  validates_format_of       :email,    :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
 
   validates_length_of       :password, :minimum => 4, :message => "si usas una clave tan corta, algún malvado te puede hacer una broma pesada"
   validates_confirmation_of :password
@@ -87,7 +87,18 @@ class Usuario < ActiveRecord::Base
   protected
     
   def authorized_for_update?
+    #FIXME corregir esto que era depuracion
+    #self.attributes.each{|k,v| RAILS_DEFAULT_LOGGER.info "#{k}=#{v}" }
+    #RAILS_DEFAULT_LOGGER.info "comparacion de id de usuario: #{self.id.to_s} <=> #{current_user.id}"
     return self.id == current_user.id || current_user.admin
+  end
+  
+  def authorized_for_destroy?
+    current_user.admin
+  end
+  
+  def admin_authorized?
+    current_user.admin
   end
 
 

@@ -9,10 +9,10 @@ body{
     border: 1px solid #000000;
     background-color: #FFFFFF;
     padding: 30px;
-    width: 950px;
+    width: 900px;
 }
 .contenido{
-    margin: 130px 80px 60px 80px;
+    padding: 90px 80px 60px 80px;
     height: 800px;
 
 }

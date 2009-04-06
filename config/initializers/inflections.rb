@@ -9,8 +9,14 @@
 #   inflect.uncountable %w( fish sheep )
 # end
 
-Inflector.inflections do |inflect|
+ActiveSupport::Inflector.inflections do |inflect|
   inflect.plural /^(.*)([lrnd])$/i, '\1\2es'
   inflect.singular /^(.*)([lrnd])es$/i, '\1\2'
   inflect.irregular 'origen', 'origenes'
+    inflect.irregular "clasificacion", "clasificaciones"
+    inflect.irregular "buzon", "buzones"
+    inflect.irregular "accion", "acciones"
+    inflect.irregular "rotacion", "rotaciones"
+    inflect.irregular "origen","origenes"
+    inflect.irregular "correccion","correcciones"
 end

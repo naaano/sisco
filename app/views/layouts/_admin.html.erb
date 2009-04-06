@@ -2,7 +2,6 @@
 	<div class="titulo">Administración</div>
 	<ul>
 	<li><%= link_to 'buzones', :controller => "buzones" %>	
-	<li><%= link_to 'cargos', :controller => "cargos" %>	
 	<li><%= link_to 'puestos', :controller => "puestos" %>	
 	<li><%= link_to 'usuarios', :controller => "usuarios" %>	
 	</ul>
@@ -10,11 +9,20 @@
 	<ul>
 	<li><%= link_to 'tipos', :controller => "tipos" %>	
 	<li><%= link_to 'acciones', :controller => "acciones" %>
-	<li><%= link_to 'clasificaciones', :controller => "clasificaciones" %>
+	<li><%= link_to 'cargos', :controller => "cargos" %>	
 	</ul>	
 	<hr/>
 	<ul>
+	<li><%= link_to 'clasificaciones', :controller => "clasificaciones" %>
 	<li><%= link_to 'movimientos', :controller => "movimientos" %>	
 	<li><%= link_to 'estados', :controller => "estados" %>
 	</ul>
+	<hr/>
+	<ul>
+	<li><%= link_to 'novedades', :controller => "novedades" %>	
+	<li><%= link_to 'desarrollos', :controller => "desarrollos" %>	
+	<li><%= link_to 'categorias', :controller => "categorias" %>
+	<li><%= link_to 'status', :controller => "status" %>
+	</ul>
+	
 </div>

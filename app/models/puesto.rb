@@ -28,5 +28,12 @@ class Puesto < ActiveRecord::Base
   def full_label
     buzon.sigla + '::' + nombre + '(' + usuario.to_label + ')'
   end
+  
+  # Solo el administrador puede eliminar puestos. NOTA: se pierden documentos y sus trazabilidades.
+  # TODO debe bloquearse absolutamente en el futuro proximo.
+  def authorized_for_destroy?
+    current_user.es_admin?
+  end
+  
 
 end

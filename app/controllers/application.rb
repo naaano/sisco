@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   #helper :all # include all helpers, all the time
   
-  ActiveScaffold::Localization.lang = "es-es"
+#  ActiveScaffold::Localization.lang = "es-es"
   
   #  include AuthenticatedSystem
   
@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery  :secret => '9d0d5af8162696f3bd2f43c670185bda'
   
   layout 'default'
-  
-  
+
   my_formats = {
     :default  => '%l:%M %p, %d %b %y',
     :hora => '%l:%M %p',
@@ -40,7 +39,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging "Session ID"
   #requires_authentication :using => :authenticate
-  before_filter :login_required, :except => ["login", "generar", "firmar", "gen_rexml", "subir", "get_xml", "prepara_registro"]
+  before_filter :login_required, :except => ["login", "generar", "firmar", "gen_rexml", "subir", "get_xml"]
   
   def current_user
     session[:usuario]
@@ -88,6 +87,7 @@ class ApplicationController < ActionController::Base
   
   def login_required
     if session[:usuario]
+      logger.info "Usuario: #{session[:usuario].login}"
       return true
     end
     flash[:warning]='Por favor ingrese para continuar'

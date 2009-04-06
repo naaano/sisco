@@ -1,10 +1,10 @@
-require 'soap/wsdlDriver'
-require 'lib/defaultDriver'
+#require 'soap/wsdlDriver'
+#require 'lib/defaultDriver'
 require 'rexml/document'
 require 'net/http' 
-require 'xml_container'
+#require 'xml_container'
 require 'hpricot'
-require 'net/ldap'
+#require 'net/ldap'
 #require 'win32ole'
 include REXML
 
@@ -142,7 +142,7 @@ EOF
   def viahttp
     #xd = WIN32OLE.new('Microsoft.XMLDOM')
     #xd.loadXML(xml_doc)
-    xml = xml_doc
+    xml = xml_doc(params[:xmlFile])
     size = xml.size.to_s
     h = Net::HTTP.new('127.0.0.1', 8082)
     headers = { "Host" => "10.10.255.116", "Content-Type" => "text/xml; charset=utf-8","Content-Length" => size,"SOAPAction" => "http://www.vcglock.cl/PFE/AgregarDocumentoFirmado" }
@@ -163,8 +163,8 @@ EOF
     soapdriver.AgregarDocumentoFirmado xml_can
   end
   
-  def xml_doc
-    file   = File.open('/home/nano/aptana/workspace/sisco2/memo2.xml', "r").read
+  def xml_doc(input)
+    file   = input.read # File.open('/home/nano/aptana/workspace/sisco2/memo2.xml', "r").read
     soap = <<EOF
 <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><AgregarDocumentoFirmado xmlns="http://www.vcglock.cl/PFE"><xmlDoc>
 EOF
@@ -172,5 +172,7 @@ EOF
     soapend ="</xmlDoc></AgregarDocumentoFirmado></soap:Body></soap:Envelope>"
     xml_doc = soap + file + soapend
   end
+  
+
   
 end

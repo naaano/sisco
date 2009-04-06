@@ -2,30 +2,56 @@ class EntradaController < ApplicationController
   before_filter :preconfig
   
   active_scaffold :copia do |config|
-    #config.label = "Entrada Oficina de Partes"
+    config.label = "Recepción"
+
+    config.columns.add :guias, :materia, :id, :origen, :digital
+#    config.actions.swap :search, :full_search
+    config.actions = [:update, :show, :list, :field_search, :nested ]   
+    config.field_search.columns = [ :guias, :origen, :materia, :digital]
+    config.columns[:guias].includes = :guias
+    config.columns[:guias].search_ui = :integer
+    config.columns[:guias].form_ui = :integer
+    config.columns[:guias].search_sql = 'copias_guias.guia_id'
+    #config.columns[:guias].sort_by :sql => 'guias.id'
+    config.columns[:origen].form_ui = :record_select
+    config.columns[:origen].search_sql = 'copias.origen_id'
+    config.columns[:materia].search_sql = 'documentos.materia'
+    config.columns[:digital].includes = :documento
+    config.columns[:digital].form_ui = :checkbox
+    config.columns[:digital].search_sql = 'documentos.digital'
     
-    config.actions = [:update, :show, :list, :field_search, :nested ]
+#    config.field_search.columns = [:fecha, :folio_externo, :folio_interno, :folio_opartes, :folio_texto, :materia, :observaciones]
+
     
-    config.list.columns = [ :nro_documento, :materia, :tipo, :fecha_recepcion, :puesto, :notas ]
-    config.show.columns = [ :nro_documento, :materia, :creado_por, :tipo, :clasificacion, 
-                           :accion, :estado, :fecha_recepcion,:cuerpo ,:puesto, :notas, :trazas ]
+    config.columns.add :folio, :materia, :fecha_recepcion, :tipo
+    # se excluye :id del listado (checkbox) hasta completar la funcionalidad, pues confunde a los usuarios.
+    config.list.columns = [ :folio, :origen, :materia, :tipo, :puesto, :notas, :nro_doc ]
+    config.show.columns = [ :folio, :materia, :procedencia, :detalle_procedencia, :tipo, :clasificacion, 
+                           :accion, :estado, :fecha_recepcion,:observaciones, :copias,:puesto, :notas, :trazas ]
     config.update.columns = [:destinatario]
+
+    ## orden
+   config.list.sorting = {:recepcion => :desc }
+   config.columns[:folio].includes = [:documento]
+   config.columns[:folio].sort_by :sql => "documentos.folio_interno"
+   config.columns[:materia].sort_by :sql => "documentos.materia"
+   config.columns[:fecha_recepcion].sort_by :sql => "recepcion"
+   config.columns[:tipo].sort_by :sql => "documentos.tipo_id" #OPTIMIZE deberia buscar por tipos.nombre, pero esta muy lejos ese join
     
-    config.field_search.columns.exclude :buzon, :documento, :guias, :puesto, :trazas
-    
+    #config.columns[:tipo].form_ui = :select
+
+
     #config.columns[:fecha_recepcion].label = "Recepción"
-    config.update.link.label = "redirigir"
-    config.columns[:destinatario].form_ui = :select
+    #config.columns[:folio_externo].label = "NºDoc"
     
-    config.columns[:puesto].label = "Asignado"
+    config.update.link.label = "ReDir"
+    config.columns[:destinatario].form_ui = :select
     config.columns[:puesto].form_ui = :select
     config.columns[:puesto].inplace_edit = :true
     config.columns[:puesto].clear_link
     config.columns[:notas].set_link('nested',:parameters => {:associations => :notas})
-    config.columns[:trazas].label = "Seguimiento"
-    
-    
-    
+    #config.columns[:folio_externo].label = "NºDoc"
+    config.columns[:origen].clear_link 
     
     config.action_links.add 'Recv', :type => :record, 
                                         :action => "recibido",
@@ -42,6 +68,12 @@ class EntradaController < ApplicationController
                                     :popup => true,
                                     :controller => 'docxml',
                                     :action => 'ver_copia'
+    config.action_links.add "copiar",  :type => :record,
+                                        :inline => true,
+                                        :crud_type => :create, 
+                                    :security_method => :puede_copiar?,
+                                    :position => false
+                                    
   end
   
   def conditions_for_collection
@@ -49,13 +81,18 @@ class EntradaController < ApplicationController
     ['copias.estado_id IN (2,3,4) AND copias.buzon_id = ?', current_user.puesto.buzon_id]
   end
   
+  def copiar
+    @original_record = Copia.find(params[:id])
+    @record = @original_record.clone
+    @record.original = false
+    @record.add_traza(current_user, 16, nil)
+    @record.save!
+    render :layout => false
+  end
   
   def recibido
     record = Copia.find(params[:id])
-    if Traza.create(:copia_id => record.id, :movimiento_id => 2, :usuario => current_user, :buzon_id => current_user.puesto.buzon_id)
-      self.successful =  record.recibido
-    end
-    record.recibido
+    self.successful =  record.recibido #la recepcion real de la copia se hace a nivel de modelo
     active_scaffold_refresh_row(record)
   end
   
@@ -79,12 +116,17 @@ class EntradaController < ApplicationController
 
   protected
   
-  # esto es solo para el redireccionamiento de copias
+  # esto es solo para el redireccionamiento (reenvio) de copias
   def before_update_save(record)
-    record.estado_id = 6
     record.puesto_id = nil
     record.origen_id = record.buzon_id
     record.carpeta_id = nil
+    record.add_traza(current_user.id, 8, current_user.puesto.buzon_id)
+    if record.documento.digital 
+      record.despachar
+    else
+      record.estado_id = 6
+    end
   end
 
   def do_update_select_column
@@ -92,6 +134,8 @@ class EntradaController < ApplicationController
     @assoc = @record.class.reflect_on_all_associations.detect{|x| x.primary_key_name == params[:column]}
     if @record.authorized_for?(:action => :update, :column => params[:column])
       @record.update_attributes(params[:column] => params[:value])
+      RAILS_DEFAULT_LOGGER.info "grabando columna #{params[:column]}-#{params[:value]}"
+      @record.add_traza_usuario(params[:value]) if params[:column].to_s == "puesto_id"
     end
   end 
 
@@ -100,8 +144,24 @@ class EntradaController < ApplicationController
   end
   
   def preconfig
-    active_scaffold_config.label = current_user.puesto.buzon.nombre
+    #active_scaffold_config.label = current_user.puesto.buzon.nombre
+    if current_user.puesto.buzon.opartes == true
+      active_scaffold_config.list.columns.exclude :asignado  
+    end
   end
 
+  private
+  
+  # para recibir automatico en archigral
+  def auto_recibir
+    g = Guia.find(params[:id])
+    carpeta = 188
+    buzones = g.copias.collect{|c| c.buzon_id}.uniq
+    carpetas = g.copias.collect{|c| c.carpeta_id}.compact
+    if buzones === [95] and carpetas.length == 0
+      #FIXME falta filtrar solo los docs = oficio
+      Guia.find(2863).copias.each{|c| c.recibir_auto(current_user) unless c.estado_id == 5; c.archivar_auto(current_user,carpeta); c.save}
+    end
+  end
 
 end

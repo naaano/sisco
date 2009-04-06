@@ -6,6 +6,8 @@ class NotasController < ApplicationController
     config.columns = [:created_at, :puesto, :texto]
     config.subform.columns = [:created_at, :puesto, :texto]
     
+    config.columns[:puesto].clear_link
+    
     config.create.columns = :texto
     config.columns[:texto].form_ui = :textarea
     config.columns[:texto].options = {:cols => 70, :rows => 10}

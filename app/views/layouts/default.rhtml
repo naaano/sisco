@@ -7,26 +7,37 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <title>Sisco 3</title>
+  <% bundle do %>
   <%= javascript_include_tag :defaults %>
-  <%= active_scaffold_includes %>
   <%= record_select_includes %>
-  <%= calendar_date_select_includes %>
+  <%= calendar_date_select_includes nil, :locale=> 'es' %>
   <%= stylesheet_link_tag 'application.css' %>
   <%= stylesheet_link_tag "print", :media => "print" %>
-<script type="text/javascript" charset="utf-8">
+  <% end %>
+  <%= include_yui_editor_if_used %>
+  <%= active_scaffold_includes %>
+  <script type="text/javascript" charset="utf-8">
                 function update_column_value (controller, id, col,val) {
                         new Ajax.Request(controller+'/update_select_column/'+id+'?column='+
 col
 +'&value='+val, {asynchronous:true, evalScripts:true})
                 }
-        </script> 
+        </script>	 	
 </head>
 
 <body>
 	<div class="header">
 		<div class="titulo">
 			<div id="perfil">
-				<div id="nombre_usuario"><%= session[:usuario].nombre%> <%= session[:usuario].apellido%></div>
+				<div id="nombre_usuario">
+					<%= session[:usuario].nombre%> <%= session[:usuario].apellido%> <%= link_to 'editar', :controller => 'usuarios', :action => 'editar' %>
+				</div>
+				<div id="puesto_usuario">
+					<%= session[:usuario].puesto.nombre%>
+				</div>
+				<div id="buzon_usuario"><!--<a href="/buzones/<%= session[:usuario].buzon.id %>/edit?parent_controller=entrada">-->
+					<%= buzon(session[:usuario]) %>
+					</div>
 				<%= link_to 'salir', logout_url %>
 			</div>
 		</div>

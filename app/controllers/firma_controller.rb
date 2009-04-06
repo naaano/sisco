@@ -2,8 +2,7 @@ class FirmaController < ApplicationController
   active_scaffold :documento do |config|
     config.label = "Pendientes de Firma"
     config.actions.exclude :create, :update, :show
-    config.list.columns = [:folio, :origen_texto, :destinatario_texto, :materia, :referencia]
-    
+    config.list.columns = [:folio_interno, :origen_texto, :destinatario_texto, :materia, :referencia, :revisiones]
     # BOTONES DE ACCIONES
     config.action_links.add 'corregir', :type => :record, :position => false          
     config.action_links.add "firmar", :type => :record, :inline => :true, :position => :after, :crud_type => nil 

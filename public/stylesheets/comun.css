@@ -19,10 +19,14 @@ body{
     text-align:center;
 }
 #obj, #ref, #saludo, #firma{
-    margin-left: 300px;
+    margin-left: 330px;
     padding: 10px;
     font-size: 14pt;
     margin-top: 10px;
+}
+#origen, #destino{
+	font-weight: bold;
+	text-transform:uppercase;
 }
 #firma{
     text-align: center;

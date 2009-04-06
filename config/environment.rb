@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -22,11 +22,15 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
+  # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 #config.gem "hobofields", :version => '0.72'
 #config.gem 'soap4r'
+	config.gem 'hobofields', :version => '0.8.5'
+	config.gem 'paginator'
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -66,23 +70,29 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 
+ #l10n
+	config.i18n.default_locale = :es_es
 end
 
-Inflector.inflections do |inflect|
-    inflect.irregular "clasificacion", "clasificaciones"
-    inflect.irregular "buzon", "buzones"
-    inflect.irregular "accion", "acciones"
-    inflect.irregular "rotacion", "rotaciones"
-    inflect.irregular "origen","origenes"
-    inflect.irregular "correccion","correcciones"
-end
 
-require 'rubygems'
-require 'hobofields'
-require 'paginator'
 ## fechas en espagnol
-require 'date'
+# require 'date'
+#gem 'activedirectory'
+#require '/var/lib/gems/1.8/gems/activedirectory-1.0.1/lib/active_directory.rb'
 #require 'soap4r'
+=begin
+ActiveDirectory::Base.setup(
+    :host     => "SCL-AD-01",
+    :port     => "389",
+    :base     => "DC=minrel,DC=gov,DC=cl",
+    :auth     => {
+    	:method => :simple,
+    	:username => "hastudillo",
+    	:password => "oducse.,"
+	}
+  )
+=end
+
 #Date::MONTHNAMES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
 #Date::ABBR_MONTHNAMES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"] 

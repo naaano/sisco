@@ -1,0 +1,2 @@
+module CopiasViewHelper
+end

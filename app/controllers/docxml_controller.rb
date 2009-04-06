@@ -30,11 +30,11 @@ class DocxmlController < ApplicationController
 <?xml-stylesheet type="text/xsl" href="/stylesheets/minrel.xsl"?>
 XML
 
-    #xslt = XML::XSLT.new()
-    #xslt.xml = doc
-    #xslt.xsl = File.open(Rails.root + "/public/stylesheets/minrel.xsl").read
+    xslt = XML::XSLT.new()
+    xslt.xml = doc
+    xslt.xsl = File.open(Rails.root + "/public/stylesheets/minrel.xsl").read
 
-    render :text => tags + doc #xslt.serve() #tags + doc
+    render :text => xslt.serve() #tags + doc
   end
   
   def ver_copia

@@ -1,0 +1,9 @@
+row_id = element_row_id(:action => :list, :id => @original_record.id)
+new_row_id = element_row_id(:action => :list, :id => @record.id)
+page.insert_html :after, row_id, :partial => 'list_record', :locals => {:record => @record}
+page << "ActiveScaffold.stripe($('#{active_scaffold_tbody_id}'))"
+page << "ActiveScaffold.hide_empty_message('#{active_scaffold_tbody_id}','#{empty_message_id}');"
+page << "ActiveScaffold.increment_record_count('#{active_scaffold_id}');"
+page.select("##{new_row_id} td").each do |td|
+   page.visual_effect :highlight, td
+end

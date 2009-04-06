@@ -4,7 +4,7 @@ class Origen < Buzon
   
   #para los listados
   def to_label
-    sigla
+    self.nombre
   end
   
   #para record_select, los combos dinámicos que puedan ser más contextuales

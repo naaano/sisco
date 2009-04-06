@@ -6,7 +6,7 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>Sisco 2</title>
+  <title>Sisco 3</title>
   <%= stylesheet_link_tag 'application.css' %>
   <%= javascript_include_tag :defaults %>
   <%= active_scaffold_includes %>
@@ -15,13 +15,21 @@
 <body>
 <div class="header">
 	<div class="titulo"></div>
+	<div class="manual"><a href="/manual%20sisco3.doc">manual de uso</a>
 </div>
 <div class="dashboard">
 		<%= yield %>
 		<%= flash_messages %>
 </div>
 <div class="light-footer" align="right">
-		<p>SISCO 2 versión 0.3 copyleft</p>
+	<div class="anuncio">
+<ul>
+<li>Si no puedes ingresar o requieres ayuda llama al 4450, 4072, o envía correo de consulta a mcarrascos@minrel.gov.cl 
+<li>Si se trata de algo que estimas que falta, y que no será resuelto rápido, ingresa tu comentarios usando la acción correcciones de la ventana principal del SISCO3
+</ul>
+
+	</div>
+		<p>SISCO 3 versión 0.9 copyleft</p>
 		<p>Diseñado, modelado y programado por la OIP - Oficina de ingeniería de proyectos</p>
 		<p>Ministerio de Relaciones Exteriores</p>
 		<% 'logoOIPsmall.png' %>

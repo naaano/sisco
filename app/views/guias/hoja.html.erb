@@ -1,34 +1,44 @@
 <div class="guia">
 	<div id="encabezado">
+		<div id="preguia" class="<%= clase_muestra_preguia(@guia) %>">
+			pre-guia
+		</div>
 		<table>
-			<tr><th>Buzón:</th><td><%= session[:usuario].puesto.buzon.nombre %></td></tr>
+			<tr><th>Buzón:</th><td><%= @guia.buzon.nombre unless @guia.buzon.nil? %></td></tr>
 			<tr><th>Nro. Guia:</th><td><%= @guia.id %></td></tr>
 			<tr><th>Fecha Guia:</th><td><%= @guia.created_at %></td></tr>
-			<tr><th>Impreso por:</th><td><%= session[:usuario].to_label %></td></tr>
+			<tr><th>Cantidad de Doctos:</th><td><%= @guia.copias.size %></td></tr>
 		</table>
+		
+			
 		<br class="clear"/>
 	</div>
-<table class="tabla" cellpadding="0" cellspacing="0">
+<table class="tabla" cellpadding="0" cellspacing="0" border="1">
     <tr>
-        <th>tipo            </th>
-        <th>nº docto        </th>
-        <th>origen          </th>
-		<th>Fecha Documento  </th>
-		<th>Materia         </th>
-		<th>Destino         </th>
-		<th class="ancho">firma            </th>
-		<th class="ancho">timbre          </th>
-    </tr>
+		<%= encabezados(session[:usuario]) %>
+	</tr>
+	<% td = td_firmas(session[:usuario].puesto.buzon.opartes) %>
+	<% estilo = session[:usuario].es_admin? ? "" : "display:none;" %>
+	<% estilo_no_opartes = session[:usuario].puesto.buzon.opartes == false ? "" : "display:none;" %>
     <% for c in @guia.copias do %>
     <tr>    
-		<td><%= c.documento.tipo %></td>
-		<td><%= c.folio %></td>
-		<td><%= c.origen.to_label %></td>
-		<td><%= c.created_at %></td>
-		<td><%= c.documento.materia %></td>
-		<td><%= c.destinatario.to_label %></td>
-		<td class="ancho" nowrap="nowrap">. . . . . . . . . . . . . . .</td>
-		<td class="ancho" nowrap="nowrap">. . . . . . . . . . . . . . .</td>
+		<td style="<%= estilo %>">&nbsp;<%= c.id %></td>
+		<td>&nbsp;<%= c.documento.folio_externo %></td>
+		<td>&nbsp;<%= c.documento.folio_opartes %></td>
+		<td>&nbsp;<%= c.to_label %></td>
+		<td>&nbsp;<%= c.documento.tipo %></td>
+		<td>&nbsp;<%= c.origen.to_label unless c.origen.opartes == true %><%= " ("+ c.documento.detalle_origen + ")" unless c.documento.detalle_origen.nil? %></td>
+		<td>&nbsp;<%= c.documento.fecha.strftime("%d-%m-%y") %></td>
+		<td>&nbsp;<%= c.documento.materia %></td>
+		<td>&nbsp;<%= c.destinatario.sigla %></td>
+		<td style="<%= estilo_no_opartes %>">&nbsp;<%= c.documento.clasificacion.codigo %></td>
+		<td>&nbsp;<%= anexos(c.documento) %></td>
+		<td>&nbsp;<%= c.documento.observaciones %> <%= c.notas.last.texto unless c.notas.last.nil? %>
+		</td>
+		<%= td %>
+		<% if session[:usuario].puesto.buzon.opartes %>
+		<td><%=c.documento.usuario.nombre %></td>
+		<% end %>
 	</tr>
     <% end %>
 </table>

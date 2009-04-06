@@ -1,9 +1,9 @@
 class BorradorController < ApplicationController
   active_scaffold :documento do |config|
-    config.label = "Salida Digital"
+    config.label = "Ingreso Digital"
     
-    config.list.columns = [:folio, :origen_puesto_texto, :destinatario_texto, :materia, :referencia]
-    config.create.label = "Ingresar Nuevo Documento Electrónico (memo)"
+    config.list.columns = [:folio_texto, :origen_puesto_texto, :destinatario_texto, :materia, :referencia, :revisiones]
+    config.create.label = "Crear Nuevo Documento Electrónico"
     config.create.columns = [:origen_puesto, :destinatario_puesto, :materia, :referencia, :accion, :clasificacion, :cuerpo, :copias]
     config.update.columns = [:origen_puesto, :destinatario_puesto, :materia, :referencia, :accion, :clasificacion, :cuerpo, :copias]
     
@@ -51,34 +51,44 @@ class BorradorController < ApplicationController
     record.copias.each {|c| 
     Traza.create(:copia_id => c.id, :movimiento_id => 10, :usuario => current_user)
     }
+    record.write_xml
   end
   
   def before_create_save(record)
+    logger.info record.to_yaml
     record.digital = true
     record.tipo_id = 3 # MEMO SOLAMENTE
-    record.usuario_id = session[:usuario].id
-    record.buzon_id = session[:usuario].puesto.buzon_id
+    record.usuario_id = current_user.id
+    #record.buzon_id = current_user.puesto.buzon_id # el buzon corresponde a quien firma, no quien crea.
+    record.folio_interno = current_user.puesto.buzon.nuevo_folio
     corrige_entrada(record)
-    record.copias.each {|c| 
-    Traza.create(:copia_id => c.id, :movimiento_id => 12, :usuario => current_user)
+    record.do_folio
+    # agrega la copia original por defecto
+    record.copias.build(:original => true, :estado_id => 1, :buzon_id => current_user.puesto.buzon_id,
+    :origen_id => record.origen_id, :destinatario_id => record.destinatario_id, :documento => record, :accion => record.accion)
+    #TODO traspasar esto al modelo y probar como se comporta este,el ingreso papel y copia
+    record.copias.each {|c|
+      c.add_traza(current_user.id ,12, current_user.puesto.buzon_id)
     }
-  end
+    record.write_xml
+   end
   
-  def conditions_for_collection
-    ["documentos.digital = TRUE AND documentos.firma = FALSE AND documentos.buzon_id = ?", 
-    current_user.puesto.buzon_id ]
+  def conditions_for_collection  
+    "documentos.digital = TRUE AND documentos.firma = FALSE AND documentos.buzon_id in (#{current_user.puesto.buzon.parientes_ids.join(",")})"
   end
   
   private
   
   def corrige_entrada(record)
     unless record.origen_puesto_id.nil?
+      logger.info record.pretty_inspect
       puesto = Puesto.find(record.origen_puesto_id)
       record.origen_id = puesto.buzon_id
       record.origen_texto = puesto.buzon.sigla
       record.origen_puesto_texto = puesto.nombre
+      logger.info record.pretty_inspect
       record.origen_persona_texto = puesto.usuario.to_label
-      record.folio = puesto.buzon.nuevo_folio
+      record.buzon_id = puesto.buzon_id
     end
     unless record.destinatario_puesto_id.nil?
       puesto = Puesto.find(record.destinatario_puesto_id)
@@ -88,7 +98,6 @@ class BorradorController < ApplicationController
       record.destinatario_puesto_texto = puesto.nombre
       record.destinatario_persona_texto = puesto.usuario.to_label
     end
-    record.write_xml
   end
  
   

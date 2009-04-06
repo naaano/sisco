@@ -18,6 +18,19 @@ body {
 /*
 	Login
 */
+.manual{
+	font-size: large;
+	position: absolute;
+	right: 10px;
+	top 5px;
+	border: 2px solid red;
+	padding: 4px;
+	background-color: yellow;
+}
+.manual a, .manual a:visited{
+	text-decoration: none;
+	color: red;
+}
 .dashboard{
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
@@ -67,9 +80,21 @@ body {
 	padding: 8px;
 	margin: 3px;
 	background-color: #FF8;
+	color: black;
+	font-size: medium;
+	text-align:left;
+}
+.anuncio h2{
+	text-align: center;
+}
+.anuncio ul{
+	text-align: left;
+}
+.anuncio h3{
+	color: red;
 }
 /* truco para desaparecer el boton reemplazar con nuevo de AS para el puesto en el registro */
-.active-scaffold .sub-form .footer-wrapper{
+.dashboard .active-scaffold .sub-form .footer-wrapper{
 	display: none;
 }
 
@@ -81,6 +106,8 @@ body {
 .header{
 	width: 90%;
 	height: 70px;
+	top: 0;
+	margin-top: 0;
 }
 .header .titulo{
 	/*
@@ -90,20 +117,27 @@ font-family:"Courier New", Courier, monospace;
 	color: #4D6D9F;
 	height: 60px;
 	width: 72%;
-	background: url(../images/logosiscobaja.png) 4px 4px no-repeat;
-	padding: 8px;
+	background: url(../images/logosiscobaja.png) 4px -4px no-repeat;
+	padding: 0 8px;
 	padding-left: 250px;
 	font-weight: bold;
 	font-size: large;
 }
 .header #perfil{
 	float: right;
-	padding: 4px;
+	padding: 0 4px;
 }
 .header #perfil #nombre_usuario{
 	font-weight: bold;
 	color: #003399;
 } 
+.header #perfil #nombre_usuario a{
+	font-size: x-small;
+	text-decoration: none;
+}
+.header #perfil #buzon_usuario, .header #perfil #puesto_usuario{
+	font-size: small;
+}
 .header .mensajes{
 	float: left;
 }
@@ -115,6 +149,10 @@ font-family:"Courier New", Courier, monospace;
 	margin-right: 6px;
 	margin-left: 5px;
 	display: inline;
+}
+.left_menu a, .left_menu a:visited{
+	text-decoration:none;
+	color:#666666;
 }
 .main{
 	float: left;
@@ -181,6 +219,38 @@ font-family:"Courier New", Courier, monospace;
 	font-weight: bold;
 	font-style: italic;
 }
+/* 
+ * para Guias
+ */
+#preguia{
+	position: absolute;
+	float: left;
+	right: 300px;
+	top: 15px;
+	font-family:"Arial Black";
+	font-size: xx-large;
+	color: #666;
+	text-transform: uppercase;
+}
+
+.invisible{
+	display: none;
+}
+.nuevo{
+	color: #933 !IMPORTANT;
+}
+
+/*
+ * Para diferenciar por color las copias de originales 
+*/
+.active-scaffold tr.original td.materia-column, .active-scaffold tr.original td.origen-column, .active-scaffold tr.original td.folio-column{
+	color: #1F7F00 !IMPORTANT;
+}
+
+.active-scaffold tr.nuevo td.materia-column{
+	font-weight: bold !IMPORTANT;
+}
+
 /*
 
 ActiveScaffold Overrides
@@ -204,4 +274,29 @@ ActiveScaffold Overrides
 .tabla .ancho{
 	width: 120px;
 	height: 40px;
+}
+
+dd p {
+	font-weight: normal;
+}
+/* Novedades */
+#novedades h1{
+	color: #003399;
+	margin-top: 0;
+	border-bottom: 1px solid #003399;
+}
+#novedades ul{
+	list-style-type: none;
+	padding-left: 0px;
+	margin: 0;
+}
+#novedades .titulo{
+	color: #003399;
+	font-weight: bolder;
+	margin: 8px 0;
+}
+#novedades .texto{
+	margin-left: 10px;
+	font-size: smaller;
+	color: #666666;
 }

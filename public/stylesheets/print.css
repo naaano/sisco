@@ -40,6 +40,23 @@ body {
 .guia #encabezado td{
 	float: left;
 }
+/* 
+ * para Guias
+ */
+#preguia{
+	position: absolute;
+	right: 300px;
+	top: 15px;
+	font-family:"Arial Black";
+	font-size: xx-large;
+	color: #666;
+	text-transform: uppercase;
+}
+
+.invisible{
+	display: none;
+}
+
 .clear {
 	clear: both;
 }

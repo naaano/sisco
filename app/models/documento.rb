@@ -1,5 +1,7 @@
 require "rexml/document"
 include REXML   
+include ActionView::Helpers::TextHelper
+include ActionView::Helpers::TagHelper
 class Documento < ActiveRecord::Base
   belongs_to :tipo
   belongs_to :clasificacion
@@ -8,17 +10,24 @@ class Documento < ActiveRecord::Base
   belongs_to :usuario
   belongs_to :origen_puesto, :class_name => "Puesto", :foreign_key => 'origen_puesto_id'
   belongs_to :destinatario_puesto, :class_name => "Puesto", :foreign_key => 'destinatario_puesto_id'
+  belongs_to :destinatario
+  belongs_to :buzon
   
-  has_many :copias
+  has_many :revisiones, :dependent => :destroy
+  #has_one :copia_original, :class_name => "Copia", :conditions => "original = true"
+  has_many :copias, :dependent => :destroy#, :include => :buzon, :conditions => "buzones.externo = false"
   has_many :destinatarios, :through => :copias
   
   #validates_numericality_of :externo, :only_integer => true, :message => "solo los digitos del folio externo, por favor"
   #validates_presence_of :origen_puesto
-  validates_presence_of :destinatario_puesto 
+  #validates_presence_of :destinatario_puesto 
   validates_presence_of :materia
-  validates_presence_of :accion
+  validates_length_of :materia, :within => 3..254, :too_short => "La materia parece muy corta... si es necesario solicite que pueda ser mas corto", :too_long => "Por favor, trate de limitar la materia a 254 letras, si necesita describir mas, use el campo observaciones, gracias"
+  #validates_presence_of :accion
   validates_presence_of :clasificacion
+  validates_presence_of :destinatario
   #validates_presence_of :cuerpo
+  validates_presence_of :tipo
   
   fields do
     origen_id :integer # entidad quien origina el documento
@@ -37,15 +46,23 @@ class Documento < ActiveRecord::Base
     
     usuario_id :integer # usuario quien ingreso el documento
     buzon_id :integer # buzon donde se crea el documento
-    detalle_origen :string #otro origen... no usar 
-    externo :integer #folio externo
-    folio :integer #folio sisco , obligatorio
+    detalle_origen :string #descripcion mas detallada del origen 
+## FOLIOS
+#TODO corregir campos :externo, :folio y :folio_opartes a :folio_externo, :folio_interno y :folio_opartes donde corresponda
+    folio_externo :integer #folio externo
+    folio_interno :integer #folio sisco , obligatorio
+    folio_opartes :integer #folio opartes , solo para documentos que salen del ministerio, controlado por DEDOC
     folio_texto :string #folio completo, con formato CLAVE-folio/YEAR
     materia :string, :name => true
+    fecha :datetime #TODO default => now... ver la semantica
     digital :boolean, :default => false  # SISCO 3
     lock :boolean, :default => false #para electronico: true = para firma
     firma :boolean, :default => false #si el presente doc tiene firma
+    anexo :boolean, :default => false #si el presente doc tiene materiales anexos
+    sobre :boolean, :default => false #si el presente doc tiene materiales anexos
+    paquete :boolean, :default => false #si el presente doc tiene materiales anexos
     
+    observaciones :text #reemplaza el uso que le dan a la primera nota. 
     tipo_id :integer
     clasificacion_id :integer
     accion_id :integer
@@ -67,16 +84,20 @@ class Documento < ActiveRecord::Base
     folio_texto
   end
   
+  def do_folio
+    self.folio_texto = "#{self.origen.sigla}-#{self.folio_interno}-#{agno}"
+  end
+  
   def agno
-    created_at.strftime('%y')
+    created_at ? created_at.strftime('%y') : Time.now.strftime('%y')
   end
   
   def before_create
-    #self.buzon_id = 2
+    self.fecha ||= DateTime.now # hay gente que le saca la fecha por defecto y se la deja en blanco...
   end
   
   def after_create
-    self.write_xml if self.digital
+    self.write_xml if self.digital == true
   end
   
   def enviar
@@ -87,6 +108,7 @@ class Documento < ActiveRecord::Base
         c.save!
       }
       self.lock = false
+      self.revisiones.destroy_all
     end
   end
   
@@ -109,7 +131,7 @@ class Documento < ActiveRecord::Base
       # DOCUMENTO
     doc.elements["//memo/folio"].attributes["id"] = self.id    
     doc.elements["//memo/folio/entidad"].text = self.origen.sigla    
-    doc.elements["//memo/folio/numero"].text = self.folio    
+    doc.elements["//memo/folio/numero"].text = self.folio_interno    
     doc.elements["//memo/folio/agno"].text = self.created_at.year.to_s  
     end
     ## DESTINATARIO
@@ -127,9 +149,10 @@ class Documento < ActiveRecord::Base
     
     doc.elements["//memo/clasificacion"].text = self.clasificacion.codigo unless self.clasificacion.nil?
     doc.elements["//memo/accion"].text = self.accion.nombre unless self.accion.nil?
-    doc.elements["//memo/fecha"].text = self.created_at.to_s 
+    doc.elements["//memo/fecha"].text = I18n.l self.created_at, :format => "%A %d de %B de %Y"
     doc.elements["//memo/tags"].text = "" 
-    doc.elements["//memo/cuerpo"].text = self.cuerpo unless self.cuerpo.nil? 
+    doc.elements["//memo/cuerpo"].text = simple_format(self.cuerpo) unless self.cuerpo.nil? 
+    doc.elements["//memo/referencia"].text = self.referencia unless self.referencia.nil? 
     
     #REFERENCIA EN BLANCO
     self.copias.each {|d| 
@@ -146,11 +169,12 @@ class Documento < ActiveRecord::Base
     write_attribute(:xml, doc.to_s)
   end
   
-  
-  
-  
-  
   #CONTROL DE ACCIONES
+  
+  # para la accion xml (ver documento electronico) en todos
+  def xml_authorized?
+    self.firma == true 
+  end
   
   def corregir_authorized?
     self.firma == false and self.lock == true
@@ -158,6 +182,10 @@ class Documento < ActiveRecord::Base
   
   def update_authorized?
     self.firma == false and self.lock == false
+  end
+  
+  def materia_authorized_for_update?
+    return true # para mostrar en foliado de of de partes
   end
   
   def firmar_authorized?
@@ -169,7 +197,8 @@ class Documento < ActiveRecord::Base
   end
   
   def delete_authorized?
-    self.firma == false and self.lock == false
+    fue_recibido = self.copias.find(:all, :include => [:trazas], :conditions => "trazas.movimiento_id in (2,7,8)").count > 0
+    self.firma == false and self.lock == false and buzon_id == current_user.puesto.buzon_id and not fue_recibido
   end
   
   

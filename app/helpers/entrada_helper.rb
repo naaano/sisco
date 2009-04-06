@@ -1,4 +1,14 @@
 module EntradaHelper
+  
+  #para diferenciar por color el documento original de la copia
+  def list_row_class(record)
+    clase = ""
+    clase = "original" if record.original
+    clase = "#{clase} nuevo" if record.estado_id == 2
+    clase
+  end
+
+  
   def active_scaffold_column_select(column, record)
     column_value = record.send(column.name)
     if column.inplace_edit and record.authorized_for?(:action => :update, :column => column.name)
@@ -18,6 +28,24 @@ module EntradaHelper
   
   def trazas_column(record)
      "<ul><li>" + record.trazas.collect{|t| h(t.to_label) }.join("<li>") + "</ul>"
+ end
+ 
+ def copias_show_column(record)
+   record.copias.collect{|c| c.to_label + " - " + c.buzon.sigla + " - " + c.estado.nombre + "(#{c.destinatario.sigla})"}.join(", ")
+ end
+ 
+ def id_column(record)
+   check_box "record_ids[#{record.id}]", false
+ end
+
+## esto filtra las opciones de destinatarios a solo buzones locales 
+  def options_for_association_conditions(association)
+    if association.name == :destinatario
+      ['buzones.externo = false']
+    else
+      super
+    end
   end
+  
 
 end

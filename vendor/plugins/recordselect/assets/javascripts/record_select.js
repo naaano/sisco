@@ -260,13 +260,15 @@ RecordSelect.Single.prototype = Object.extend(new RecordSelect.Abstract(), {
     this.container = this.create_container();
     this.container.addClassName('record-select-autocomplete');
 
-    // create the hidden input
-    new Insertion.After(this.obj, '<input type="hidden" name="" value="" />')
+    // We are doing this in the record_select_field so that we can observe the field
+    // // create the hidden input
+    // new Insertion.After(this.obj, '<input type="hidden" name="" value="" />')
     this.hidden_input = this.obj.next();
 
-    // transfer the input name from the text input to the hidden input
-    this.hidden_input.name = this.obj.name;
-    this.obj.name = '';
+    // We want control over submitting the temp field.
+    // // transfer the input name from the text input to the hidden input
+    // this.hidden_input.name = this.obj.name;
+    // this.obj.name = '';
 
     // initialize the values
     this.set(this.options.id, this.options.label);
