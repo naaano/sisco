@@ -2,7 +2,7 @@ class Traza < ActiveRecord::Base
   belongs_to :copia
   belongs_to :movimiento
   belongs_to :usuario
-  belongs_to :asignado, :class_name => 'puesto', :foreign_key => 'asignado_id'
+  belongs_to :asignado, :class_name => 'Puesto', :foreign_key => 'asignado_id'
   
   fields do
     copia_id :integer
@@ -21,9 +21,9 @@ class Traza < ActiveRecord::Base
     end
   end
   
-  def puesto
-    "" #Puesto.find(self.asignado_id) unless self.asignado_id.nil?
-  end
+  #def puesto
+  #  "" #Puesto.find(self.asignado_id) unless self.asignado_id.nil?
+  #end
   
   
 end

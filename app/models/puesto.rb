@@ -2,6 +2,7 @@ class Puesto < ActiveRecord::Base
   belongs_to :cargo
   belongs_to :usuario
   has_many :rotaciones
+  has_many :trazas
   belongs_to :buzon
   
   validates_presence_of :buzon

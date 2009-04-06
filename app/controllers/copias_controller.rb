@@ -9,7 +9,6 @@ class CopiasController < ApplicationController
     config.columns[:accion].form_ui = :select
     config.columns[:original].form_ui = :checkbox
     config.subform.columns = [:destinatario, :accion]
-    
     config.create.columns = [:destinatario, :accion]
     
   end

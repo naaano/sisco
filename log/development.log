@@ -1,0 +1,1711 @@
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing EnviadosEdocsController#index (for 127.0.0.1 at 2009-04-06 18:59:55) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"index", "controller"=>"enviados_edocs"}
+Usuario: hastudillo
+  [4;35;1mPuesto Load (1.5ms)[0m   [0mSELECT * FROM "puestos" WHERE ("puestos".usuario_id = 1) LIMIT 1[0m
+  [4;36;1mBuzon Load (1.2ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 2) [0m
+  [4;35;1mSQL (106.6ms)[0m   [0mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id WHERE (documentos.digital = true AND documentos.buzon_id = 2) [0m
+  [4;36;1mCopia Load IDs For Limited Eager Loading (38.1ms)[0m   [0;1mSELECT * FROM (SELECT DISTINCT ON ("copias".id) "copias".id, copias."id" AS alias_0 FROM "copias" LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (documentos.digital = true AND documentos.buzon_id = 2) ) AS id_list ORDER BY id_list.alias_0 LIMIT 15 OFFSET 0[0m
+  [4;35;1mCopia Load Including Associations (110.2ms)[0m   [0mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "documentos"."id" AS t1_r0, "documentos"."origen_id" AS t1_r1, "documentos"."detalle_origen" AS t1_r2, "documentos"."materia" AS t1_r3, "documentos"."tipo_id" AS t1_r4, "documentos"."clasificacion_id" AS t1_r5, "documentos"."accion_id" AS t1_r6, "documentos"."created_at" AS t1_r7, "documentos"."updated_at" AS t1_r8, "documentos"."folio_externo" AS t1_r9, "documentos"."folio_interno" AS t1_r10, "documentos"."usuario_id" AS t1_r11, "documentos"."parent_id" AS t1_r12, "documentos"."pfe" AS t1_r13, "documentos"."pfe_ok" AS t1_r14, "documentos"."cuerpo" AS t1_r15, "documentos"."xml" AS t1_r16, "documentos"."origen_puesto_id" AS t1_r17, "documentos"."origen_texto" AS t1_r18, "documentos"."origen_puesto_texto" AS t1_r19, "documentos"."origen_persona_texto" AS t1_r20, "documentos"."destinatario_id" AS t1_r21, "documentos"."destinatario_puesto_id" AS t1_r22, "documentos"."destinatario_texto" AS t1_r23, "documentos"."destinatario_puesto_texto" AS t1_r24, "documentos"."destinatario_persona_texto" AS t1_r25, "documentos"."folio_texto" AS t1_r26, "documentos"."lock" AS t1_r27, "documentos"."firma" AS t1_r28, "documentos"."referencia" AS t1_r29, "documentos"."digital" AS t1_r30, "documentos"."origen_sigla" AS t1_r31, "documentos"."destinatario_sigla" AS t1_r32, "documentos"."buzon_id" AS t1_r33, "documentos"."folio_opartes" AS t1_r34, "documentos"."fecha" AS t1_r35, "documentos"."anexo" AS t1_r36, "documentos"."sobre" AS t1_r37, "documentos"."paquete" AS t1_r38, "documentos"."observaciones" AS t1_r39, "buzones"."id" AS t2_r0, "buzones"."nombre" AS t2_r1, "buzones"."sigla" AS t2_r2, "buzones"."descripcion" AS t2_r3, "buzones"."folio" AS t2_r4, "buzones"."created_at" AS t2_r5, "buzones"."updated_at" AS t2_r6, "buzones"."externo" AS t2_r7, "buzones"."type" AS t2_r8, "buzones"."opartes" AS t2_r9, "buzones"."superior_id" AS t2_r10, "buzones"."recibe_de_todos" AS t2_r11, "buzones"."envia_a_todos" AS t2_r12, "estados"."id" AS t3_r0, "estados"."nombre" AS t3_r1, "estados"."created_at" AS t3_r2, "estados"."updated_at" AS t3_r3, "notas"."id" AS t4_r0, "notas"."texto" AS t4_r1, "notas"."copia_id" AS t4_r2, "notas"."puesto_id" AS t4_r3, "notas"."created_at" AS t4_r4, "notas"."updated_at" AS t4_r5 FROM "copias" LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id WHERE (documentos.digital = true AND documentos.buzon_id = 2) AND "copias".id IN (15745, 15746, 15784, 15785, 15787, 15824, 15825, 16533, 17594, 17595, 17596, 19716, 19829, 19830, 22476) ORDER BY copias."id" ASC[0m
+Rendering template within layouts/default
+Rendering enviados_edocs/list
+Rendered _list_header (4.1ms)
+Rendered _list_column_headings (10.9ms)
+Rendered _messages (0.4ms)
+  [4;36;1mTipo Load (0.9ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (2.7ms)
+Rendered _list_record (51.6ms)
+Rendered _list_actions (1.8ms)
+Rendered _list_record (11.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (3.3ms)
+Rendered _list_record (15.9ms)
+Rendered _list_actions (3.0ms)
+Rendered _list_record (18.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (3.3ms)
+Rendered _list_record (20.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (3.2ms)
+Rendered _list_record (19.3ms)
+Rendered _list_actions (1.9ms)
+Rendered _list_record (16.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (2.0ms)
+Rendered _list_record (12.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (1.9ms)
+Rendered _list_record (12.8ms)
+Rendered _list_actions (1.8ms)
+Rendered _list_record (10.9ms)
+Rendered _list_actions (2.2ms)
+Rendered _list_record (12.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (1.9ms)
+Rendered _list_record (11.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (2.9ms)
+Rendered _list_record (14.0ms)
+Rendered _list_actions (1.9ms)
+Rendered _list_record (11.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 3) [0m
+Rendered _list_actions (2.2ms)
+Rendered _list_record (12.6ms)
+Rendered _list_pagination_links (122.3ms)
+Rendered _list (401.4ms)
+  [4;35;1mBuzon Load (1.2ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 1)) [0m
+Rendered layouts/_acciones (3.4ms)
+Rendered layouts/_admin (3.0ms)
+Completed in 5138ms (View: 4463, DB: 265) | 200 OK [http://localhost/enviados_edocs]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalidaController#index (for 127.0.0.1 at 2009-04-06 19:00:20) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"index", "controller"=>"salida"}
+Usuario: hastudillo
+  [4;36;1mPuesto Load (1.4ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos".usuario_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (96.4ms)[0m   [0mSELECT count(DISTINCT "documentos".id) AS count_all FROM "documentos" LEFT OUTER JOIN "buzones" ON "buzones".id = "documentos".origen_id LEFT OUTER JOIN "tipos" ON "tipos".id = "documentos".tipo_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "documentos".usuario_id WHERE (documentos.id in (select documento_id from copias WHERE estado_id = 1 AND buzon_id = 2 )) [0m
+  [4;36;1mDocumento Load (5.2ms)[0m   [0;1mSELECT "documentos".* FROM "documentos" WHERE (documentos.id in (select documento_id from copias WHERE estado_id = 1 AND buzon_id = 2 )) ORDER BY documentos."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mOrigen Load (1.4ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 2) [0m
+  [4;36;1mTipo Load (1.2ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" IN (6,8,25,1,3)) [0m
+  [4;35;1mUsuario Load (1.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (6,1,346,5)) [0m
+Rendering template within layouts/default
+Rendering salida/list
+Rendered _list_header (20.0ms)
+Rendered _list_column_headings (25.9ms)
+Rendered _messages (0.6ms)
+  [4;36;1mCopia Load Including Associations (23.8ms)[0m   [0;1mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 8393 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (91.3ms)
+Rendered _list_record (120.2ms)
+  [4;35;1mCopia Load Including Associations (8.3ms)[0m   [0mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 11219 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (14.3ms)
+Rendered _list_record (22.5ms)
+  [4;36;1mCopia Load Including Associations (1.6ms)[0m   [0;1mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 11833 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (8.5ms)
+Rendered _list_record (16.5ms)
+  [4;35;1mCopia Load Including Associations (6.5ms)[0m   [0mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 14942 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (13.5ms)
+Rendered _list_record (21.4ms)
+  [4;36;1mCopia Load Including Associations (8.0ms)[0m   [0;1mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 16044 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (15.0ms)
+Rendered _list_record (23.0ms)
+  [4;35;1mCopia Load Including Associations (15.3ms)[0m   [0mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 18251 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (20.7ms)
+Rendered _list_record (28.8ms)
+  [4;36;1mCopia Load Including Associations (1.3ms)[0m   [0;1mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 26594 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (6.8ms)
+Rendered _list_record (14.6ms)
+  [4;35;1mCopia Load Including Associations (1.3ms)[0m   [0mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 26595 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (6.9ms)
+Rendered _list_record (14.8ms)
+  [4;36;1mCopia Load Including Associations (1.3ms)[0m   [0;1mSELECT "copias"."id" AS t0_r0, "copias"."documento_id" AS t0_r1, "copias"."carpeta_id" AS t0_r2, "copias"."estado_id" AS t0_r3, "copias"."buzon_id" AS t0_r4, "copias"."created_at" AS t0_r5, "copias"."updated_at" AS t0_r6, "copias"."puesto_id" AS t0_r7, "copias"."origen_id" AS t0_r8, "copias"."destinatario_id" AS t0_r9, "copias"."recepcion" AS t0_r10, "copias"."accion_id" AS t0_r11, "copias"."original" AS t0_r12, "trazas"."id" AS t1_r0, "trazas"."copia_id" AS t1_r1, "trazas"."movimiento_id" AS t1_r2, "trazas"."created_at" AS t1_r3, "trazas"."usuario_id" AS t1_r4, "trazas"."buzon_id" AS t1_r5, "trazas"."asignado_id" AS t1_r6 FROM "copias" LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id WHERE ("copias".documento_id = 26601 AND (trazas.movimiento_id in (2,7,8))) [0m
+Rendered _list_actions (7.0ms)
+Rendered _list_record (16.1ms)
+Rendered _list (322.1ms)
+  [4;35;1mBuzon Load (1.3ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 2) [0m
+Rendered layouts/_acciones (4.8ms)
+Rendered layouts/_admin (3.4ms)
+Completed in 765ms (View: 328, DB: 180) | 200 OK [http://localhost/salida]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-04-06 19:35:29) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"index", "controller"=>"todos"}
+Usuario: hastudillo
+  [4;35;1mSQL (1541.9ms)[0m   [0mSELECT count(DISTINCT "documentos".id) AS count_all FROM "documentos" LEFT OUTER JOIN "buzones" ON "buzones".id = "documentos".origen_id LEFT OUTER JOIN "tipos" ON "tipos".id = "documentos".tipo_id LEFT OUTER JOIN "clasificaciones" ON "clasificaciones".id = "documentos".clasificacion_id LEFT OUTER JOIN "copias" ON copias.documento_id = documentos.id [0m
+  [4;36;1mDocumento Load (2.8ms)[0m   [0;1mSELECT "documentos".* FROM "documentos" ORDER BY documentos."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mOrigen Load (1.4ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (23,106,46,262,58,120,121,95,74,19,269)) [0m
+  [4;36;1mTipo Load (0.7ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" IN (11,8,26,3,20,5)) [0m
+  [4;35;1mClasificacion Load (0.6ms)[0m   [0mSELECT * FROM "clasificaciones" WHERE ("clasificaciones"."id" IN (1,2)) [0m
+  [4;36;1mCopia Load (1.7ms)[0m   [0;1mSELECT "copias".* FROM "copias" WHERE ("copias".documento_id IN (110,111,113,114,119,122,124,125,128,131,132,133,135,136,137)) [0m
+Rendering template within layouts/default
+Rendering todos/list
+Rendered _list_header (2.4ms)
+Rendered _list_column_headings (12.8ms)
+Rendered _messages (0.4ms)
+  [4;35;1mDocumento Load (1.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendered _list_actions (1.9ms)
+Rendered _list_record (25.1ms)
+  [4;35;1mDocumento Load (0.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 111) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 111) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 111) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (16.2ms)
+  [4;36;1mDocumento Load (0.8ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 113) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (11.6ms)
+  [4;35;1mDocumento Load (0.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 114) [0m
+Rendered _list_actions (1.5ms)
+Rendered _list_record (11.7ms)
+  [4;36;1mDocumento Load (0.8ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 119) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (12.0ms)
+  [4;35;1mDocumento Load (0.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 122) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (11.5ms)
+  [4;36;1mDocumento Load (0.8ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 124) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 124) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 124) [0m
+Rendered _list_actions (1.5ms)
+Rendered _list_record (12.8ms)
+  [4;35;1mDocumento Load (0.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 125) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (11.9ms)
+  [4;36;1mDocumento Load (0.8ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 128) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (11.8ms)
+  [4;35;1mDocumento Load (0.9ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 131) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 131) [0m
+Rendered _list_actions (1.6ms)
+Rendered _list_record (12.5ms)
+  [4;35;1mDocumento Load (0.9ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 132) [0m
+Rendered _list_actions (1.5ms)
+Rendered _list_record (12.0ms)
+  [4;36;1mDocumento Load (0.8ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 133) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (11.6ms)
+  [4;35;1mDocumento Load (0.9ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 135) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (14.2ms)
+  [4;36;1mDocumento Load (0.9ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 136) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (12.6ms)
+  [4;35;1mDocumento Load (1.5ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 137) [0m
+Rendered _list_actions (1.4ms)
+Rendered _list_record (12.3ms)
+Rendered _list_pagination_links (6.2ms)
+Rendered _list (350.2ms)
+  [4;36;1mPuesto Load (2.3ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos".usuario_id = 1) LIMIT 1[0m
+  [4;35;1mBuzon Load (1.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 1)) [0m
+  [4;36;1mBuzon Load (0.9ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 2) [0m
+Rendered layouts/_acciones (8.3ms)
+Rendered layouts/_admin (5.0ms)
+Completed in 2165ms (View: 437, DB: 1572) | 200 OK [http://localhost/todos]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#nested (for 127.0.0.1 at 2009-04-06 19:35:33) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"110", "controller"=>"todos", "associations"=>"copias"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (2.1ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+clase a convertir : Copia
+clase a convertir : Copia
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"copias", :parent_model=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), :eid=>"6d86616db810e25575d852dc7901edbb", :nested=>true}, :controller=>"copias_view"}): 
+
+
+Processing CopiasViewController#table (for 127.0.0.1 at 2009-04-06 19:35:34) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"copias", "eid"=>"6d86616db810e25575d852dc7901edbb", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mSQL (251.5ms)[0m   [0;1mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "buzones" destinatarios_copias ON "destinatarios_copias".id = "copias".destinatario_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "copias_guias" ON "copias_guias".copia_id = "copias".id LEFT OUTER JOIN "guias" ON "guias".id = "copias_guias".guia_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id LEFT OUTER JOIN "buzones" origenes_copias ON "origenes_copias".id = "copias".origen_id LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (copias.documento_id = E'110') [0m
+  [4;35;1mCopia Load (1.6ms)[0m   [0mSELECT "copias".* FROM "copias" WHERE (copias.documento_id = E'110') ORDER BY copias."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mBuzon Load (1.3ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;36;1mEstado Load (0.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;35;1mGuia Load (1.8ms)[0m   [0mSELECT "guias".*, t0.copia_id as the_parent_record_id FROM "guias" INNER JOIN "copias_guias" as t0 ON "guias".id = t0.guia_id WHERE (t0.copia_id IN (250,12202)) ORDER BY id[0m
+  [4;36;1mNota Load (0.9ms)[0m   [0;1mSELECT "notas".* FROM "notas" WHERE ("notas".copia_id IN (250,12202)) [0m
+  [4;35;1mOrigen Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (12,10)) [0m
+  [4;36;1mTraza Load (2.1ms)[0m   [0;1mSELECT "trazas".* FROM "trazas" WHERE ("trazas".copia_id IN (250,12202)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendering copias_view/list
+Rendered _list_header (0.7ms)
+Rendered _list_column_headings (32.1ms)
+Rendered _messages (0.6ms)
+  [4;36;1mMovimiento Load (0.6ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mUsuario Load (0.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mBuzon Load (1.3ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (1.2ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.4ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;36;1mBuzon Load (0.7ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mBuzon Load (0.7ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (72.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mUsuario Load (0.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 47) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 47)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;35;1mBuzon Load (1.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+Rendered _list_record (31.0ms)
+Rendered _list (153.2ms)
+Completed in 650ms (View: 155, DB: 275) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (1146.0ms)
+Rendered _messages (0.5ms)
+Rendered _list_inline_adapter (5.6ms)
+Completed in 1183ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#row (for 127.0.0.1 at 2009-04-06 19:39:23) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"row", "_method"=>"get", "id"=>"110", "controller"=>"todos"}
+Usuario: hastudillo
+  [4;36;1mDocumento Load (2.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;35;1mOrigen Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 58) [0m
+  [4;36;1mTipo Load (0.9ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 8) [0m
+  [4;35;1mClasificacion Load (0.7ms)[0m   [0mSELECT * FROM "clasificaciones" WHERE ("clasificaciones"."id" = 1) [0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;35;1mCopia Load (0.7ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendered _list_actions (1.6ms)
+Rendered _list_record (126.4ms)
+Completed in 157ms (View: 125, DB: 10) | 200 OK [http://localhost/todos/row/110?_method=get]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#nested (for 127.0.0.1 at 2009-04-06 19:39:25) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"110", "controller"=>"todos", "associations"=>"copias"}
+Usuario: hastudillo
+  [4;36;1mDocumento Load (2.1ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+clase a convertir : Copia
+clase a convertir : Copia
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"copias", :parent_model=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), :eid=>"6d86616db810e25575d852dc7901edbb", :nested=>true}, :controller=>"copias_view"}): 
+
+
+Processing CopiasViewController#table (for 127.0.0.1 at 2009-04-06 19:39:25) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"copias", "eid"=>"6d86616db810e25575d852dc7901edbb", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;35;1mSQL (11.5ms)[0m   [0mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "buzones" destinatarios_copias ON "destinatarios_copias".id = "copias".destinatario_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "copias_guias" ON "copias_guias".copia_id = "copias".id LEFT OUTER JOIN "guias" ON "guias".id = "copias_guias".guia_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id LEFT OUTER JOIN "buzones" origenes_copias ON "origenes_copias".id = "copias".origen_id LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (copias.documento_id = E'110') [0m
+  [4;36;1mCopia Load (1.0ms)[0m   [0;1mSELECT "copias".* FROM "copias" WHERE (copias.documento_id = E'110') ORDER BY copias."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;35;1mEstado Load (0.5ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.2ms)[0m   [0;1mSELECT "guias".*, t0.copia_id as the_parent_record_id FROM "guias" INNER JOIN "copias_guias" as t0 ON "guias".id = t0.guia_id WHERE (t0.copia_id IN (250,12202)) ORDER BY id[0m
+  [4;35;1mNota Load (0.7ms)[0m   [0mSELECT "notas".* FROM "notas" WHERE ("notas".copia_id IN (250,12202)) [0m
+  [4;36;1mOrigen Load (0.6ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (12,10)) [0m
+  [4;35;1mTraza Load (0.9ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE ("trazas".copia_id IN (250,12202)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendering copias_view/list
+Rendered _list_header (0.5ms)
+Rendered _list_column_headings (18.8ms)
+Rendered _messages (0.4ms)
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (0.9ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.3ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.4ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;35;1mBuzon Load (0.7ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mBuzon Load (0.7ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (56.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 47) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 47)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+Rendered _list_record (30.3ms)
+Rendered _list (116.5ms)
+Completed in 222ms (View: 114, DB: 31) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (549.8ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.4ms)
+Completed in 585ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#row (for 127.0.0.1 at 2009-04-06 19:39:31) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"row", "_method"=>"get", "id"=>"110", "controller"=>"todos"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (2.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mOrigen Load (1.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 58) [0m
+  [4;35;1mTipo Load (0.7ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 8) [0m
+  [4;36;1mClasificacion Load (0.7ms)[0m   [0;1mSELECT * FROM "clasificaciones" WHERE ("clasificaciones"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;36;1mCopia Load (0.7ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendered _list_actions (1.7ms)
+Rendered _list_record (120.2ms)
+Completed in 149ms (View: 119, DB: 10) | 200 OK [http://localhost/todos/row/110?_method=get]
+
+
+Processing TodosController#nested (for 127.0.0.1 at 2009-04-06 19:40:56) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"110", "controller"=>"todos", "associations"=>"copias"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (2.1ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+clase a convertir : Copia
+clase a convertir : Copia
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"copias", :parent_model=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), :eid=>"6d86616db810e25575d852dc7901edbb", :nested=>true}, :controller=>"copias_view"}): 
+
+
+Processing CopiasViewController#table (for 127.0.0.1 at 2009-04-06 19:40:56) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"copias", "eid"=>"6d86616db810e25575d852dc7901edbb", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mSQL (11.4ms)[0m   [0;1mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "buzones" destinatarios_copias ON "destinatarios_copias".id = "copias".destinatario_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "copias_guias" ON "copias_guias".copia_id = "copias".id LEFT OUTER JOIN "guias" ON "guias".id = "copias_guias".guia_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id LEFT OUTER JOIN "buzones" origenes_copias ON "origenes_copias".id = "copias".origen_id LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (copias.documento_id = E'110') [0m
+  [4;35;1mCopia Load (1.0ms)[0m   [0mSELECT "copias".* FROM "copias" WHERE (copias.documento_id = E'110') ORDER BY copias."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;36;1mEstado Load (0.6ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;35;1mGuia Load (1.2ms)[0m   [0mSELECT "guias".*, t0.copia_id as the_parent_record_id FROM "guias" INNER JOIN "copias_guias" as t0 ON "guias".id = t0.guia_id WHERE (t0.copia_id IN (250,12202)) ORDER BY id[0m
+  [4;36;1mNota Load (0.7ms)[0m   [0;1mSELECT "notas".* FROM "notas" WHERE ("notas".copia_id IN (250,12202)) [0m
+  [4;35;1mOrigen Load (0.8ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (12,10)) [0m
+  [4;36;1mTraza Load (0.9ms)[0m   [0;1mSELECT "trazas".* FROM "trazas" WHERE ("trazas".copia_id IN (250,12202)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendering copias_view/list
+Rendered _list_header (0.5ms)
+Rendered _list_column_headings (19.7ms)
+Rendered _messages (0.3ms)
+  [4;36;1mMovimiento Load (0.6ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mUsuario Load (0.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mBuzon Load (1.4ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+Rendered _list_record (40.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mUsuario Load (0.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 47) [0m
+  [4;35;1mBuzon Load (0.7ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 47)) [0m
+Rendered _list_record (18.8ms)
+Rendered _list (90.1ms)
+Completed in 195ms (View: 94, DB: 24) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (505.6ms)
+Rendered _messages (0.4ms)
+Rendered _list_inline_adapter (107.5ms)
+Completed in 644ms (View: 109, DB: 0) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:40:59) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.5ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+
+
+ActionView::TemplateError (wrong constant name puesto) on line #24 of vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:
+21:           }
+22:         }
+23:       else
+24:         @constraints = { association.reverse => parent_id }
+25:       end
+26: 
+27:       # generate the customized label
+
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `const_defined?'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:28:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `each'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:11:in `reverse'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:24
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11:in `each'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_view_rendering.rb:61:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:926:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:13:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:948:in `render_to_string'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:9:in `render'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:18:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:16:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /var/lib/gems/1.8/bin/mongrel_rails:16:in `load'
+    /var/lib/gems/1.8/bin/mongrel_rails:16
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (115.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (22.4ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:43:11) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;35;1mCopia Load (1.4ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+
+
+ActionView::TemplateError (wrong constant name puesto) on line #24 of vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:
+21:           }
+22:         }
+23:       else
+24:         @constraints = { association.reverse => parent_id }
+25:       end
+26: 
+27:       # generate the customized label
+
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `const_defined?'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:28:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `each'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:11:in `reverse'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:24
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11:in `each'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_view_rendering.rb:61:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:926:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:13:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:948:in `render_to_string'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:9:in `render'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:18:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:16:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /var/lib/gems/1.8/bin/mongrel_rails:16:in `load'
+    /var/lib/gems/1.8/bin/mongrel_rails:16
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (192.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (16.3ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:44:06) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.5ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+
+
+ActionView::TemplateError (wrong constant name puesto) on line #24 of vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:
+21:           }
+22:         }
+23:       else
+24:         @constraints = { association.reverse => parent_id }
+25:       end
+26: 
+27:       # generate the customized label
+
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `const_defined?'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:28:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `each'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:11:in `reverse'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:24
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11:in `each'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_view_rendering.rb:61:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:926:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:13:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:948:in `render_to_string'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:9:in `render'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:18:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:16:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /var/lib/gems/1.8/bin/mongrel_rails:16:in `load'
+    /var/lib/gems/1.8/bin/mongrel_rails:16
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (83.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (13.7ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:45:01) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;35;1mCopia Load (1.4ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+
+
+ActionView::TemplateError (wrong constant name puesto) on line #24 of vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:
+21:           }
+22:         }
+23:       else
+24:         @constraints = { association.reverse => parent_id }
+25:       end
+26: 
+27:       # generate the customized label
+
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `const_defined?'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:28:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `each'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:24:in `reverse_matches_for'
+    vendor/plugins/active_scaffold/lib/extensions/reverse_associations.rb:11:in `reverse'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:24
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11:in `each'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:11
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_view_rendering.rb:61:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:926:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:13:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:948:in `render_to_string'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:9:in `render'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:18:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    vendor/plugins/active_scaffold/lib/active_scaffold/actions/nested.rb:16:in `nested'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /var/lib/gems/1.8/bin/mongrel_rails:16:in `load'
+    /var/lib/gems/1.8/bin/mongrel_rails:16
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (191.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (14.6ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+ActiveScaffold: extending RESTful routes for buzones
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mCopia Load (1.9ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 110) [0m
+  [4;35;1mCopia Load (1.2ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;36;1mTraza Load (2.3ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+ActiveScaffold: extending RESTful routes for buzones
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mCopia Load (2.1ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mTraza Load (2.1ms)[0m   [0mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:48:07) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mDocumento Load (1.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"trazas", :parent_model=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), :eid=>"fed3cebb789ed92d301fa7c687f3f03c", :nested=>true}, :controller=>"trazas"}): 
+
+
+Processing TrazasController#table (for 127.0.0.1 at 2009-04-06 19:48:07) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"trazas", "eid"=>"fed3cebb789ed92d301fa7c687f3f03c", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), "controller"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSELECT count(DISTINCT "trazas".id) AS count_all FROM "trazas" LEFT OUTER JOIN "puestos" ON "puestos".id = "trazas".asignado_id LEFT OUTER JOIN "movimientos" ON "movimientos".id = "trazas".movimiento_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "trazas".usuario_id LEFT OUTER JOIN "copias" ON "copias".id = "trazas".copia_id WHERE (trazas.copia_id = E'250') [0m
+  [4;35;1mTraza Load (0.8ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE (trazas.copia_id = E'250') ORDER BY trazas."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mPuesto Load (0.7ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos"."id" = NULL) [0m
+  [4;35;1mMovimiento Load (0.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" IN (1,2,3,4)) [0m
+  [4;36;1mUsuario Load (0.8ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (90,58,16,31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+Rendering trazas/list
+Rendered _list_header (2.5ms)
+Rendered _list_column_headings (7.1ms)
+Rendered _messages (0.3ms)
+Rendered _list_actions (1.9ms)
+Rendered _list_record (165.9ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.8ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.5ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.5ms)
+Rendered _list_actions (1.5ms)
+Rendered _list_record (9.9ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.7ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.3ms)
+Rendered _list (241.8ms)
+Completed in 531ms (View: 254, DB: 9) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (693.9ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.6ms)
+Completed in 897ms (View: 6, DB: 0) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#row (for 127.0.0.1 at 2009-04-06 19:48:49) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"row", "_method"=>"get", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.5ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;35;1mEstado Load (0.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.8ms)[0m   [0;1mSELECT * FROM "guias" INNER JOIN "copias_guias" ON "guias".id = "copias_guias".guia_id WHERE ("copias_guias".copia_id = 250 ) ORDER BY id[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "notas" WHERE ("notas".copia_id = 250) [0m
+  [4;36;1mOrigen Load (0.6ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 12) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;36;1mTraza Load (0.7ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;35;1mMovimiento Load (1.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (0.9ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.6ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+Rendered _list_record (321.8ms)
+Completed in 388ms (View: 314, DB: 16) | 200 OK [http://localhost/copias_view/row/250?_method=get&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento]
+  [4;35;1mSQL (1.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#row (for 127.0.0.1 at 2009-04-06 19:49:20) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"row", "_method"=>"get", "id"=>"110", "controller"=>"todos"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (2.1ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mOrigen Load (0.9ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 58) [0m
+  [4;35;1mTipo Load (0.7ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 8) [0m
+  [4;36;1mClasificacion Load (0.7ms)[0m   [0;1mSELECT * FROM "clasificaciones" WHERE ("clasificaciones"."id" = 1) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT count(*) AS count_all FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;36;1mCopia Load (0.8ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendered _list_actions (1.6ms)
+Rendered _list_record (121.0ms)
+Completed in 151ms (View: 120, DB: 12) | 200 OK [http://localhost/todos/row/110?_method=get]
+
+
+Processing TodosController#nested (for 127.0.0.1 at 2009-04-06 19:49:22) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"110", "controller"=>"todos", "associations"=>"copias"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (2.1ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+clase a convertir : Copia
+clase a convertir : Copia
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"copias", :parent_model=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), :eid=>"6d86616db810e25575d852dc7901edbb", :nested=>true}, :controller=>"copias_view"}): 
+
+
+Processing CopiasViewController#table (for 127.0.0.1 at 2009-04-06 19:49:23) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"copias", "eid"=>"6d86616db810e25575d852dc7901edbb", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mSQL (11.4ms)[0m   [0;1mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "buzones" destinatarios_copias ON "destinatarios_copias".id = "copias".destinatario_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "copias_guias" ON "copias_guias".copia_id = "copias".id LEFT OUTER JOIN "guias" ON "guias".id = "copias_guias".guia_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id LEFT OUTER JOIN "buzones" origenes_copias ON "origenes_copias".id = "copias".origen_id LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (copias.documento_id = E'110') [0m
+  [4;35;1mCopia Load (0.9ms)[0m   [0mSELECT "copias".* FROM "copias" WHERE (copias.documento_id = E'110') ORDER BY copias."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;36;1mEstado Load (0.5ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;35;1mGuia Load (1.1ms)[0m   [0mSELECT "guias".*, t0.copia_id as the_parent_record_id FROM "guias" INNER JOIN "copias_guias" as t0 ON "guias".id = t0.guia_id WHERE (t0.copia_id IN (250,12202)) ORDER BY id[0m
+  [4;36;1mNota Load (0.6ms)[0m   [0;1mSELECT "notas".* FROM "notas" WHERE ("notas".copia_id IN (250,12202)) [0m
+  [4;35;1mOrigen Load (0.6ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (12,10)) [0m
+  [4;36;1mTraza Load (0.9ms)[0m   [0;1mSELECT "trazas".* FROM "trazas" WHERE ("trazas".copia_id IN (250,12202)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendering copias_view/list
+Rendered _list_header (0.4ms)
+Rendered _list_column_headings (18.2ms)
+Rendered _messages (0.3ms)
+  [4;36;1mMovimiento Load (0.7ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mUsuario Load (0.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mBuzon Load (1.4ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+Rendered _list_record (43.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mUsuario Load (0.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 47) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 47)) [0m
+Rendered _list_record (19.7ms)
+Rendered _list (92.3ms)
+Completed in 198ms (View: 95, DB: 24) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (508.5ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.7ms)
+Completed in 543ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:49:24) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.5ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mDocumento Load (1.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"trazas", :parent_model=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), :eid=>"fed3cebb789ed92d301fa7c687f3f03c", :nested=>true}, :controller=>"trazas"}): 
+
+
+Processing TrazasController#table (for 127.0.0.1 at 2009-04-06 19:49:25) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"trazas", "eid"=>"fed3cebb789ed92d301fa7c687f3f03c", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), "controller"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mSQL (4.6ms)[0m   [0;1mSELECT count(DISTINCT "trazas".id) AS count_all FROM "trazas" LEFT OUTER JOIN "puestos" ON "puestos".id = "trazas".asignado_id LEFT OUTER JOIN "movimientos" ON "movimientos".id = "trazas".movimiento_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "trazas".usuario_id LEFT OUTER JOIN "copias" ON "copias".id = "trazas".copia_id WHERE (trazas.copia_id = E'250') [0m
+  [4;35;1mTraza Load (1.1ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE (trazas.copia_id = E'250') ORDER BY trazas."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mPuesto Load (0.9ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos"."id" = NULL) [0m
+  [4;35;1mMovimiento Load (0.7ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" IN (1,2,3,4)) [0m
+  [4;36;1mUsuario Load (1.1ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (90,58,16,31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+Rendering trazas/list
+Rendered _list_header (2.2ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (0.4ms)
+Rendered _list_actions (1.7ms)
+Rendered _list_record (80.7ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (10.1ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.1ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.1ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.1ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.2ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.2ms)
+Rendered _list (156.6ms)
+Completed in 457ms (View: 170, DB: 11) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (718.7ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.5ms)
+Completed in 793ms (View: 5, DB: 0) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#row (for 127.0.0.1 at 2009-04-06 19:49:29) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"row", "_method"=>"get", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.5ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;35;1mEstado Load (0.7ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.8ms)[0m   [0;1mSELECT * FROM "guias" INNER JOIN "copias_guias" ON "guias".id = "copias_guias".guia_id WHERE ("copias_guias".copia_id = 250 ) ORDER BY id[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "notas" WHERE ("notas".copia_id = 250) [0m
+  [4;36;1mOrigen Load (0.6ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 12) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;36;1mTraza Load (0.7ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (1.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.5ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.4ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+Rendered _list_record (268.8ms)
+Completed in 337ms (View: 261, DB: 17) | 200 OK [http://localhost/copias_view/row/250?_method=get&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#row (for 127.0.0.1 at 2009-04-06 19:50:48) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"row", "_method"=>"get", "id"=>"110", "controller"=>"todos"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (3.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mOrigen Load (0.9ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 58) [0m
+  [4;35;1mTipo Load (0.7ms)[0m   [0mSELECT * FROM "tipos" WHERE ("tipos"."id" = 8) [0m
+  [4;36;1mClasificacion Load (0.7ms)[0m   [0;1mSELECT * FROM "clasificaciones" WHERE ("clasificaciones"."id" = 1) [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSELECT count(*) AS count_all FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;36;1mCopia Load (0.9ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendered _list_actions (1.9ms)
+Rendered _list_record (255.2ms)
+Completed in 286ms (View: 252, DB: 12) | 200 OK [http://localhost/todos/row/110?_method=get]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#nested (for 127.0.0.1 at 2009-04-06 19:50:49) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"110", "controller"=>"todos", "associations"=>"copias"}
+Usuario: hastudillo
+  [4;35;1mDocumento Load (2.4ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+clase a convertir : Copia
+clase a convertir : Copia
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"copias", :parent_model=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), :eid=>"6d86616db810e25575d852dc7901edbb", :nested=>true}, :controller=>"copias_view"}): 
+
+
+Processing CopiasViewController#table (for 127.0.0.1 at 2009-04-06 19:50:49) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"copias", "eid"=>"6d86616db810e25575d852dc7901edbb", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mSQL (11.5ms)[0m   [0;1mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "buzones" destinatarios_copias ON "destinatarios_copias".id = "copias".destinatario_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "copias_guias" ON "copias_guias".copia_id = "copias".id LEFT OUTER JOIN "guias" ON "guias".id = "copias_guias".guia_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id LEFT OUTER JOIN "buzones" origenes_copias ON "origenes_copias".id = "copias".origen_id LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (copias.documento_id = E'110') [0m
+  [4;35;1mCopia Load (0.9ms)[0m   [0mSELECT "copias".* FROM "copias" WHERE (copias.documento_id = E'110') ORDER BY copias."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;36;1mEstado Load (0.5ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;35;1mGuia Load (1.2ms)[0m   [0mSELECT "guias".*, t0.copia_id as the_parent_record_id FROM "guias" INNER JOIN "copias_guias" as t0 ON "guias".id = t0.guia_id WHERE (t0.copia_id IN (250,12202)) ORDER BY id[0m
+  [4;36;1mNota Load (0.7ms)[0m   [0;1mSELECT "notas".* FROM "notas" WHERE ("notas".copia_id IN (250,12202)) [0m
+  [4;35;1mOrigen Load (0.6ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (12,10)) [0m
+  [4;36;1mTraza Load (0.9ms)[0m   [0;1mSELECT "trazas".* FROM "trazas" WHERE ("trazas".copia_id IN (250,12202)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendering copias_view/list
+Rendered _list_header (0.5ms)
+Rendered _list_column_headings (24.5ms)
+Rendered _messages (0.4ms)
+  [4;36;1mMovimiento Load (0.7ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mUsuario Load (1.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mBuzon Load (1.5ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.7ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;36;1mBuzon Load (0.7ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;36;1mMovimiento Load (0.4ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (68.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mUsuario Load (0.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 47) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 47)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;35;1mBuzon Load (1.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+Rendered _list_record (32.6ms)
+Rendered _list (137.7ms)
+Completed in 341ms (View: 134, DB: 31) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (675.6ms)
+Rendered _messages (0.4ms)
+Rendered _list_inline_adapter (3.6ms)
+Completed in 714ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:50:52) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.5ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mDocumento Load (1.9ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"trazas", :parent_model=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), :eid=>"fed3cebb789ed92d301fa7c687f3f03c", :nested=>true}, :controller=>"trazas"}): 
+
+
+Processing TrazasController#table (for 127.0.0.1 at 2009-04-06 19:50:52) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"trazas", "eid"=>"fed3cebb789ed92d301fa7c687f3f03c", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), "controller"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSELECT count(DISTINCT "trazas".id) AS count_all FROM "trazas" LEFT OUTER JOIN "puestos" ON "puestos".id = "trazas".asignado_id LEFT OUTER JOIN "movimientos" ON "movimientos".id = "trazas".movimiento_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "trazas".usuario_id LEFT OUTER JOIN "copias" ON "copias".id = "trazas".copia_id WHERE (trazas.copia_id = E'250') [0m
+  [4;35;1mTraza Load (0.9ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE (trazas.copia_id = E'250') ORDER BY trazas."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mPuesto Load (0.6ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos"."id" = NULL) [0m
+  [4;35;1mMovimiento Load (0.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" IN (1,2,3,4)) [0m
+  [4;36;1mUsuario Load (0.8ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (90,58,16,31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+Rendering trazas/list
+Rendered _list_header (2.0ms)
+Rendered _list_column_headings (6.7ms)
+Rendered _messages (0.3ms)
+Rendered _list_actions (1.5ms)
+Rendered _list_record (174.9ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.8ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.5ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.7ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.5ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.5ms)
+Rendered _list_actions (1.5ms)
+Rendered _list_record (9.6ms)
+Rendered _list (249.7ms)
+Completed in 512ms (View: 261, DB: 9) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (684.7ms)
+Rendered _messages (0.4ms)
+Rendered _list_inline_adapter (3.6ms)
+Completed in 905ms (View: 6, DB: 0) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#row (for 127.0.0.1 at 2009-04-06 19:50:58) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"row", "_method"=>"get", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;35;1mEstado Load (0.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.9ms)[0m   [0;1mSELECT * FROM "guias" INNER JOIN "copias_guias" ON "guias".id = "copias_guias".guia_id WHERE ("copias_guias".copia_id = 250 ) ORDER BY id[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "notas" WHERE ("notas".copia_id = 250) [0m
+  [4;36;1mOrigen Load (0.7ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 12) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;36;1mTraza Load (0.8ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;35;1mMovimiento Load (0.7ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (1.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mBuzon Load (0.7ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mBuzon Load (1.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;35;1mMovimiento Load (0.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (201.5ms)
+Completed in 415ms (View: 189, DB: 22) | 200 OK [http://localhost/copias_view/row/250?_method=get&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:51:04) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mDocumento Load (1.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"trazas", :parent_model=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), :eid=>"fed3cebb789ed92d301fa7c687f3f03c", :nested=>true}, :controller=>"trazas"}): 
+
+
+Processing TrazasController#table (for 127.0.0.1 at 2009-04-06 19:51:05) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"trazas", "eid"=>"fed3cebb789ed92d301fa7c687f3f03c", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), "controller"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mSQL (4.2ms)[0m   [0;1mSELECT count(DISTINCT "trazas".id) AS count_all FROM "trazas" LEFT OUTER JOIN "puestos" ON "puestos".id = "trazas".asignado_id LEFT OUTER JOIN "movimientos" ON "movimientos".id = "trazas".movimiento_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "trazas".usuario_id LEFT OUTER JOIN "copias" ON "copias".id = "trazas".copia_id WHERE (trazas.copia_id = E'250') [0m
+  [4;35;1mTraza Load (0.8ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE (trazas.copia_id = E'250') ORDER BY trazas."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mPuesto Load (0.7ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos"."id" = NULL) [0m
+  [4;35;1mMovimiento Load (0.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" IN (1,2,3,4)) [0m
+  [4;36;1mUsuario Load (0.8ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (90,58,16,31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+Rendering trazas/list
+Rendered _list_header (2.0ms)
+Rendered _list_column_headings (6.6ms)
+Rendered _messages (0.3ms)
+Rendered _list_actions (1.6ms)
+Rendered _list_record (175.8ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.7ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.5ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.4ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (9.4ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.3ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (9.4ms)
+Rendered _list (249.0ms)
+Completed in 403ms (View: 260, DB: 10) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (660.8ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.5ms)
+Completed in 736ms (View: 6, DB: 0) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#row (for 127.0.0.1 at 2009-04-06 19:52:28) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"row", "_method"=>"get", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;35;1mEstado Load (0.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.8ms)[0m   [0;1mSELECT * FROM "guias" INNER JOIN "copias_guias" ON "guias".id = "copias_guias".guia_id WHERE ("copias_guias".copia_id = 250 ) ORDER BY id[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "notas" WHERE ("notas".copia_id = 250) [0m
+  [4;36;1mOrigen Load (0.5ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 12) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;36;1mTraza Load (0.7ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;35;1mMovimiento Load (1.5ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (0.9ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.5ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mBuzon Load (0.8ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (287.1ms)
+Completed in 357ms (View: 274, DB: 21) | 200 OK [http://localhost/copias_view/row/250?_method=get&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:52:29) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mDocumento Load (1.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"trazas", :parent_model=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), :eid=>"fed3cebb789ed92d301fa7c687f3f03c", :nested=>true}, :controller=>"trazas"}): 
+
+
+Processing TrazasController#table (for 127.0.0.1 at 2009-04-06 19:52:29) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"trazas", "eid"=>"fed3cebb789ed92d301fa7c687f3f03c", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), "controller"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSELECT count(DISTINCT "trazas".id) AS count_all FROM "trazas" LEFT OUTER JOIN "movimientos" ON "movimientos".id = "trazas".movimiento_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "trazas".usuario_id LEFT OUTER JOIN "puestos" ON "puestos".id = "trazas".asignado_id LEFT OUTER JOIN "copias" ON "copias".id = "trazas".copia_id WHERE (trazas.copia_id = E'250') [0m
+  [4;35;1mTraza Load (0.9ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE (trazas.copia_id = E'250') ORDER BY trazas."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mMovimiento Load (0.6ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" IN (1,2,3,4)) [0m
+  [4;35;1mUsuario Load (0.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (90,58,16,31)) [0m
+  [4;36;1mPuesto Load (0.6ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos"."id" = NULL) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+Rendering trazas/list
+Rendered _list_header (2.1ms)
+Rendered _list_column_headings (8.7ms)
+Rendered _messages (0.3ms)
+Rendered _list_actions (1.6ms)
+Rendered _list_record (9.7ms)
+Rendered _list_actions (1.5ms)
+Rendered _list_record (6.4ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.3ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.2ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.1ms)
+Rendered _list_actions (1.6ms)
+Rendered _list_record (6.3ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.2ms)
+Rendered _list (66.4ms)
+Completed in 106ms (View: 78, DB: 10) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (384.8ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.5ms)
+Completed in 471ms (View: 6, DB: 0) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#row (for 127.0.0.1 at 2009-04-06 19:52:42) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"row", "_method"=>"get", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;35;1mEstado Load (0.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.8ms)[0m   [0;1mSELECT * FROM "guias" INNER JOIN "copias_guias" ON "guias".id = "copias_guias".guia_id WHERE ("copias_guias".copia_id = 250 ) ORDER BY id[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "notas" WHERE ("notas".copia_id = 250) [0m
+  [4;36;1mOrigen Load (0.5ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 12) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;36;1mTraza Load (0.7ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (0.9ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.5ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mBuzon Load (0.7ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (181.7ms)
+Completed in 253ms (View: 171, DB: 21) | 200 OK [http://localhost/copias_view/row/250?_method=get&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento]
+
+
+Processing CopiasViewController#nested (for 127.0.0.1 at 2009-04-06 19:52:58) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view", "associations"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (2.1ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mDocumento Load (1.8ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"trazas", :parent_model=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), :eid=>"fed3cebb789ed92d301fa7c687f3f03c", :nested=>true}, :controller=>"trazas"}): 
+
+
+Processing TrazasController#table (for 127.0.0.1 at 2009-04-06 19:52:58) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"trazas", "eid"=>"fed3cebb789ed92d301fa7c687f3f03c", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Copia(id: integer, documento_id: integer, carpeta_id: integer, estado_id: integer, buzon_id: integer, created_at: datetime, updated_at: datetime, puesto_id: integer, origen_id: integer, destinatario_id: integer, recepcion: datetime, accion_id: integer, original: boolean), "controller"=>"trazas"}
+Usuario: hastudillo
+  [4;36;1mSQL (4.2ms)[0m   [0;1mSELECT count(DISTINCT "trazas".id) AS count_all FROM "trazas" LEFT OUTER JOIN "movimientos" ON "movimientos".id = "trazas".movimiento_id LEFT OUTER JOIN "usuarios" ON "usuarios".id = "trazas".usuario_id LEFT OUTER JOIN "puestos" ON "puestos".id = "trazas".asignado_id LEFT OUTER JOIN "copias" ON "copias".id = "trazas".copia_id WHERE (trazas.copia_id = E'250') [0m
+  [4;35;1mTraza Load (0.8ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE (trazas.copia_id = E'250') ORDER BY trazas."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" IN (1,2,3,4)) [0m
+  [4;35;1mUsuario Load (0.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" IN (90,58,16,31)) [0m
+  [4;36;1mPuesto Load (0.6ms)[0m   [0;1mSELECT * FROM "puestos" WHERE ("puestos"."id" = NULL) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+Rendering trazas/list
+Rendered _list_header (2.1ms)
+Rendered _list_column_headings (8.7ms)
+Rendered _messages (0.4ms)
+Rendered _list_actions (1.5ms)
+Rendered _list_record (9.3ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.2ms)
+Rendered _list_actions (1.5ms)
+Rendered _list_record (6.7ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.3ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.2ms)
+Rendered _list_actions (1.4ms)
+Rendered _list_record (6.2ms)
+Rendered _list_actions (1.3ms)
+Rendered _list_record (6.0ms)
+Rendered _list (66.1ms)
+Completed in 106ms (View: 78, DB: 9) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (379.3ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.4ms)
+Completed in 469ms (View: 5, DB: 0) | 200 OK [http://localhost/copias_view/nested/250?_method=get&associations=trazas&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CopiasViewController#row (for 127.0.0.1 at 2009-04-06 19:53:14) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"eid"=>"6d86616db810e25575d852dc7901edbb", "parent_column"=>"copias", "nested"=>"true", "action"=>"row", "_method"=>"get", "id"=>"250", "parent_model"=>"Documento", "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;36;1mCopia Load (1.4ms)[0m   [0;1mSELECT * FROM "copias" WHERE ("copias"."id" = 250) [0m
+  [4;35;1mBuzon Load (0.9ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 95) [0m
+  [4;35;1mEstado Load (0.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.9ms)[0m   [0;1mSELECT * FROM "guias" INNER JOIN "copias_guias" ON "guias".id = "copias_guias".guia_id WHERE ("copias_guias".copia_id = 250 ) ORDER BY id[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "notas" WHERE ("notas".copia_id = 250) [0m
+  [4;36;1mOrigen Load (0.5ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" = 12) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;36;1mTraza Load (0.7ms)[0m   [0;1mSELECT * FROM "trazas" WHERE ("trazas".copia_id = 250) [0m
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (0.8ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.5ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.4ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mBuzon Load (0.7ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;35;1mBuzon Load (0.7ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mBuzon Load (0.7ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;35;1mMovimiento Load (1.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (184.6ms)
+Completed in 402ms (View: 173, DB: 22) | 200 OK [http://localhost/copias_view/row/250?_method=get&eid=6d86616db810e25575d852dc7901edbb&nested=true&parent_column=copias&parent_model=Documento]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TodosController#row (for 127.0.0.1 at 2009-04-06 19:53:17) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"row", "_method"=>"get", "id"=>"110", "controller"=>"todos"}
+Usuario: hastudillo
+  [4;36;1mDocumento Load (2.1ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;35;1mOrigen Load (1.1ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" = 58) [0m
+  [4;36;1mTipo Load (0.7ms)[0m   [0;1mSELECT * FROM "tipos" WHERE ("tipos"."id" = 8) [0m
+  [4;35;1mClasificacion Load (0.7ms)[0m   [0mSELECT * FROM "clasificaciones" WHERE ("clasificaciones"."id" = 1) [0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;35;1mCopia Load (0.7ms)[0m   [0mSELECT * FROM "copias" WHERE ("copias".documento_id = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendered _list_actions (1.7ms)
+Rendered _list_record (118.5ms)
+Completed in 147ms (View: 117, DB: 10) | 200 OK [http://localhost/todos/row/110?_method=get]
+
+
+Processing TodosController#nested (for 127.0.0.1 at 2009-04-06 19:54:25) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"action"=>"nested", "_method"=>"get", "adapter"=>"_list_inline_adapter", "id"=>"110", "controller"=>"todos", "associations"=>"copias"}
+Usuario: hastudillo
+  [4;36;1mDocumento Load (2.1ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+clase a convertir : Copia
+clase a convertir : Copia
+DEPRECATION WARNING: render_component_as_string is deprecated and will be removed from Rails 2.3 (Please install render_component plugin from http://github.com/rails/render_component/tree/master). (called from __send__ at /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/components.rb:68)
+Start rendering component ({:action=>"table", :params=>{:parent_column=>"copias", :parent_model=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), :eid=>"6d86616db810e25575d852dc7901edbb", :nested=>true}, :controller=>"copias_view"}): 
+
+
+Processing CopiasViewController#table (for 127.0.0.1 at 2009-04-06 19:54:26) [GET]
+  Session ID: 8431afda799c39c663197b7d01a40fce
+  Parameters: {"parent_column"=>"copias", "eid"=>"6d86616db810e25575d852dc7901edbb", "nested"=>true, "action"=>"table", "id"=>nil, "parent_model"=>Documento(id: integer, origen_id: integer, detalle_origen: string, materia: string, tipo_id: integer, clasificacion_id: integer, accion_id: integer, created_at: datetime, updated_at: datetime, folio_externo: integer, folio_interno: integer, usuario_id: integer, parent_id: integer, pfe: integer, pfe_ok: boolean, cuerpo: text, xml: text, origen_puesto_id: integer, origen_texto: string, origen_puesto_texto: string, origen_persona_texto: string, destinatario_id: integer, destinatario_puesto_id: integer, destinatario_texto: string, destinatario_puesto_texto: string, destinatario_persona_texto: string, folio_texto: string, lock: boolean, firma: boolean, referencia: string, digital: boolean, origen_sigla: string, destinatario_sigla: string, buzon_id: integer, folio_opartes: integer, fecha: datetime, anexo: boolean, sobre: boolean, paquete: boolean, observaciones: text), "controller"=>"copias_view"}
+Usuario: hastudillo
+  [4;35;1mSQL (11.6ms)[0m   [0mSELECT count(DISTINCT "copias".id) AS count_all FROM "copias" LEFT OUTER JOIN "buzones" ON "buzones".id = "copias".buzon_id LEFT OUTER JOIN "buzones" destinatarios_copias ON "destinatarios_copias".id = "copias".destinatario_id LEFT OUTER JOIN "estados" ON "estados".id = "copias".estado_id LEFT OUTER JOIN "copias_guias" ON "copias_guias".copia_id = "copias".id LEFT OUTER JOIN "guias" ON "guias".id = "copias_guias".guia_id LEFT OUTER JOIN "notas" ON notas.copia_id = copias.id LEFT OUTER JOIN "buzones" origenes_copias ON "origenes_copias".id = "copias".origen_id LEFT OUTER JOIN "trazas" ON trazas.copia_id = copias.id LEFT OUTER JOIN "documentos" ON "documentos".id = "copias".documento_id WHERE (copias.documento_id = E'110') [0m
+  [4;36;1mCopia Load (0.9ms)[0m   [0;1mSELECT "copias".* FROM "copias" WHERE (copias.documento_id = E'110') ORDER BY copias."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (58,95)) [0m
+  [4;35;1mEstado Load (1.5ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 5) [0m
+  [4;36;1mGuia Load (1.2ms)[0m   [0;1mSELECT "guias".*, t0.copia_id as the_parent_record_id FROM "guias" INNER JOIN "copias_guias" as t0 ON "guias".id = t0.guia_id WHERE (t0.copia_id IN (250,12202)) ORDER BY id[0m
+  [4;35;1mNota Load (0.7ms)[0m   [0mSELECT "notas".* FROM "notas" WHERE ("notas".copia_id IN (250,12202)) [0m
+  [4;36;1mOrigen Load (0.6ms)[0m   [0;1mSELECT * FROM "buzones" WHERE ("buzones"."id" IN (12,10)) [0m
+  [4;35;1mTraza Load (0.9ms)[0m   [0mSELECT "trazas".* FROM "trazas" WHERE ("trazas".copia_id IN (250,12202)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "documentos" WHERE ("documentos"."id" = 110) [0m
+Rendering copias_view/list
+Rendered _list_header (0.5ms)
+Rendered _list_column_headings (30.8ms)
+Rendered _messages (0.6ms)
+  [4;35;1mMovimiento Load (0.6ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;36;1mUsuario Load (0.9ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;35;1mBuzon Load (1.3ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;36;1mMovimiento Load (0.5ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 90)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;35;1mBuzon Load (1.3ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 58) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 58)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;36;1mBuzon Load (0.7ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 16)) [0m
+Rendered _list_record (178.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 31) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 31)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 47) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 47)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;35;1mUsuario Load (0.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;36;1mBuzon Load (0.9ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;35;1mMovimiento Load (0.4ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 11)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 2) [0m
+  [4;36;1mUsuario Load (0.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;35;1mBuzon Load (0.8ms)[0m   [0mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movimientos" WHERE ("movimientos"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 29) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "buzones".* FROM "buzones" INNER JOIN puestos ON buzones.id = puestos.buzon_id WHERE (("puestos".usuario_id = 29)) [0m
+Rendered _list_record (32.5ms)
+Rendered _list (256.3ms)
+Completed in 361ms (View: 253, DB: 33) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]
+
+
+End of component rendering
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.. (called from _run_rhtml_vendor47plugins47active_scaffold47frontends47default47views47_nested46rhtml_locals_nested_object at /home/nano/proyectos/sisco3/vendor/plugins/active_scaffold/frontends/default/views/_nested.rhtml:40)
+Rendered _nested (662.7ms)
+Rendered _messages (0.3ms)
+Rendered _list_inline_adapter (3.6ms)
+Completed in 697ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/nested/110?_method=get&associations=copias&adapter=_list_inline_adapter]

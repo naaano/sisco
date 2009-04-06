@@ -12,7 +12,7 @@ class CopiasViewController < ApplicationController
     config.subform.columns = [:destinatario, :accion]
     config.columns[:trazas].associated_limit = 15
 
-    [:accion, :buzon, :destinatario, :documento, :guias, :origen, :trazas].each{|a|
+    [:accion, :buzon, :destinatario, :documento, :guias, :origen].each{|a|
     config.columns[a].clear_link
     }
   end
