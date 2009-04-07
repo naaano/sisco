@@ -8,6 +8,7 @@
     "Recepción":                    "Recepción"
     "Documentos Archivados":        "Documentos Archivados"
     "Documentos Enviados":          "Documentos Enviados"
+    edocs_enviados:                 "Documentos Electrónicos (eDocs) Enviados"
     "Documentos":                   "Documentos"
     "Correcciones":                "Por favor incluir anexo para contactarles"
     "ticket":                        "ticket"
@@ -226,7 +227,6 @@
         odd: "debe ser impar"
         even: "debe ser par"
         # Append your own errors here or at the model/attributes scope.
-
       # You can define own errors for models or model attributes.
       # The values :model, :attribute and :value are always available for interpolation.
       #
@@ -239,17 +239,31 @@
       #           blank: "This is a custom blank message for User login"
       # Will define custom blank validation message for User model and 
       # custom blank validation message for login attribute of User model.
-      models:
-        documento:
-          folio_texto:    "Nº ingreso"
-        guia:
-          created_at:    "creación"
 
     # Translate model names. Used in Model.human_name().
     #models:
       # For example,
       #   user: "Dude"
       # will translate User model name to "Dude"
+    models:
+      traza: "historial"
+    attributes:
+      documento:
+        folio_texto:                "Etiqueta"
+        folio_externo:              "Nº externo"
+        folio_interno:              "Correlativo"
+        destinatario_texto:         "Destinatario"
+        created_at:                 "Ingresado"
+        lock:                       "Bloqueado"
+        origen_puesto:              "Emisor"
+        origen_puesto_texto:        "Emisor"
+        destinatario_puesto_texto:  "Receptor"
+        destinatario_puesto:        "Receptor"
+        usuario:                    "Ingresado por"
+      guia:
+        created_at:             "creación"
+      comentario:
+          texto:                    "Comentario"
 
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     #attributes:
