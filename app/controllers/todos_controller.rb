@@ -8,10 +8,10 @@ class TodosController < ApplicationController
     
     config.field_search.columns = [:fecha, :folio_externo, :folio_interno, :folio_opartes, :folio_texto, :materia, :observaciones, :tipo, :origen, :detalle_origen, :buzon]
     
-    config.columns << :to_label
+    config.columns << :folio_texto
     config.columns << :created_at
     #config.list.columns = [ :folio, :titulo, :tipo, :fecha_recepcion, :puesto, :notas, :buzon ]
-    config.list.columns = [:folio_externo, :to_label, :origen, :fecha, :materia, :tipo, :clasificacion, :copias ]
+    config.list.columns = [:folio_externo, :folio_texto, :origen, :fecha, :materia, :tipo, :clasificacion, :copias ]
     
     #   config.show.columns = [ :folio, :titulo, :original, :creado_por, :tipo, :clasificacion, 
     #                         :accion, :estado, :fecha_recepcion, :puesto, :notas, :trazas ]

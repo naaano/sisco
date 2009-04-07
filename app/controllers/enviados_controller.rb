@@ -1,11 +1,11 @@
 class EnviadosController < ApplicationController
   active_scaffold :copia do |config|
     config.label = "Documentos Enviados"
-    config.columns.add :folio, :materia, :fecha_recepcion, :tipo, :guias, :digital
+    config.columns.add :folio, :materia, :fecha_recepcion, :tipo, :guias, :digital, :observaciones
     config.list.columns = [ :folio, :materia, :tipo, :fecha_recepcion, :destinatario, :notas ]
     config.actions.exclude  :create, :update
     config.actions.swap :search, :field_search
-    config.field_search.columns = [:destinatario, :guias, :digital]
+    config.field_search.columns = [:materia, :observaciones, :destinatario, :guias, :digital]
     config.columns[:guias].includes = :guias
     config.columns[:guias].form_ui = :numeric
     config.columns[:guias].search_sql = 'copias_guias.guia_id'
@@ -14,6 +14,8 @@ class EnviadosController < ApplicationController
     config.columns[:digital].includes = :documento
     config.columns[:digital].form_ui = :checkbox
     config.columns[:digital].search_sql = 'documentos.digital'
+    config.columns[:materia].search_sql = 'documentos.materia'
+    config.columns[:observaciones].search_sql = 'documentos.observaciones'
     
     
     config.show.link.label = "detalles"

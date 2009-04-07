@@ -1,6 +1,6 @@
 class CarpetasController < ApplicationController
   record_select :per_page => 5, :search_on => 'nombre', :full_text_search => true
-  active_scaffold :carpeta do |config|
+  active_scaffold :carpetas do |config|
     #config.subform.columns = [:nombre]
     config.columns.exclude :copias, :buzon
     config.columns.add :cantidad_de_copias

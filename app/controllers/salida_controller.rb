@@ -66,7 +66,6 @@ class SalidaController < ApplicationController
     [:anexo, :sobre, :paquete].each{ |c|
       config.columns[c].form_ui = :checkbox
     }
-    config.columns[:created_at].label = "Ingresado"
     config.columns[:copias].label = "Distribución"
 #    config.columns[:copias].form_ui = :select
     config.columns[:copias].includes = [:buzones]

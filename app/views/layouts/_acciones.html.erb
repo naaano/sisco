@@ -15,6 +15,7 @@
 		<li><%= link_to 'personal', :controller => 'personal' %>
 		<li><%= link_to 'enviados', :controller => 'enviados' %>
 		<% end %>
+		<li><%= link_to 'eDocs enviados', {:controller => 'enviados_edocs'}, {:class => "nuevo"} %>
 		<li><%= link_to 'mi buzón', :controller => 'propio' %>
 		<% if session[:usuario].es_firmante?  %>
 		<li><%= link_to 'para firma', :controller => 'firma' %>
