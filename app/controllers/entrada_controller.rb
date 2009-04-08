@@ -27,7 +27,7 @@ class EntradaController < ApplicationController
     # se excluye :id del listado (checkbox) hasta completar la funcionalidad, pues confunde a los usuarios.
     config.list.columns = [ :folio, :origen, :materia, :tipo, :puesto, :notas, :nro_doc ]
     config.show.columns = [ :folio, :materia, :procedencia, :detalle_procedencia, :tipo, :clasificacion, 
-                           :accion, :estado, :fecha_recepcion,:observaciones, :copias,:puesto, :notas, :trazas ]
+                           :accion, :estado, :fecha_recepcion,:observaciones, :copias,:puesto, :notas, :guias, :trazas ]
     config.update.columns = [:destinatario]
 
     ## orden
