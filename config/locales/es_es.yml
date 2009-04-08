@@ -249,6 +249,7 @@
       traza: "historial"
     attributes:
       documento:
+        folio:                      "Etiqueta"
         folio_texto:                "Etiqueta"
         folio_externo:              "Nº externo"
         folio_interno:              "Correlativo"
