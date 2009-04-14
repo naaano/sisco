@@ -1,6 +1,7 @@
 class GuiasTodasController < ApplicationController
   active_scaffold :guias do |config|
-    
+
+    config.actions.exclude :create
     config.columns.add :id, :created_at
     config.actions.swap :search, :field_search
     config.field_search.columns = [:id, :created_at ,:destinatario, :destinos]
