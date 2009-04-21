@@ -30,7 +30,7 @@ module YuiEditor
     def yui_editor_init
       options = YuiEditor.default_options.merge(@yui_editor_options || {})
 
-      version = options.delete(:version) || '2.6.0'
+      version = options.delete(:version) || '2.7.0'
       editor_selector = options.delete(:selector) || 'rich_text_editor'
       editor_class = options.delete(:simple_editor) ? 'SimpleEditor' : 'Editor'
       callbacks = (options.delete(:editor_extension_callbacks) || '')
@@ -44,7 +44,7 @@ module YuiEditor
       result << stylesheet_link_tag("#{base_uri}/#{version}/build/assets/skins/sam/skin.css") + "\n" if body_class == 'yui-skin-sam'
       
       result << javascript_include_tag("#{base_uri}/#{version}/build/yahoo-dom-event/yahoo-dom-event.js") + "\n"
-      yui_scripts = %w{element/element-beta container/container_core}
+      yui_scripts = %w{element/element container/container_core}
       yui_scripts += %w{menu/menu button/button} unless editor_class == 'SimpleEditor'
       yui_scripts << 'editor/editor'
       yui_scripts += additional_yui_javascripts
