@@ -27,7 +27,7 @@
 		<td>&nbsp;<%= c.documento.folio_opartes %></td>
 		<td>&nbsp;<%= c.to_label %></td>
 		<td>&nbsp;<%= c.documento.tipo %></td>
-		<td>&nbsp;<%= c.origen.to_label unless c.origen.opartes == true %><%= " ("+ c.documento.detalle_origen + ")" unless c.documento.detalle_origen.nil? %></td>
+		<td>&nbsp;<%= c.origen.to_label %><%= " ("+ c.documento.detalle_origen + ")" unless c.documento.detalle_origen.nil? %></td>
 		<td>&nbsp;<%= c.documento.fecha.strftime("%d-%m-%y") %></td>
 		<td>&nbsp;<%= c.documento.materia %></td>
 		<td>&nbsp;<%= c.destinatario.sigla %></td>

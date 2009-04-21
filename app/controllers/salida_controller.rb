@@ -120,7 +120,7 @@ class SalidaController < ApplicationController
     record.copias.each{ |c| 
       c.estado_id = 1 if c.estado_id.nil?
       c.buzon_id = current_user.puesto.buzon_id if c.buzon_id.nil?
-      c.origen_id = current_user.puesto.buzon_id if c.origen_id.nil?
+      c.origen_id = c.origen_id.nil? ? record.origen_id : current_user.puesto.buzon_id # correccion ticket 380
       c.add_traza(current_user.id ,10, current_user.puesto.buzon_id)
       #AS lo inserta antes de este paso si es una copia nueva, asi que actualizamos los valores correctos.
       c.save! 
@@ -128,6 +128,7 @@ class SalidaController < ApplicationController
     original = Copia.find(:first, :conditions => ['original = true and documento_id = ?',record.id])
     unless original.nil?
       original.destinatario = record.destinatario
+      original.origen = record.origen # correccion ticket 380
       original.accion = record.accion
       original.save!
     else
