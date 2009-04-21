@@ -1,9 +1,7 @@
 module DesarrollosHelper
   def descripcion2_form_column(record, input_name)
-    ret = text_area :record, :descripcion, :name => input_name, :cols => 80, :rows => 30 , :class => "rich_text_editor"
-    ret << <<EOF;
-    <script type="text/javascript">
-//<![CDATA[
+    ret = text_area :record, :descripcion, :name => input_name, :cols => 90, :rows => 20 , :class => "rich_text_editor"
+    js = <<JAVASCRIPT
 YAHOO.util.Event.onDOMReady(function(){
   new YAHOO.util.Element(document.getElementsByTagName('body')[0]).addClass('yui-skin-sam');
   
@@ -17,12 +15,14 @@ YAHOO.util.Event.onDOMReady(function(){
     }
   }
 });
-
-//]]>
-</script>
-
-EOF
+JAVASCRIPT
+    ret << javascript_tag(js)
+    RAILS_DEFAULT_LOGGER.info ret
   return ret  
+  end
+
+  def descripcion_show_column(record)
+    "<div class='font-weight-normal'>#{record.descripcion}</div>"
   end
 
 end

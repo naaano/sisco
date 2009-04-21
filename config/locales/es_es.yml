@@ -264,7 +264,11 @@
       guia:
         created_at:             "creación"
       comentario:
-          texto:                    "Comentario"
+        texto:                    "Comentario"
+      desarrollo:
+        id:                         "ticket"
+        usuario:                    "útlimo cambio"
+        created_at:                 "solicitado"
 
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     #attributes:

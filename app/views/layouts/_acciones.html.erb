@@ -34,7 +34,9 @@
 		<% if session[:usuario].id == 35  %>
 		<li><%= link_to 'buzones', {:controller => 'buzones'}, :class => 'nuevo' %>
 		<% end  %>
-		
+        <% if session[:usuario].id == 238 %>
+        <li><%= link_to 'desarrollos', :controller => "desarrollos" %>
+        <% end %>
 		<li><%= link_to 'salir', logout_url %>	
 	</ul>
 </div>

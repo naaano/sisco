@@ -14,11 +14,14 @@ class Desarrollo < ActiveRecord::Base
     prioridad :integer
     hh :integer
     critico :boolean
+    ememo :boolean
+    finalizado :datetime
+    entrega:datetime #compromiso de entrega
     timestamps
   end
   
   def to_label
     titulo
   end
-  
+
 end
