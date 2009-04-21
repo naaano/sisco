@@ -18,13 +18,12 @@ class Buzon < ActiveRecord::Base
   end
   
   fields do
-    nombre :string, :name => true
+    nombre :string
     sigla :string
     descripcion :string
     folio :integer
     externo :boolean # si no pertenece a la jerarquia interna minrel
     opartes :boolean # si es oficina de partes ministerial
-    #  jerarquia_id :integer
     superior_id :integer
     recibe_de_todos :boolean, :default => true
     envia_a_todos :boolean, :default => true

@@ -279,6 +279,9 @@ ActiveScaffold Overrides
 dd p {
 	font-weight: normal;
 }
+.font-weight-normal{
+    font-weight: normal;
+}
 /* Novedades */
 #novedades h1{
 	color: #003399;
