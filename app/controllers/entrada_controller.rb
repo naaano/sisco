@@ -4,10 +4,10 @@ class EntradaController < ApplicationController
   active_scaffold :copia do |config|
     config.label = "Recepción"
 
-    config.columns.add :guias, :materia, :id, :origen, :digital
+    config.columns.add :guias, :folio_texto, :materia, :id, :origen, :digital
 #    config.actions.swap :search, :full_search
     config.actions = [:update, :show, :list, :field_search, :nested ]   
-    config.field_search.columns = [ :guias, :origen, :materia, :digital]
+    config.field_search.columns = [ :guias, :origen, :folio_texto, :materia, :digital]
     config.columns[:guias].includes = :guias
     config.columns[:guias].search_ui = :integer
     config.columns[:guias].form_ui = :integer
@@ -15,6 +15,7 @@ class EntradaController < ApplicationController
     #config.columns[:guias].sort_by :sql => 'guias.id'
     config.columns[:origen].form_ui = :record_select
     config.columns[:origen].search_sql = 'copias.origen_id'
+    config.columns[:folio_texto].search_sql = 'documentos.folio_texto'
     config.columns[:materia].search_sql = 'documentos.materia'
     config.columns[:digital].includes = :documento
     config.columns[:digital].form_ui = :checkbox
@@ -23,26 +24,21 @@ class EntradaController < ApplicationController
 #    config.field_search.columns = [:fecha, :folio_externo, :folio_interno, :folio_opartes, :folio_texto, :materia, :observaciones]
 
     
-    config.columns.add :folio, :materia, :fecha_recepcion, :tipo
+    config.columns.add :folio_texto, :materia, :fecha_recepcion, :tipo
     # se excluye :id del listado (checkbox) hasta completar la funcionalidad, pues confunde a los usuarios.
-    config.list.columns = [ :folio, :origen, :materia, :tipo, :puesto, :notas, :nro_doc ]
-    config.show.columns = [ :folio, :materia, :procedencia, :detalle_procedencia, :tipo, :clasificacion, 
+    config.list.columns = [ :folio_texto, :origen, :materia, :tipo, :puesto, :notas, :nro_doc ]
+    config.show.columns = [ :folio_texto, :materia, :procedencia, :detalle_procedencia, :tipo, :clasificacion,
                            :accion, :estado, :fecha_recepcion,:observaciones, :copias,:puesto, :notas, :guias, :trazas ]
     config.update.columns = [:destinatario]
 
     ## orden
    config.list.sorting = {:recepcion => :desc }
-   config.columns[:folio].includes = [:documento]
-   config.columns[:folio].sort_by :sql => "documentos.folio_interno"
+   config.columns[:folio_texto].includes = [:documento]
+   config.columns[:folio_texto].sort_by :sql => "documentos.folio_interno"
    config.columns[:materia].sort_by :sql => "documentos.materia"
    config.columns[:fecha_recepcion].sort_by :sql => "recepcion"
    config.columns[:tipo].sort_by :sql => "documentos.tipo_id" #OPTIMIZE deberia buscar por tipos.nombre, pero esta muy lejos ese join
-    
-    #config.columns[:tipo].form_ui = :select
 
-
-    #config.columns[:fecha_recepcion].label = "Recepción"
-    #config.columns[:folio_externo].label = "NºDoc"
     
     config.update.link.label = "ReDir"
     config.columns[:destinatario].form_ui = :select
@@ -50,7 +46,6 @@ class EntradaController < ApplicationController
     config.columns[:puesto].inplace_edit = :true
     config.columns[:puesto].clear_link
     config.columns[:notas].set_link('nested',:parameters => {:associations => :notas})
-    #config.columns[:folio_externo].label = "NºDoc"
     config.columns[:origen].clear_link 
     
     config.action_links.add 'Recv', :type => :record, 

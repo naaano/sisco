@@ -1,5 +1,7 @@
 "es_es":
   locale_name: "Spanish"
+  true:                             "si"
+  false:                            "no"
   active_scaffold:
     "ingreso papel":                "Ingreso"
     "Ingreso Digital":              "Ingreso Digital"
@@ -261,6 +263,11 @@
         destinatario_puesto_texto:  "Receptor"
         destinatario_puesto:        "Receptor"
         usuario:                    "Ingresado por"
+      copia:
+        folio_texto:                "Etiqueta"
+        folio_externo:              "Nº externo"
+        folio_interno:              "Correlativo"
+        origen:                     "Remitente"
       guia:
         created_at:             "creación"
       comentario:

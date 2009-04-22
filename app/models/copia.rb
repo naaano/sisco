@@ -11,6 +11,7 @@ class Copia < ActiveRecord::Base
   has_many :trazas
   has_many :notas
   delegate :copias, :copias=, :to => :documento
+  delegate :folio_texto, :folio_externo, :folio_interno, :folio_opartes, :to => :documento
   # heredados del documento
   # delegate :tipo, :tipo=, :to =>  :documento
   validates_presence_of :documento
