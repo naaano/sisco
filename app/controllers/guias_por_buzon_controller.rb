@@ -1,7 +1,7 @@
 class GuiasPorBuzonController < ApplicationController
   active_scaffold :guia do |config|
     #Guias para oficina de partes DEDOC
-    config.label = "Guias por Buzón"
+    config.label = :guias_por_buzon
     
     config.columns.add :id, :created_at
     config.actions.swap :search, :field_search
@@ -25,7 +25,6 @@ class GuiasPorBuzonController < ApplicationController
     :crud_type => nil, 
     :inline => false    
     
-    config.columns[:created_at].label = "Creación"
     config.columns[:buzon].form_ui = :select
     config.columns[:buzon].includes = [:copias]
   end

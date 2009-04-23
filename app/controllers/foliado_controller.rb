@@ -16,7 +16,7 @@ class FoliadoController < ApplicationController
     config.columns[:fecha].search_sql = 'documentos.fecha'
     
     config.list.columns = [:folio_externo, :fecha, :origen, :materia, :destinatario, :observaciones, :folio_opartes, :copias]
-    config.update.columns = [:materia, :folio_opartes ,:copias]
+    config.update.columns = [:materia, :folio_opartes, :observaciones_foliado ,:copias]
     [:origen, :destinatario].each{|c|
     config.columns[c].clear_link
     }

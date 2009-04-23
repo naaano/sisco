@@ -24,7 +24,7 @@
     <tr>    
 		<td style="<%= estilo %>">&nbsp;<%= c.id %></td>
 		<td>&nbsp;<%= c.documento.folio_externo %></td>
-		<td>&nbsp;<%= c.documento.folio_opartes %></td>
+		<td>&nbsp;<%= c.documento.folio_opartes %> <%= c.documento.observaciones_foliado %></td>
 		<td>&nbsp;<%= c.to_label %></td>
 		<td>&nbsp;<%= c.documento.tipo %></td>
 		<td>&nbsp;<%= c.origen.to_label unless c.origen.opartes == true %><%= " ("+ c.documento.detalle_origen + ")" unless c.documento.detalle_origen.nil? %></td>
@@ -33,7 +33,8 @@
 		<td>&nbsp;<%= c.destinatario.sigla %></td>
 		<td style="<%= estilo_no_opartes %>">&nbsp;<%= c.documento.clasificacion.codigo %></td>
 		<td>&nbsp;<%= anexos(c.documento) %></td>
-		<td>&nbsp;<%= c.documento.observaciones %> <%= c.notas.last.texto unless c.notas.last.nil? %>
+		<td>&nbsp;<%= c.documento.observaciones %> 
+            <%= c.notas.last.texto unless c.notas.last.nil? %>
 		</td>
 		<%= td %>
 		<% if session[:usuario].puesto.buzon.opartes %>
