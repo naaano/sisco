@@ -62,7 +62,8 @@ class Documento < ActiveRecord::Base
     sobre :boolean, :default => false #si el presente doc tiene materiales anexos
     paquete :boolean, :default => false #si el presente doc tiene materiales anexos
     
-    observaciones :text #reemplaza el uso que le dan a la primera nota. 
+    observaciones :text #reemplaza el uso que le dan a la primera nota.
+    observaciones_foliado :text 
     tipo_id :integer
     clasificacion_id :integer
     accion_id :integer
@@ -176,20 +177,28 @@ class Documento < ActiveRecord::Base
     self.firma == true 
   end
   
-  def corregir_authorized?
-    self.firma == false and self.lock == true
+  def desbloq_authorized?
+    !self.firma and self.lock  and self.origen_puesto_id == current_user.puesto.id
+  end
+
+  def bloquear_authorized? #opuesto de corregir
+    !self.lock and current_user.es_editor?
   end
   
   def update_authorized?
-    self.firma == false and self.lock == false
+    return false if self.firma #ningún documento firmado es modificable
+    return true if self.origen_puesto_id == current_user.puesto.id # cuando este bloqueado solo el firmante puede
+    return true if self.digital and !self.lock and current_user.es_editor? # el resto #TODO restringir por usuario perteneciente a la comunidad de buzones de manera eficiente (con query no sirve, debe ser con cache)
+    return true
   end
+
   
   def materia_authorized_for_update?
     return true # para mostrar en foliado de of de partes
   end
   
   def firmar_authorized?
-    self.firma == false and self.lock == true
+    !self.firma and self.lock and self.origen_puesto_id == current_user.puesto.id and current_user.es_firmante?
   end
   
   def enviar_authorized?
@@ -198,7 +207,7 @@ class Documento < ActiveRecord::Base
   
   def delete_authorized?
     fue_recibido = self.copias.find(:all, :include => [:trazas], :conditions => "trazas.movimiento_id in (2,7,8)").count > 0
-    self.firma == false and self.lock == false and buzon_id == current_user.puesto.buzon_id and not fue_recibido
+    !self.firma and !self.lock and buzon_id == current_user.puesto.buzon_id and not fue_recibido
   end
   
   

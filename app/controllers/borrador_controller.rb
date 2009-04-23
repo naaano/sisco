@@ -22,21 +22,22 @@ class BorradorController < ApplicationController
     config.columns[:destinatario_texto].label = "Destinatario"
     config.show.link.label = "detalles"
     
-    config.action_links.add 'para firma', :type => :record, 
-    :action => "para_firma",
-    :position => false, 
-    :security_method => :update_authorized?
+    config.action_links.add 'bloquear', :type => :record, :action => "bloquear", :position => false
     config.action_links.add "ver", :type => :record, :position => false, :popup => true, :controller => 'docxml', :action => 'ver'
 
+    config.action_links.add 'desbloq', :type => :record, :position => false
+    config.action_links.add "firmar", :parameters => {:controller => 'firma', :action => 'cliente'}, :type => :record, :inline => :true, :position => :after, :crud_type => nil
   end
   
-  def para_firma
+  def bloquear
     record = Documento.find(params[:id])
-   # if Traza.create(:copia_id => record.id, :movimiento_id => 2, :usuario => current_user)
-   #   self.successful =  record.recibido
-   # end
     self.successful = record.update_attribute(:lock , true)
-    #render :action => 'destroy.rjs', :layout => false
+    active_scaffold_refresh_row(record)
+  end
+
+  def desbloq
+    record = Documento.find(params[:id])
+    self.successful = record.update_attribute(:lock , false)
     active_scaffold_refresh_row(record)
   end
 
