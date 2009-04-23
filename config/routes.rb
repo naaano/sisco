@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/firma/cliente/v2.0/ClienteFirmante.dll', :controller => 'firma', :action => 'dll', :id => 'cf'
   map.connect '/firma/cliente/v2.0/VCGLock.DLL', :controller => 'firma', :action => 'dll', :id => 'vcg'
   #map.resources :usuarios
-  map.resources :buzones, :active_scaffold => true
+  #map.resources :buzones , :active_scaffold => true
   
   map.resources :sessions
 #  map.resources :cargos, :active_scaffold => true

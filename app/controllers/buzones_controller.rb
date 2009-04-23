@@ -1,5 +1,5 @@
 class BuzonesController < ApplicationController
-  record_select :per_page => 10, :search_on => 'nombre'
+  record_select :per_page => 10, :search_on => ['sigla','nombre'], :full_text_search => true, :label => proc {|r| r.full_label}
   
   active_scaffold :buzon do |config|
     config.list.columns = [:sigla, :nombre, :folio, :externo, :puestos , :opartes]
