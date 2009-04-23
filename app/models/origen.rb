@@ -7,8 +7,4 @@ class Origen < Buzon
     self.nombre
   end
   
-  #para record_select, los combos dinámicos que puedan ser más contextuales
-  def full_label
-    "#{self.sigla} - #{self.nombre}"
-  end
 end
