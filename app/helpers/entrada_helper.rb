@@ -20,25 +20,31 @@ module EntradaHelper
       opts = controller.respond_to?(filter) ? assoc.klass.find(:all, :conditions => controller.send(filter) ) :  assoc.klass.find(:all)
       opt_arr = [['','']] + opts.collect{|x| [x.to_label, x.id]}
       content_tag(:span, select_tag(element_cell_id(id_options), options_for_select(opt_arr, column_value ? column_value.id : nil),
-{:onchange => script}) , tag_options)
+          {:onchange => script}) , tag_options)
     else
       column_value ? column_value.to_label : ''
     end
   end 
   
   def trazas_column(record)
-     "<ul><li>" + record.trazas.collect{|t| h(t.to_label) }.join("<li>") + "</ul>"
- end
- 
- def copias_show_column(record)
-   record.copias.collect{|c| c.to_label + " - " + c.buzon.sigla + " - " + c.estado.nombre + "(#{c.destinatario.sigla})"}.join(", ")
- end
- 
- def id_column(record)
-   check_box "record_ids[#{record.id}]", false
- end
+    "<ul><li>" + record.trazas.collect{|t| h(t.to_label) }.join("<li>") + "</ul>"
+  end
 
-## esto filtra las opciones de destinatarios a solo buzones locales 
+  def notas_show_column(record)
+    "<ul><li>" + record.notas.collect do |t|
+      h(t.puesto.to_label) + ": " + h(t.texto)
+    end.join("<li>") + "</ul>"
+  end
+ 
+  def copias_show_column(record)
+    record.copias.collect{|c| c.to_label + " - " + c.buzon.sigla + " - " + c.estado.nombre + "(#{c.destinatario.sigla})"}.join(", ")
+  end
+ 
+  def id_column(record)
+    check_box "record_ids[#{record.id}]", false
+  end
+
+  ## esto filtra las opciones de destinatarios a solo buzones locales
   def options_for_association_conditions(association)
     if association.name == :destinatario
       ['buzones.externo = false']
