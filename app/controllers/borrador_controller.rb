@@ -22,20 +22,20 @@ class BorradorController < ApplicationController
     config.columns[:destinatario_texto].label = "Destinatario"
     config.show.link.label = "detalles"
     
-    config.action_links.add 'bloquear', :type => :record, :action => "bloquear", :position => false
+    config.action_links.add :para_firma, :type => :record, :position => false
     config.action_links.add "ver", :type => :record, :position => false, :popup => true, :controller => 'docxml', :action => 'ver'
 
-    config.action_links.add 'desbloq', :type => :record, :position => false
+    config.action_links.add 'corregir', :type => :record, :position => false
     config.action_links.add "firmar", :parameters => {:controller => 'firma', :action => 'cliente'}, :type => :record, :inline => :true, :position => :after, :crud_type => nil
   end
   
-  def bloquear
+  def para_firma
     record = Documento.find(params[:id])
     self.successful = record.update_attribute(:lock , true)
     active_scaffold_refresh_row(record)
   end
 
-  def desbloq
+  def corregir
     record = Documento.find(params[:id])
     self.successful = record.update_attribute(:lock , false)
     active_scaffold_refresh_row(record)

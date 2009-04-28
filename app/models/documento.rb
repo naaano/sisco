@@ -177,11 +177,11 @@ class Documento < ActiveRecord::Base
     self.firma == true 
   end
   
-  def desbloq_authorized?
+  def corregir_authorized?
     !self.firma and self.lock  and self.origen_puesto_id == current_user.puesto.id
   end
 
-  def bloquear_authorized? #opuesto de corregir
+  def para_firma_authorized? #opuesto de corregir
     !self.lock and current_user.es_editor?
   end
   
@@ -206,8 +206,15 @@ class Documento < ActiveRecord::Base
   end
   
   def delete_authorized?
-    fue_recibido = self.copias.find(:all, :include => [:trazas], :conditions => "trazas.movimiento_id in (2,7,8)").count > 0
-    !self.firma and !self.lock and buzon_id == current_user.puesto.buzon_id and not fue_recibido
+
+    case digital
+    when true:
+      return true if !self.firma and !self.lock and origen_puesto_id == current_user.puesto.id
+    when false:
+            fue_recibido = self.copias.find(:all, :include => [:trazas], :conditions => "trazas.movimiento_id in (2,7,8)").count > 0
+          return true if not fue_recibido
+    end
+    return false
   end
   
   
