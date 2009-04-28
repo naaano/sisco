@@ -2,9 +2,10 @@ class PersonalController < ApplicationController
   active_scaffold :puesto do |config|
     # config.list.columns = [:nombre, :apellido, :login, :dominio, :puesto, :admin]
     # config.create.columns = [:nombre, :apellido, :login, :dominio, :puesto, :password, :password_confirmation, :admin]
+    config.actions.exclude :create, :delete
     config.list.columns = [:nombre, :cargo, :opartes, :firmante, :editor, :ingreso_papel, :usuario]
-    config.create.columns = [:nombre, :cargo, :opartes, :firmante, :editor, :ingreso_papel, :usuario]
-    config.update.columns = [:nombre, :cargo, :opartes, :firmante, :editor, :ingreso_papel, :usuario]
+    #config.create.columns = [:nombre, :cargo, :opartes, :firmante, :editor, :ingreso_papel, :usuario]
+    #config.update.columns = [:nombre, :cargo, :opartes, :firmante, :editor, :ingreso_papel, :usuario]
     config.columns[:cargo].form_ui = :select
     config.columns[:usuario].form_ui = :select
     config.columns[:cargo].clear_link
