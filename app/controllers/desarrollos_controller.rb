@@ -17,6 +17,7 @@ class DesarrollosController < ApplicationController
     config.columns[:ememo].form_ui = :checkbox
     config.columns[:status].form_ui = :select
     config.columns[:categoria].form_ui = :select
+    config.columns[:prioridad].inplace_edit = true
     #config.columns[:descripcion].form_ui = :textarea
     
     #config.columns[:descripcion].options = {:cols => 70, :rows => 20}
@@ -31,7 +32,7 @@ class DesarrollosController < ApplicationController
   end
 
   def planilla
-    @desarrollos = Desarrollo.find(:all, :conditions => {:status_id => [1,2,3]})
+    @desarrollos = Desarrollo.find(:all, :order => "status_id, prioridad")
   end
   
   def before_create_save(record)
