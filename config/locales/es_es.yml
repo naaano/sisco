@@ -3,6 +3,8 @@
   true:                             "si"
   false:                            "no"
   active_scaffold:
+    "Capacitaciones":               "Capacitaciones"
+    "Asistentes":                    "Inscritos"
     "ingreso papel":                "Ingreso"
     "Ingreso Digital":              "Ingreso Digital"
     "Distribución":                 "Distribución"
@@ -251,6 +253,7 @@
       # will translate User model name to "Dude"
     models:
       traza: "historial"
+      asistente: "inscrito"
     attributes:
       documento:
         folio:                      "Etiqueta"
@@ -278,6 +281,8 @@
         id:                         "ticket"
         usuario:                    "útlimo cambio"
         created_at:                 "solicitado"
+      capacitacion:
+        asistentes:                 "Inscritos"
 
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     #attributes:

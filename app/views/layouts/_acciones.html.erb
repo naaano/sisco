@@ -1,6 +1,7 @@
 <div class="menu_acciones">
 	<div class="titulo">Acciones</div>
 	<ul>
+        <li><%= link_to 'inicio', :controller => 'dashboard' %>
 		<% if session[:usuario].ingresa_papel?  %>
 		<li><%= link_to 'ingreso', :controller => 'salida' %>
 		<% end %>
@@ -37,6 +38,8 @@
         <% if session[:usuario].id == 238 %>
         <li><%= link_to 'desarrollos', :controller => "desarrollos" %>
         <% end %>
+       	<li><%= link_to 'capacitaciones', :controller => "capacitaciones" %>
+        <li><%= link_to 'correcciones', :controller => 'correcciones' %>
 		<li><%= link_to 'salir', logout_url %>	
 	</ul>
 </div>

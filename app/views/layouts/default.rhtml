@@ -46,7 +46,6 @@
 	<div class="left_menu">
 		<%= render :partial => 'layouts/acciones' %>
 		<%= render :partial => 'layouts/admin' if session[:usuario].es_admin? %>
-		<li><%= link_to 'correcciones', :controller => 'correcciones' %>
 	</div>
 	<div class="main">
 		<%= yield %>
