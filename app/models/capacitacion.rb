@@ -9,7 +9,7 @@ class Capacitacion < ActiveRecord::Base
     timestamps
   end
 
-  validates_presence_of :tema
+  validates_presence_of :tema, :fecha
 
   def to_label
     "Capacitación Nº#{id}"

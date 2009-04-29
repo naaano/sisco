@@ -2,6 +2,8 @@ class CapacitacionesController < ApplicationController
   active_scaffold do |config|
     config.label  = "Capacitaciones"
     config.list.columns = [:tema, :lugar, :fecha, :duracion, :asistentes]
+    config.create.columns.exclude :asistentes
+    config.update.columns.exclude :asistentes
 
     config.action_links.add 'inscribir', :type => :record, :position => false
     config.action_links.add 'desinscribir', :type => :record, :position => false
