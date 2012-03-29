@@ -1,0 +1,41 @@
+<h1>Estadísticas eMemo por Buzón</h1>
+<p>Cantidad de e-memos enviados por buzón, descartando los de prueba (cuya materia contiene la palabra "prueba" o "test")</p>
+<div id="grafico1" class="grafico"></div>
+<%= javascript_tag "$('#grafico1').simplegraph([#{@y}],[#{@x}], {drawBars: true, units: 'ememos', drawLine: false, drawPoints: false, drawGrid: true, barWidth: 20, penColor: '#039'});" %>
+
+<p>Cálculo actual sobre los e-memos creados, agrupados por semana y por buzón. El formato de fecha es: Nºsemana del mes - mes - año </p>
+<table id="datos2">
+  <tr>
+    <th>buzón</th>
+    <% for a in @semanas do  %>
+      <th><%= a %> </th>
+    <% end %>
+  </tr>
+<% @buzones.each{|b| %>
+  <tr>
+    <td><%= b %></td>
+  <% @semanas.each{|s|  %>
+    <td><%= @tabla[b][s] %></td>
+  <% } %>
+  </tr>
+<%  } %>
+</table>
+
+<div id="grafico2" class="grafico"> </div>
+<%
+primero = @buzones.shift
+str = ""
+for b in @buzones do
+    str << simple(@lineas[b], b, @colores[@buzones.index(b)])
+end
+%>
+<%= javascript_tag "$('#grafico2').simplegraph([#{@tabla[primero].values.join(',')}],[#{arreglo(@semanas)}], {units: 'ememos',
+drawPoints: false,
+leftGutter: 210,
+width: 1200,
+height: 320,
+mysteryFactor: 1,
+drawGrid: false,
+penColor: '#039',
+yAxisCaption: '#{primero}' })
+#{str};" %>

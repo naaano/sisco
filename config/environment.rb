@@ -29,8 +29,8 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
 #config.gem "hobofields", :version => '0.72'
 #config.gem 'soap4r'
-	config.gem 'hobofields', :version => '0.8.5'
-	config.gem 'paginator'
+#	config.gem 'hobofields', :version => '0.8.5'
+#	config.gem 'paginator'
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -96,6 +96,6 @@ ActiveDirectory::Base.setup(
 #Date::MONTHNAMES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
 #Date::ABBR_MONTHNAMES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"] 
-
+require 'hobofields'
 
 

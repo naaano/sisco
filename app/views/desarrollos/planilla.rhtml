@@ -1,0 +1,19 @@
+<% for d in @desarrollos do -%>
+
+
+<table>
+  <tr><th>titulo:</th><td><h3><%= d.titulo %></h3> </td></tr>
+  <tr><th>descripcion:</th><td><%= d.descripcion %> </td></tr>
+  <tr><th>status:</th><td><%= d.status.to_label if d.status %> </td></tr>
+  <tr><th>categoria:</th><td><%= d.categoria.to_label if d.categoria %> </td></tr>
+  <tr><th>ultima modificación:</th><td><%= d.usuario.to_label %> </td></tr>
+  <tr><th>prioridad:</th><td><%= d.prioridad %> </td></tr>
+  <tr><th>Horas Estimadas de desarrollo:</td><td><%= d.hh %> </td></tr>
+  <tr><th>critico:</th><td><%= d.critico ? "si" : "no" %> </td></tr>
+  <tr><th>solicitado el:</th><td><%= h(d.created_at) %> </td></tr>
+  <tr><th>ultima modif.:</th><td><%= h(d.updated_at) %> </td></tr>
+</table>
+<br/>
+<br/>
+
+<% end -%>

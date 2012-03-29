@@ -252,6 +252,14 @@ font-family:"Courier New", Courier, monospace;
 }
 
 /*
+Para graficos
+*/
+.grafico{
+    width: 100%;
+    height: 350px;
+}
+
+/*
 
 ActiveScaffold Overrides
 

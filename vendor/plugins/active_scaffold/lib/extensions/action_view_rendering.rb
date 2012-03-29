@@ -75,12 +75,12 @@ module ActionView #:nodoc:
     # currently this very similar to the logic in ActionBase::Base.render for options file
     # TODO: Work with rails core team to find a better way to check for this.
     def template_exists?(template_name, template_format = nil)
-      begin
-        self.view_paths.find_template(template_name, template_format)
-        return true
-      rescue ActionView::MissingTemplate => e
-        return false
-      end
+   #   begin
+   #     self.view_paths.find_template(template_name, template_format)
+   #     return true
+   #   rescue ActionView::MissingTemplate => e
+   #     return false
+   #   end
     end
   end
 end

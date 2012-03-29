@@ -1,7 +1,9 @@
 require 'soap/wsdlDriver'
 require 'xml_container'
 require 'hpricot'
-require 'xml/libxslt'
+#require 'xml/libxslt'
+gem 'libxslt-ruby'
+require 'xslt'
 
 class DocxmlController < ApplicationController
   layout nil
@@ -30,11 +32,15 @@ class DocxmlController < ApplicationController
 <?xml-stylesheet type="text/xsl" href="/stylesheets/minrel.xsl"?>
 XML
 
-    xslt = XML::XSLT.new()
-    xslt.xml = doc
-    xslt.xsl = File.open(Rails.root + "/public/stylesheets/minrel.xsl").read
+    hoja = XML::Document.file(Rails.root + "/public/stylesheets/minrel.xsl")
+    estilo = XSLT::Stylesheet.new(hoja)
+    xml_doc = XML::Document.string(doc)
+    #xslt = XML::XSLT.new()
+    #xslt.xml = doc
+    #xslt.xsl = File.open(Rails.root + "/public/stylesheets/minrel.xsl").read
 
-    render :text => xslt.serve() #tags + doc
+  #  render :text => xslt.serve() #tags + doc
+    render :text => estilo.apply(xml_doc)
   end
   
   def ver_copia
