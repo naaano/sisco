@@ -1,0 +1,4 @@
+SetEnv GEM_HOME /home/portalne/.rvm/gems/ree-1.8.7-2011.03@sisco
+PassengerEnabled On
+PassengerAppRoot /home/portalne/sisco4
+RailsEnv development
